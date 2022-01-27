@@ -1,0 +1,82 @@
+.header {
+  @apply fixed;
+  @apply w-full;
+  @apply p-6;
+  @apply bg-primary;
+  &-navigation {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+    @apply items-center;
+    @apply p-4;
+    @apply bg-ligth-800;
+    @apply rounded-lg;
+    &-logo {
+      width: 92px;
+    }
+    &-nav-list {
+      @apply hidden;
+    }
+    &-toogle-mode {
+      @apply hidden;
+    }
+  }
+  &-current-page {
+    @apply absolute;
+    @apply flex;
+    @apply left-0;
+    @apply w-full;
+    @apply justify-center;
+    @apply mt-2;
+
+    &-option {
+      @apply p-3;
+      @apply bg-primary;
+      @apply rounded-lg;
+    }
+  }
+}
+
+@media (min-width: 730px) {
+  .header {
+    @apply px-12;
+    @apply py-6;
+    &-navigation {
+      @apply px-12;
+      @apply py-6;
+      &-nav-list {
+        @apply flex;
+        @apply flex-row;
+        .first {
+          @apply ml-0;
+        }
+        a {
+          @apply ml-6;
+        }
+      }
+      &-toogle-mode {
+        @apply flex;
+        @apply flex-row;
+        @apply items-center;
+        @apply space-x-1;
+      }
+      &-icon-menu {
+        @apply hidden;
+      }
+    }
+    &-current-page {
+      @apply absolute;
+      @apply flex;
+      @apply left-0;
+      @apply w-full;
+      @apply justify-center;
+      @apply mt-2;
+
+      &-option {
+        @apply p-3;
+        @apply bg-primary;
+        @apply rounded-lg;
+      }
+    }
+  }
+}

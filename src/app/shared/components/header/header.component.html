@@ -1,0 +1,39 @@
+<header class="header">
+  <div class="header-navigation">
+    <app-logo class="header-navigation-logo"></app-logo>
+    <nav>
+      <ul class="header-navigation-nav-list">
+        <a router href="/about" class="first text-medium-normal text-oscure-800"
+          ><li>Sobre Wilmion</li></a
+        >
+        <a href="/portfolio" class="text-medium-normal text-oscure-800"
+          ><li>Portafolio</li></a
+        >
+        <a href="/contact-me" class="text-medium-normal text-oscure-800"
+          ><li>Contáctame</li></a
+        >
+        <a href="/blog" class="text-medium-normal text-oscure-800"
+          ><li>Blog</li></a
+        >
+      </ul>
+    </nav>
+    <div class="header-navigation-toogle-mode">
+      <app-bs-sun></app-bs-sun>
+      <app-checkbox-toogle></app-checkbox-toogle>
+      <app-md-outline-dark-mode></app-md-outline-dark-mode>
+    </div>
+    <div class="header-navigation-icon-menu">
+      <app-ri-menu5-line></app-ri-menu5-line>
+    </div>
+  </div>
+  <div class="header-current-page" *ngIf="currentPage">
+    <div class="header-current-page-option">
+      <h1
+        class="text-oscure-800"
+        [textResponsive]="['text-bold-extra-normal', 'text-h2']"
+      >
+        {{ currentPage }}
+      </h1>
+    </div>
+  </div>
+</header>

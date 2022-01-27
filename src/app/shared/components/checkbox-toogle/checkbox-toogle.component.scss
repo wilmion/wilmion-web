@@ -1,0 +1,14 @@
+.circle {
+  @apply w-4;
+  @apply h-4;
+  @apply bg-ligth-800;
+  @apply rounded-lg;
+  @apply transition;
+  @apply duration-500;
+  @apply ease-out;
+}
+
+.active {
+  @apply transform;
+  @apply translate-x-full;
+}
