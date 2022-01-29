@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MdOutlineDarkModeComponent } from './md-outline-dark-mode.component';
+import { MainComponent } from './main.component';
 
-describe('MdOutlineDarkModeComponent', () => {
-  let component: MdOutlineDarkModeComponent;
-  let fixture: ComponentFixture<MdOutlineDarkModeComponent>;
+describe('MainComponent', () => {
+  let component: MainComponent;
+  let fixture: ComponentFixture<MainComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MdOutlineDarkModeComponent ]
+      declarations: [ MainComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MdOutlineDarkModeComponent);
+    fixture = TestBed.createComponent(MainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,6 +14,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
@@ -22,7 +23,9 @@
     "paths": {
       "@shared/*": ["src/app/shared/*"],
       "@home/*": ["src/app/home/*"],
-      "@webs/*": ["src/app/webs/*"]
+      "@webs/*": ["src/app/webs/*"],
+      "@aboutMe/*": ["src/app/about-me/*"],
+      "@styles/*": ["src/app/core/styles/*"]
     }
   },
   "angularCompilerOptions": {

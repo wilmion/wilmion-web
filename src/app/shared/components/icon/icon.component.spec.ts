@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AiOutlineLinkedinComponent } from './ai-outline-linkedin.component';
+import { IconComponent } from './icon.component';
 
-describe('AiOutlineLinkedinComponent', () => {
-  let component: AiOutlineLinkedinComponent;
-  let fixture: ComponentFixture<AiOutlineLinkedinComponent>;
+describe('IconComponent', () => {
+  let component: IconComponent;
+  let fixture: ComponentFixture<IconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AiOutlineLinkedinComponent ]
+      declarations: [ IconComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AiOutlineLinkedinComponent);
+    fixture = TestBed.createComponent(IconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

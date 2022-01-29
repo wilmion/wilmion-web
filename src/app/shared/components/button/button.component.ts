@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Icons } from '@shared/components/icon/icons';
+
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -8,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ButtonComponent implements OnInit {
   @Input() type: ButtonTypes | undefined;
   @Input() content: string = '';
-  @Input() withIcon: boolean = false;
+  @Input() Icon: Icons | undefined;
 
   buttonClass: string = 'button';
 

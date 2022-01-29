@@ -1,0 +1,43 @@
+@import url("../../../core/styles/texts.scss");
+
+.about-me {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-8;
+  @apply w-full;
+  @apply mt-14;
+  @apply px-6;
+  @apply mb-6;
+  @apply md:px-26;
+  @apply md:mt-16;
+  @apply md:mb-8;
+  @apply lg:px-40;
+  &__title {
+    @apply w-full;
+    @apply text-center;
+    @apply text-oscure-800;
+    @apply text-h4;
+    @apply md:text-h1;
+  }
+  &__paragraph {
+    @apply w-full;
+    @apply text-left;
+    @apply text-oscure-800;
+    @apply text-regular-normal;
+    @apply md:text-regular-extra-normal;
+    a {
+      @apply text-link;
+    }
+    strong {
+      @apply text-bold-normal;
+      @apply md:text-bold-extra-normal;
+    }
+  }
+  &__subtitle {
+    @apply w-full;
+    @apply text-left;
+    @apply text-oscure-800;
+    @apply text-bold-extra-normal;
+    @apply md:text-bold-extra-large;
+  }
+}

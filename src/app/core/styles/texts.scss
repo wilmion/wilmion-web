@@ -1,0 +1,99 @@
+@import "tailwindcss/utilities";
+
+@layer utilities {
+  /* Font regulars */
+
+  .text-regular-small {
+    @apply text-small-size;
+    @apply font-normal;
+    @apply font-mohave;
+  }
+  .text-regular-extra-small {
+    @apply text-xs;
+    @apply font-normal;
+    @apply font-mohave;
+  }
+  .text-regular-normal {
+    @apply text-sm;
+    @apply font-normal;
+    @apply font-mohave;
+  }
+  .text-regular-extra-normal {
+    @apply text-base;
+    @apply font-normal;
+    @apply font-mohave;
+  }
+
+  /* Font mediums */
+
+  .text-medium-extra-small {
+    @apply text-xs;
+    @apply font-medium;
+    @apply font-mohave;
+  }
+  .text-medium-normal {
+    @apply text-sm;
+    @apply font-medium;
+    @apply font-mohave;
+  }
+  .text-medium-extra-normal {
+    @apply text-base;
+    @apply font-medium;
+    @apply font-mohave;
+  }
+  .text-medium-large {
+    @apply text-lg;
+    @apply font-medium;
+    @apply font-mohave;
+  }
+
+  /* Font bold */
+
+  .text-bold-normal {
+    @apply text-sm;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+  .text-bold-extra-normal {
+    @apply text-base;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+  .text-bold-large {
+    @apply text-xl;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+  .text-bold-extra-large {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+
+  /* Font headings */
+  .text-h1 {
+    @apply text-h1-size;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+  .text-h2 {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+  .text-h3 {
+    @apply text-xl;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+  .text-h4 {
+    @apply text-lg;
+    @apply font-bold;
+    @apply font-mohave;
+  }
+
+  .text-link {
+    @apply text-secondary;
+    @apply underline;
+  }
+}
