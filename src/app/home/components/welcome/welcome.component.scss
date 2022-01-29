@@ -1,0 +1,10 @@
+.welcome {
+  @apply hidden;
+  @apply md:w-full;
+  @apply md:flex;
+  @apply md:flex-col;
+  @apply md:items-center;
+  @apply md:space-y-3;
+  @apply md:py-8;
+  @apply md:bg-primary;
+}

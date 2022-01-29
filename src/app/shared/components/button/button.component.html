@@ -1,4 +1,4 @@
 <button [class]="buttonClass">
-  <app-bs-sun></app-bs-sun>
-  <span class="text-medium-normal">Buttton</span>
+  <app-bs-sun *ngIf="withIcon"></app-bs-sun>
+  <span class="text-medium-normal">{{ content }}</span>
 </button>
