@@ -12,6 +12,7 @@ export class IconComponent implements OnInit {
   @Input() width: string = '24px';
   @Input() height: string = '24px';
   @Input() color: string = 'black';
+  @Input() insertedSvg: string | undefined;
 
   svgCode: string = '';
 
@@ -22,7 +23,9 @@ export class IconComponent implements OnInit {
   }
 
   getIcon() {
-    const svgTemplate: string = icons[this.icon];
+    let svgTemplate: string = icons[this.icon];
+
+    if (this.insertedSvg) svgTemplate = this.insertedSvg;
 
     const svg = svgTemplate.replace(
       'props',

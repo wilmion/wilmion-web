@@ -1,0 +1,47 @@
+<article class="job-card">
+  <div class="job-card__company-presentation">
+    <app-image
+      url="https://lh3.googleusercontent.com/a-/AOh14GjXhT6Dc5d6eYxyIh3ckQq3zvL7lK2qxCkaoHyhUw=s40"
+      [width]="64"
+      [height]="64"
+      alt="Image of MTD Company"
+      [rounded]="true"
+    ></app-image>
+    <p class="job-card__company-presentation__name">MTD Company</p>
+  </div>
+  <section class="job-card__company-data">
+    <p class="job-card__company-data__date" *ngIf="time">
+      {{ time[0] | date: "mediumDate" }} -
+      {{
+        getLastDate() === "Actualidad"
+          ? getLastDate()
+          : (getLastDate() | date: "mediumDate")
+      }}
+    </p>
+    <p class="job-card__company-data__job">
+      {{ job }}
+    </p>
+    <p class="job-card__company-data__description">
+      {{ description }}
+    </p>
+    <h6 class="job-card__company-data__subtitle">Funciones:</h6>
+    <div class="job-card__company-data__functions">
+      <ul class="job-card__company-data__functions__list">
+        <li
+          class="job-card__company-data__functions__list__item"
+          *ngFor="let text of listsFunction"
+        >
+          {{ text }}
+        </li>
+      </ul>
+    </div>
+    <div class="job-card__company-data__button">
+      <app-button
+        color="#1E3CFA"
+        [customColorOutline]="true"
+        content="Ver en linkedIn"
+        Icon="AIOUTLINELINKEDIN"
+      ></app-button>
+    </div>
+  </section>
+</article>

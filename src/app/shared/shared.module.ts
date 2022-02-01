@@ -11,6 +11,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { ImageComponent } from './components/image/image.component';
 import { IconComponent } from './components/icon/icon.component';
 import { InnerHtmlDirective } from './directives/innerHtml/inner-html.directive';
+import { JobCardComponent } from './components/job-card/job-card.component';
+import { SkillComponent } from './components/skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { InnerHtmlDirective } from './directives/innerHtml/inner-html.directive'
     ImageComponent,
     IconComponent,
     InnerHtmlDirective,
+    JobCardComponent,
+    SkillComponent,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -32,6 +36,8 @@ import { InnerHtmlDirective } from './directives/innerHtml/inner-html.directive'
     ImageComponent,
     IconComponent,
     InnerHtmlDirective,
+    JobCardComponent,
+    SkillComponent,
   ],
   imports: [CommonModule, RouterModule],
 })

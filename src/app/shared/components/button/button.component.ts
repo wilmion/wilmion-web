@@ -11,6 +11,8 @@ export class ButtonComponent implements OnInit {
   @Input() type: ButtonTypes | undefined;
   @Input() content: string = '';
   @Input() Icon: Icons | undefined;
+  @Input() color: string | undefined;
+  @Input() customColorOutline: boolean | undefined;
 
   buttonClass: string = 'button';
 
@@ -18,6 +20,20 @@ export class ButtonComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.type) this.buttonClass = `${this.buttonClass} ${this.type}`;
+  }
+
+  getStyle() {
+    if (!this.color) return {};
+
+    if (this.customColorOutline) {
+      return {
+        border: `2px solid ${this.color}`,
+      };
+    }
+
+    return {
+      'background-color': this.color,
+    };
   }
 }
 

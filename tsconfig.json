@@ -25,6 +25,8 @@
       "@home/*": ["src/app/home/*"],
       "@webs/*": ["src/app/webs/*"],
       "@aboutMe/*": ["src/app/about-me/*"],
+      "@portfolio/*": ["src/app/portfolio/*"],
+      "@core/*": ["src/app/core/*"],
       "@styles/*": ["src/app/core/styles/*"]
     }
   },

@@ -1,4 +1,4 @@
-<button [class]="buttonClass">
+<button [class]="buttonClass" [ngStyle]="getStyle()">
   <app-icon [icon]="Icon" *ngIf="Icon"></app-icon>
   <span class="text-medium-normal">{{ content }}</span>
 </button>

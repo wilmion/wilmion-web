@@ -1,0 +1,47 @@
+<section class="portfolio-page">
+  <div class="portfolio-page__text">
+    <p class="portfolio-page__text__paragraph">
+      ¡Hola! Bienvenido a mi portafolio. En mi trayectoria siempre he realizado
+      proyectos que demuestren mi aprendizaje.
+    </p>
+    <h3 class="portfolio-page__text__subtitle">¿Qué encontrarás acá?</h3>
+    <p class="portfolio-page__text__paragraph">
+      En esta sección encontraras un poco de mi experiencia en empresas y a
+      nivel personal. Recuerda si quieres ver más a profundidad, lo mejor seria
+      pasarse por mi
+      <a
+        href="https://www.linkedin.com/in/wilbert-navarrete-61a304194/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      👀👀
+    </p>
+  </div>
+
+  <h3 class="portfolio-page__subtitle text-primary">EXPERIENCIA</h3>
+  <!--Some elements-->
+  <section class="portfolio-page__jobs">
+    <div class="portfolio-page__jobs__container">
+      <app-job-card
+        job="Frontend Developer and UI designer"
+        [time]="time"
+        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, in modi, laboriosam architecto a error itaque et eius corporis alias, accusamus magni provident ipsa minima atque sint quia esse odio."
+        [listsFunction]="listFunctionJob"
+      ></app-job-card>
+    </div>
+  </section>
+
+  <h3 class="portfolio-page__subtitle text-primary">PROYECTOS PERSONALES</h3>
+  <!--Some elements-->
+  <h3 class="portfolio-page__subtitle text-primary">MIS HABILIDADES</h3>
+  <section class="portfolio-page__skill-container">
+    <app-skill
+      *ngFor="let data of skills"
+      [icon]="data.icon"
+      [colorBackground]="data.colorBackground"
+      [colorItems]="data.colorItem"
+      [text]="data.text"
+    ></app-skill>
+  </section>
+</section>

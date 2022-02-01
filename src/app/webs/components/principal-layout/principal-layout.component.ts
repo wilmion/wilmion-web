@@ -34,7 +34,9 @@ export class PrincipalLayoutComponent implements OnInit {
 
     switch (route) {
       case 'about':
-        return 'Sobre Wilmion';
+        return 'SOBRE WILMION';
+      case 'portfolio':
+        return 'PORTAFOLIO';
       default:
         return undefined;
     }

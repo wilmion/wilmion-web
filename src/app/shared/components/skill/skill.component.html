@@ -1,0 +1,21 @@
+<div
+  class="skill"
+  [ngStyle]="{ 'background-color': colorBackground }"
+  (mouseenter)="onHover()"
+  (mouseleave)="onHover()"
+>
+  <app-icon
+    [color]="colorItems"
+    [insertedSvg]="icon"
+    width="48px"
+    height="48px"
+  ></app-icon>
+  <p
+    class="skill__text"
+    [ngStyle]="{ color: colorItems }"
+    [class.block]="hovering"
+    [class.hidden]="!hovering"
+  >
+    {{ text }}
+  </p>
+</div>

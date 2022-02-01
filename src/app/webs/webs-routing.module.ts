@@ -18,6 +18,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../about-me/about-me.module').then((m) => m.AboutMeModule),
       },
+      {
+        path: 'portfolio',
+        loadChildren: () =>
+          import('../portfolio/portfolio.module').then(
+            (m) => m.PortfolioModule
+          ),
+      },
     ],
   },
 ];

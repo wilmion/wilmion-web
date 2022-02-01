@@ -1,0 +1,15 @@
+@import url("../../../core/styles/texts.scss");
+
+.skill {
+  @apply w-auto;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-center;
+  @apply items-center;
+  @apply space-x-2;
+  @apply py-4;
+  &__text {
+    @apply text-bold-extra-normal;
+    @apply md:text-bold-large;
+  }
+}
