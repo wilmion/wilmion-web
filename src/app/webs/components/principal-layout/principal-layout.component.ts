@@ -37,6 +37,8 @@ export class PrincipalLayoutComponent implements OnInit {
         return 'SOBRE WILMION';
       case 'portfolio':
         return 'PORTAFOLIO';
+      case 'contact-me':
+        return 'CONTÁCTAME';
       default:
         return undefined;
     }

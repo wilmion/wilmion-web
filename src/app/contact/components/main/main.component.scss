@@ -1,0 +1,60 @@
+@import url("../../../core/styles/texts.scss");
+
+%SUBTITLE {
+  @apply text-h4;
+  @apply text-left;
+  @apply md:text-bold-large;
+}
+
+.contact {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-5;
+  @apply mt-14;
+  @apply px-6;
+  @apply mb-6;
+  @apply md:px-44;
+  @apply md:space-y-6;
+  &__paragraph {
+    @apply text-regular-normal;
+    @apply text-oscure-800;
+    @apply text-left;
+    @apply md:text-regular-extra-normal;
+    a {
+      @apply text-link;
+    }
+  }
+  &__subtitle {
+    @extend %SUBTITLE;
+    @apply text-oscure-800;
+
+    &--principal {
+      @extend %SUBTITLE;
+      @apply text-primary;
+      @apply uppercase;
+    }
+  }
+  &__content-contact {
+    &__social-media {
+      @apply w-full;
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-3;
+      @apply items-center;
+      @apply md:items-start;
+      &__subtitle {
+        @apply text-bold-extra-normal;
+        @apply text-secondary;
+      }
+      &__paragraph {
+        @apply text-regular-normal;
+        @apply text-oscure-800;
+      }
+      &__icons {
+        @apply flex;
+        @apply flex-row;
+        @apply space-x-5;
+      }
+    }
+  }
+}

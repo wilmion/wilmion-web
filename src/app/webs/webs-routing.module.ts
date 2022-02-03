@@ -25,6 +25,11 @@ const routes: Routes = [
             (m) => m.PortfolioModule
           ),
       },
+      {
+        path: 'contact-me',
+        loadChildren: () =>
+          import('../contact/contact.module').then((m) => m.ContactModule),
+      },
     ],
   },
 ];
