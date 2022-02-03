@@ -61,4 +61,52 @@
     @apply bg-terciary;
     @apply gap-1;
   }
+  &__projects-container {
+    @apply grid;
+    @apply grid-cols-1;
+    @apply w-full;
+    @apply gap-6;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-3;
+  }
+  &__modal {
+    @apply w-full;
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-4;
+    @apply md:space-y-6;
+    &__text {
+      @apply text-regular-normal;
+      @apply text-center;
+      @apply text-oscure-800;
+      @apply md:text-regular-extra-normal;
+    }
+    &__project {
+      @apply w-full;
+      @apply md:px-26;
+      @apply lg:px-26;
+    }
+    &__buttons {
+      @apply grid;
+      @apply grid-cols-1;
+      @apply w-full;
+      @apply gap-6;
+      @apply px-4;
+      @apply self-center;
+      @apply md:grid-cols-2;
+      @apply md:px-32;
+    }
+    &__title {
+      @apply text-oscure-800;
+      @apply text-left;
+      @apply text-h2;
+    }
+    &__technologies {
+      @apply grid;
+      @apply grid-cols-2;
+      @apply gap-1;
+      @apply bg-terciary;
+      @apply md:grid-cols-4;
+    }
+  }
 }

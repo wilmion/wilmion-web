@@ -7,3 +7,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
 
 @import url("./app/core/styles/texts.scss");
+
+body {
+  @apply overflow-y-scroll;
+  @apply overscroll-x-none;
+}

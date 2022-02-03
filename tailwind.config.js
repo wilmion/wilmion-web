@@ -38,6 +38,10 @@ module.exports = {
       },
       width: {
         92: "5.75rem",
+        "standard-mobile": "20.4375rem",
+        "modal-tablet": "37.5rem",
+        "modal-desktop": "53rem",
+        4.5: "1.125rem",
       },
       spacing: {
         26: "6.5rem",
@@ -45,6 +49,9 @@ module.exports = {
       },
       boxShadow: {
         "basic-shadow": "4px 4px 44px rgba(0,0,0,0.25)",
+      },
+      backgroundSize: {
+        full: "100% 100%",
       },
     },
   },

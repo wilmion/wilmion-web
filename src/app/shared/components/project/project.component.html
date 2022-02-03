@@ -1,0 +1,25 @@
+<article
+  class="personal-project"
+  (mouseenter)="onHover($event)"
+  (mouseleave)="onHover($event)"
+  [ngStyle]="{ background: url }"
+>
+  <h4
+    class="personal-project__title"
+    [class.opacity-0]="!hovering"
+    [class.opacity-100]="hovering"
+  >
+    {{ nameOfProject }}
+  </h4>
+  <div
+    class="personal-project__button"
+    [class.opacity-0]="!hovering"
+    [class.opacity-100]="hovering"
+  >
+    <app-button
+      type="button-primary"
+      content="Ver detalles"
+      (click)="onClickViewDetails()"
+    ></app-button>
+  </div>
+</article>

@@ -1,0 +1,62 @@
+@import url("../../../core/styles/texts.scss");
+
+.modal {
+  @apply w-standard-mobile;
+  @apply fixed;
+  @apply z-20;
+  @apply bg-ligth-800;
+  @apply h-auto;
+  @apply top-0;
+  @apply left-0;
+  @apply right-0;
+  @apply bottom-0;
+  @apply m-auto;
+  @apply p-4;
+  @apply rounded-lg;
+  @apply overflow-y-scroll;
+  @apply max-h-screen;
+  @apply md:w-modal-tablet;
+  @apply md:p-6;
+  @apply lg:w-modal-desktop;
+  @apply transition;
+  @apply ease-in;
+  @apply duration-500;
+
+  &__header {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+    @apply items-center;
+    @apply py-3;
+    &__title {
+      @apply text-h4;
+      @apply text-oscure-800;
+      @apply md:text-h1;
+    }
+    &__filling {
+      @apply w-4;
+      @apply h-4;
+    }
+  }
+
+  &__content {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-4;
+  }
+}
+
+.background {
+  @apply fixed;
+  @apply top-0;
+  @apply left-0;
+  @apply right-0;
+  @apply bottom-0;
+  @apply z-10;
+  @apply w-screen;
+  @apply h-screen;
+  @apply bg-oscure-800;
+  @apply transition;
+  @apply ease-in;
+  @apply duration-500;
+}

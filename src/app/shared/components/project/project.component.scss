@@ -1,0 +1,33 @@
+@import url("../../../core/styles/texts.scss");
+
+.personal-project {
+  @apply border;
+  @apply border-oscure-800;
+  @apply border-2;
+  @apply w-auto;
+  @apply h-44;
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-3;
+  @apply justify-center;
+  @apply items-center;
+  @apply duration-1000;
+  @apply ease-linear;
+  @apply md:h-72;
+
+  &:hover {
+    @apply duration-1000;
+    @apply ease-linear;
+  }
+  &__title {
+    @apply text-ligth-800;
+    @apply text-bold-large;
+    @apply duration-1000;
+    @apply ease-linear;
+    @apply md:text-bold-extra-large;
+  }
+  &__button {
+    @apply duration-1000;
+    @apply ease-linear;
+  }
+}

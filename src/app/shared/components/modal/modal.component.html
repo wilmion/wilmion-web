@@ -1,0 +1,29 @@
+<div
+  class="background"
+  [class.opacity-0]="!openAnimation"
+  [class.opacity-25]="openAnimation"
+  [class.hidden]="finishAnimation"
+  [class.block]="!finishAnimation"
+></div>
+<div
+  class="modal"
+  [class.-translate-y-full]="!openAnimation"
+  [class.-translate-y-0]="openAnimation"
+  [class.hidden]="finishAnimation"
+  [class.block]="!finishAnimation"
+>
+  <section class="modal__header">
+    <div class="modal__header__filling"></div>
+    <h2 class="modal__header__title">{{ title }}</h2>
+    <div (click)="onClickOnCross()" class="cursor-pointer">
+      <app-icon
+        icon="AIOUTLINECLOSE"
+        color="#FC0000"
+        class="w-4.5 h-4.5 md:w-6 md:h-6"
+      ></app-icon>
+    </div>
+  </section>
+  <section class="modal__content">
+    <ng-content></ng-content>
+  </section>
+</div>

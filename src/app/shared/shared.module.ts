@@ -13,6 +13,8 @@ import { IconComponent } from './components/icon/icon.component';
 import { InnerHtmlDirective } from './directives/innerHtml/inner-html.directive';
 import { JobCardComponent } from './components/job-card/job-card.component';
 import { SkillComponent } from './components/skill/skill.component';
+import { ProjectComponent } from './components/project/project.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SkillComponent } from './components/skill/skill.component';
     InnerHtmlDirective,
     JobCardComponent,
     SkillComponent,
+    ProjectComponent,
+    ModalComponent,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -38,6 +42,8 @@ import { SkillComponent } from './components/skill/skill.component';
     InnerHtmlDirective,
     JobCardComponent,
     SkillComponent,
+    ProjectComponent,
+    ModalComponent,
   ],
   imports: [CommonModule, RouterModule],
 })

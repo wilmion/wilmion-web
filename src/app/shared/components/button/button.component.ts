@@ -10,8 +10,11 @@ import { Icons } from '@shared/components/icon/icons';
 export class ButtonComponent implements OnInit {
   @Input() type: ButtonTypes | undefined;
   @Input() content: string = '';
+  @Input() notSetPosition: boolean = false;
   @Input() Icon: Icons | undefined;
+  @Input() insertedSvg: string | undefined;
   @Input() color: string | undefined;
+  @Input() colorText: string = '';
   @Input() customColorOutline: boolean | undefined;
 
   buttonClass: string = 'button';
@@ -28,11 +31,13 @@ export class ButtonComponent implements OnInit {
     if (this.customColorOutline) {
       return {
         border: `2px solid ${this.color}`,
+        color: this.colorText,
       };
     }
 
     return {
       'background-color': this.color,
+      color: this.colorText,
     };
   }
 }

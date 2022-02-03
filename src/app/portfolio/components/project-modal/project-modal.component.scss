@@ -1,0 +1,22 @@
+.project-modal {
+  @apply bg-no-repeat;
+  @apply bg-cover;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-end;
+  @apply w-auto;
+  @apply h-44;
+  @apply items-start;
+  @apply rounded-lg;
+  @apply md:h-72;
+  &__container {
+    @apply w-auto;
+    @apply flex;
+    @apply flex-row;
+    @apply space-x-3;
+    @apply p-2;
+    @apply bg-primary;
+    @apply rounded-tr-lg;
+    @apply rounded-bl-lg;
+  }
+}

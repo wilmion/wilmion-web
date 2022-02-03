@@ -1,3 +1,59 @@
+<app-modal
+  [open]="openModal"
+  (onCloseModal)="setValueInModal(false)"
+  title="KUKS FRESH"
+>
+  <section class="portfolio-page__modal">
+    <p class="portfolio-page__modal__text">
+      Proyecto personal de una E-Comerce de venta de comida a domicilio.
+    </p>
+    <div class="portfolio-page__modal__project">
+      <app-project-modal
+        [url]="personalProjects[0].imageUrl"
+      ></app-project-modal>
+    </div>
+
+    <div class="portfolio-page__modal__buttons">
+      <app-button
+        content="Ver"
+        [color]="skills[1].colorBackground"
+        [insertedSvg]="skills[1].icon"
+        [colorText]="skills[1].colorItem"
+        [notSetPosition]="true"
+      ></app-button>
+      <app-button
+        content="Ver backend"
+        [color]="skills[12].colorBackground"
+        [insertedSvg]="skills[12].icon"
+        [colorText]="skills[12].colorItem"
+        [notSetPosition]="true"
+      ></app-button>
+      <app-button
+        content="Ver en figma"
+        [color]="skills[8].colorBackground"
+        [insertedSvg]="skills[8].icon"
+        [colorText]="skills[8].colorItem"
+        [notSetPosition]="true"
+      ></app-button>
+      <app-button
+        content="¿Cómo lo hice?"
+        type="button-primary"
+        [notSetPosition]="true"
+      ></app-button>
+    </div>
+    <h4 class="portfolio-page__modal__title">TECNOLOGÍAS UTILIZADAS</h4>
+    <div class="portfolio-page__modal__technologies">
+      <app-skill
+        *ngFor="let data of skills"
+        [icon]="data.icon"
+        [colorBackground]="data.colorBackground"
+        [colorItems]="data.colorItem"
+        [text]="data.text"
+      ></app-skill>
+    </div>
+  </section>
+</app-modal>
+
 <section class="portfolio-page">
   <div class="portfolio-page__text">
     <p class="portfolio-page__text__paragraph">
@@ -33,7 +89,16 @@
   </section>
 
   <h3 class="portfolio-page__subtitle text-primary">PROYECTOS PERSONALES</h3>
-  <!--Some elements-->
+
+  <section class="portfolio-page__projects-container">
+    <app-project
+      *ngFor="let project of personalProjects"
+      [urlImage]="project.imageUrl"
+      [nameOfProject]="project.nameOfProject"
+      (OpenModal)="setValueInModal(true)"
+    ></app-project>
+  </section>
+
   <h3 class="portfolio-page__subtitle text-primary">MIS HABILIDADES</h3>
   <section class="portfolio-page__skill-container">
     <app-skill

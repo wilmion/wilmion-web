@@ -106,6 +106,24 @@ export class MainComponent implements OnInit {
       text: 'Webpack',
     },
   ];
+  personalProjects = [
+    {
+      nameOfProject: 'KUKS FRESH',
+      imageUrl:
+        'https://wilmion.github.io/wilmionDev/assets/images/811c2ceaf24f338728145b27379b52a2.png',
+    },
+    {
+      nameOfProject: 'FOXBEL MUSIC',
+      imageUrl:
+        'https://wilmion.github.io/wilmionDev/js/../assets/images/858d3324726b06c3b041ecc53fbdcbd0.jpg',
+    },
+    {
+      nameOfProject: 'RENT CARS',
+      imageUrl:
+        'https://wilmion.github.io/wilmionDev/js/../assets/images/668021a93f46397031e6275ef99269f3.jpg',
+    },
+  ];
+  openModal: boolean = true;
 
   constructor() {
     this.listFunctionJob = [
@@ -117,4 +135,8 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  setValueInModal(value: boolean) {
+    this.openModal = value;
+  }
 }

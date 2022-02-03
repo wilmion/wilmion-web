@@ -9,10 +9,11 @@ import { icons, Icons } from './icons';
 })
 export class IconComponent implements OnInit {
   @Input() icon: Icons = 'AIOUTLINELINKEDIN';
-  @Input() width: string = '24px';
-  @Input() height: string = '24px';
+  @Input() width: string | undefined;
+  @Input() height: string | undefined;
   @Input() color: string = 'black';
   @Input() insertedSvg: string | undefined;
+  @Input() class: string = '';
 
   svgCode: string = '';
 
@@ -27,9 +28,16 @@ export class IconComponent implements OnInit {
 
     if (this.insertedSvg) svgTemplate = this.insertedSvg;
 
+    const widthAndHeight =
+      this.width && this.height
+        ? ` width="${this.width}" height="${this.height}" `
+        : '';
+
+    const className = this.class ? `class="${this.class}"` : '';
+
     const svg = svgTemplate.replace(
       'props',
-      `width="${this.width}" height="${this.height}" color="${this.color}" `
+      `${className}  ${widthAndHeight} color="${this.color}" `
     );
 
     this.svgCode = svg;

@@ -1,4 +1,14 @@
-<button [class]="buttonClass" [ngStyle]="getStyle()">
+<button
+  [class]="buttonClass"
+  [ngStyle]="getStyle()"
+  [class.w-full]="notSetPosition"
+>
   <app-icon [icon]="Icon" *ngIf="Icon"></app-icon>
+  <app-icon
+    [insertedSvg]="insertedSvg"
+    *ngIf="insertedSvg"
+    [color]="colorText"
+    class="w-5 h-5"
+  ></app-icon>
   <span class="text-medium-normal">{{ content }}</span>
 </button>
