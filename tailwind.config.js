@@ -43,6 +43,12 @@ module.exports = {
         "modal-desktop": "53rem",
         4.5: "1.125rem",
       },
+      borderWidth: {
+        0.5: "0.5px",
+      },
+      height: {
+        4.5: "1.125rem",
+      },
       spacing: {
         26: "6.5rem",
         30: "7.5rem",

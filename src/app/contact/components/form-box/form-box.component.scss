@@ -1,0 +1,14 @@
+.form-box {
+  @apply bg-ligth-800;
+  @apply flex;
+  @apply flex-col;
+  @apply p-6;
+  @apply space-y-6;
+  @apply rounded-lg;
+  @apply shadow-basic-shadow;
+  &__button {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-end;
+  }
+}

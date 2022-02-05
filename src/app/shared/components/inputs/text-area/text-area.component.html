@@ -1,0 +1,20 @@
+<div class="text-area" [formGroup]="formGroup" *ngIf="formGroup" #container>
+  <label [for]="id" class="text-area__label">{{ label }}</label>
+  <textarea
+    [name]="id"
+    [id]="id"
+    cols="30"
+    rows="10"
+    [placeholder]="placeholder"
+    [formControlName]="id"
+    class="text-area__input"
+    (input)="onWrite($event)"
+  ></textarea>
+  <p
+    class="text-area__indicator"
+    [ngStyle]="{ transform: transformOfCounter }"
+    #counter
+  >
+    {{ counterText }}
+  </p>
+</div>

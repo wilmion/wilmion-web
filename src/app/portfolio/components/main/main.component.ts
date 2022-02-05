@@ -123,7 +123,7 @@ export class MainComponent implements OnInit {
         'https://wilmion.github.io/wilmionDev/js/../assets/images/668021a93f46397031e6275ef99269f3.jpg',
     },
   ];
-  openModal: boolean = true;
+  openModal: boolean = false;
 
   constructor() {
     this.listFunctionJob = [

@@ -1,0 +1,35 @@
+@import url("../../../../core/styles/texts.scss");
+
+.text-area {
+  @apply flex;
+  @apply flex-col;
+  @apply h-auto;
+  @apply space-y-1;
+  &__label {
+    @apply text-medium-normal;
+    @apply text-oscure-800;
+  }
+  &__input {
+    @apply w-full;
+    @apply h-auto;
+    @apply text-regular-normal;
+    @apply text-oscure-800;
+    @apply py-2;
+    @apply px-3;
+    @apply border;
+    @apply border-0.5;
+    @apply border-oscure-800;
+    @apply rounded;
+    @apply border-opacity-25;
+    @apply outline-primary;
+  }
+  &__indicator {
+    @apply absolute;
+    @apply text-right;
+    transform: translate(61.2em, 218px);
+    //@apply mr-2;
+    //@apply -translate-y-6;
+    @apply text-regular-small;
+    @apply text-secondary;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="input" [formGroup]="formGroup" *ngIf="formGroup">
+  <label [for]="id" class="input__label">{{ label }}</label>
+  <div class="input__container">
+    <input
+      [type]="type"
+      [name]="id"
+      [id]="id"
+      class="input__container__input"
+      [placeholder]="placeholder"
+      [formControlName]="id"
+    />
+    <div class="input__container__icon" *ngIf="withIcon && icon">
+      <app-icon width="18px" height="18px" [icon]="icon"></app-icon>
+    </div>
+  </div>
+</div>

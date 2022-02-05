@@ -1,26 +1,22 @@
-<form class="form-box">
-  <div class="form-box__input">
-    <label for="subject" class="form-box__input__label">Asunto</label>
-    <input
-      type="text"
-      name="subject"
-      id="subject"
-      class="form-box__input__input"
-      placeholder="Asunto"
-    />
-  </div>
-  <div class="form-box__text-area">
-    <label for="message" class="form-box__text-area__label">Mensaje</label>
-    <textarea
-      name="message"
-      id="message"
-      cols="30"
-      rows="10"
-      class="form-box__text-area__area"
-      placeholder="Mensaje......."
-    ></textarea>
-  </div>
+<form class="form-box" [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
+  <app-input
+    label="Asunto"
+    placeholder="Asunto"
+    id="subject"
+    type="text"
+    [formGroup]="form"
+  ></app-input>
+  <app-text-area
+    label="Mensaje"
+    placeholder="Mensaje..."
+    id="message"
+    [formGroup]="form"
+  ></app-text-area>
   <div class="form-box__button">
-    <app-button type="button-primary" content="Enviar"></app-button>
+    <app-button
+      type="button-primary"
+      content="Enviar"
+      typeButton="submit"
+    ></app-button>
   </div>
 </form>

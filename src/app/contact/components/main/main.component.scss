@@ -35,13 +35,25 @@
     }
   }
   &__content-contact {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-6;
+    @apply w-full;
+    @apply lg:flex-row;
+    @apply lg:space-y-0;
+    @apply lg:space-x-6;
+    &__form {
+      @apply w-full;
+      @apply lg:w-1/2;
+    }
     &__social-media {
       @apply w-full;
       @apply flex;
       @apply flex-col;
       @apply space-y-3;
       @apply items-center;
-      @apply md:items-start;
+      @apply lg:items-start;
+      @apply lg:w-auto;
       &__subtitle {
         @apply text-bold-extra-normal;
         @apply text-secondary;

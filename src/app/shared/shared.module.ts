@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { CheckboxToogleComponent } from './components/checkbox-toogle/checkbox-toogle.component';
@@ -15,6 +15,8 @@ import { JobCardComponent } from './components/job-card/job-card.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { ProjectComponent } from './components/project/project.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { InputComponent } from './components/inputs/input/input.component';
+import { TextAreaComponent } from './components/inputs/text-area/text-area.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ModalComponent } from './components/modal/modal.component';
     SkillComponent,
     ProjectComponent,
     ModalComponent,
+    InputComponent,
+    TextAreaComponent,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -44,7 +48,9 @@ import { ModalComponent } from './components/modal/modal.component';
     SkillComponent,
     ProjectComponent,
     ModalComponent,
+    InputComponent,
+    TextAreaComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
 })
 export class SharedModule {}

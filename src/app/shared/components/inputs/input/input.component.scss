@@ -1,0 +1,35 @@
+@import url("../../../../core/styles/texts.scss");
+
+.input {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-1;
+  &__label {
+    @apply text-medium-normal;
+    @apply text-oscure-800;
+  }
+  &__container {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+    @apply items-center;
+    @apply py-2;
+    @apply px-3;
+    @apply rounded-md;
+    @apply border;
+    @apply border-oscure-800;
+    @apply border-opacity-25;
+    @apply border-0.5;
+    &__input {
+      @apply outline-none;
+      @apply w-full;
+      @apply text-regular-normal;
+      @apply text-oscure-800;
+    }
+    &__icon {
+      @apply w-4.5;
+      @apply h-4.5;
+      @apply bg-primary;
+    }
+  }
+}

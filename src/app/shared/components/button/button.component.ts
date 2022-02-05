@@ -9,6 +9,7 @@ import { Icons } from '@shared/components/icon/icons';
 })
 export class ButtonComponent implements OnInit {
   @Input() type: ButtonTypes | undefined;
+  @Input() typeButton: string = 'button';
   @Input() content: string = '';
   @Input() notSetPosition: boolean = false;
   @Input() Icon: Icons | undefined;
