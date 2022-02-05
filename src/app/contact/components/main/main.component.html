@@ -1,32 +1,15 @@
-<section class="contact">
+<section class="contact" *ngIf="staticPage && staticPage.contact_email">
   <p class="contact__paragraph">
-    En esta sección podras contarme via email o ver mi actividad en redes
-    sociales 😎😊
+    {{ staticPage.introduction }}
   </p>
   <h2 class="contact__subtitle">¿Por qué trabajar conmigo?</h2>
   <p class="contact__paragraph">
-    Como
-    <a
-      href="https://es.wikipedia.org/wiki/Desarrollo_web_Front-end"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Frontend Developer</a
-    >
-    desde el primer día garantizo la calidad de código de tus proyectos, aparte,
-    complemento el diseño con la maquetación de la página web debido a que
-    también soy
-    <a
-      href="https://en.wikipedia.org/wiki/User_interface_design"
-      target="_blank"
-      rel="noopener noreferrer"
-      >UI Designer</a
-    >. A nivel personal soy una persona amigable en la cual seguro sacare unas
-    sonrisas a la cultura de tu empresa/compañía.
+    {{ staticPage.response_question }}
   </p>
   <h2 class="contact__subtitle--principal">CONTACTARME</h2>
   <div class="contact__content-contact">
     <div class="contact__content-contact__form">
-      <app-form-box></app-form-box>
+      <app-form-box [email]="staticPage.contact_email"></app-form-box>
     </div>
     <div class="contact__content-contact__social-media">
       <h5 class="contact__content-contact__social-media__subtitle">

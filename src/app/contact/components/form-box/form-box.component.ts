@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./form-box.component.scss'],
 })
 export class FormBoxComponent implements OnInit {
+  @Input() email: string = '';
   form: FormGroup | undefined;
 
   constructor(private formBuilder: FormBuilder) {
@@ -19,7 +20,7 @@ export class FormBoxComponent implements OnInit {
 
   onSubmit() {
     const link = document.createElement('a');
-    link.href = `mailto:wilmion92@gmail.com?subject=${this.subject}&body=${this.message}`;
+    link.href = `mailto:${this.email}?subject=${this.subject}&body=${this.message}`;
     link.click();
   }
 

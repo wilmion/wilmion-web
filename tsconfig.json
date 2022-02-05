@@ -28,7 +28,10 @@
       "@portfolio/*": ["src/app/portfolio/*"],
       "@contact/*": ["src/app/contact/*"],
       "@core/*": ["src/app/core/*"],
-      "@styles/*": ["src/app/core/styles/*"]
+      "@models/*": ["src/app/core/models/*"],
+      "@styles/*": ["src/app/core/styles/*"],
+      "@reducers/*": ["src/app/core/ngrx/reducers/*"],
+      "@actions/*": ["src/app/core/ngrx/actions/*"]
     }
   },
   "angularCompilerOptions": {
