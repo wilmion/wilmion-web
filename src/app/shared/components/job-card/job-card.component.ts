@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class JobCardComponent implements OnInit {
   @Input() job: string = '';
-  @Input() time: (Date | 'now')[] | undefined;
+  @Input() time: (Date | 'Currenty')[] | undefined;
   @Input() description: string = '';
   @Input() listsFunction: string[] = [];
 
@@ -18,7 +18,7 @@ export class JobCardComponent implements OnInit {
   getLastDate() {
     if (!this.time) return;
 
-    const lastDate = this.time[1] === 'now' ? 'Actualidad' : this.time[1];
+    const lastDate = this.time[1] === 'Currenty' ? 'Actualidad' : this.time[1];
 
     return lastDate;
   }

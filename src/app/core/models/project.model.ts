@@ -7,4 +7,5 @@ export interface Project {
   readonly link_blog: string | null;
   readonly link_figma: string | null;
   readonly link_repository: string;
+  readonly skills: string[];
 }

@@ -124,6 +124,7 @@ export const initialState = {
       link_blog: null,
       link_figma: null,
       link_repository: '',
+      skills: ['Angular', 'HTML5', 'SASS', 'Typescript', 'Nest.js'],
     },
     {
       name: 'FOXBEL MUSIC',
@@ -136,19 +137,20 @@ export const initialState = {
       link_blog: null,
       link_figma: null,
       link_repository: '',
+      skills: ['Angular', 'HTML5', 'SASS', 'Typescript', 'Nest.js'],
     },
     {
       name: 'RENT CARS',
       image:
         'https://wilmion.github.io/wilmionDev/js/../assets/images/668021a93f46397031e6275ef99269f3.jpg',
       description:
-        'Proyecto de una prueba técnica , app de música parecida a Spotify.',
+        'Proyecto personal de una E-Comerce. \n Conciste en rentar automoviles por día.',
       link_frontend: '',
       link_backend: '',
       link_blog: null,
       link_figma: null,
-      link_repository:
-        'Proyecto personal de una E-Comerce. \n Conciste en rentar automoviles por día.',
+      link_repository: '',
+      skills: ['Angular', 'HTML5', 'SASS', 'Typescript', 'Nest.js'],
     },
   ],
   jobs: [
@@ -161,7 +163,7 @@ export const initialState = {
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, in modi, laboriosam architecto a error itaque et eius corporis alias, accusamus magni provident ipsa minima atque sint quia esse odio.',
       active: true,
       role: 'Frontend Developer and UI designer',
-      from: new Date(2021, 7, 5),
+      from: new Date(2021, 6, 5),
       to: 'Currenty',
       function_1:
         'Usar las mejores tecnologías para la implementación frontend.',

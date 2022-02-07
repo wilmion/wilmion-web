@@ -59,6 +59,9 @@ module.exports = {
       backgroundSize: {
         full: "100% 100%",
       },
+      flex: {
+        skill: "1 1 162px",
+      },
     },
   },
   plugins: [],

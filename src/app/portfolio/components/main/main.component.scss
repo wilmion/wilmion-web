@@ -56,10 +56,14 @@
     }
   }
   &__skill-container {
-    @apply grid;
-    @apply grid-cols-8;
-    @apply bg-terciary;
+    @apply flex;
+    @apply flex-row;
+    @apply flex-wrap;
+    @apply bg-primary;
     @apply gap-1;
+    &__container {
+      @apply flex-skill;
+    }
   }
   &__projects-container {
     @apply grid;
@@ -102,11 +106,14 @@
       @apply text-h2;
     }
     &__technologies {
-      @apply grid;
-      @apply grid-cols-2;
+      @apply flex;
+      @apply flex-row;
+      @apply flex-wrap;
+      @apply bg-primary;
       @apply gap-1;
-      @apply bg-terciary;
-      @apply md:grid-cols-4;
+      &__container {
+        @apply flex-skill;
+      }
     }
   }
 }
