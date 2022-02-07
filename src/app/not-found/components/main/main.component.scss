@@ -1,0 +1,19 @@
+@import url("../../../core/styles/texts.scss");
+
+.not-found {
+  @apply my-28;
+  @apply w-auto;
+  @apply flex;
+  @apply flex-col;
+  @apply justify-center;
+  @apply items-center;
+  @apply space-y-4;
+  &__title {
+    @apply text-h3;
+    @apply text-oscure-800;
+  }
+  &__text {
+    @apply text-oscure-800;
+    @apply text-regular-normal;
+  }
+}

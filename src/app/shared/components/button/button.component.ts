@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Icons } from '@shared/components/icon/icons';
 
@@ -8,6 +8,8 @@ import { Icons } from '@shared/components/icon/icons';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
+  @Output() clickButton = new EventEmitter();
+
   @Input() type: ButtonTypes | undefined;
   @Input() typeButton: string = 'button';
   @Input() content: string = '';
@@ -40,6 +42,10 @@ export class ButtonComponent implements OnInit {
       'background-color': this.color,
       color: this.colorText,
     };
+  }
+
+  onClick() {
+    this.clickButton.emit();
   }
 }
 

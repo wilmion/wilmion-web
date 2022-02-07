@@ -24,6 +24,10 @@
         >lenguaje de programacion</a
       >...
     </p>
-    <app-button type="button-terciary" content="Continuar leyendo"></app-button>
+    <app-button
+      type="button-terciary"
+      content="Continuar leyendo"
+      (clickButton)="onNavigate()"
+    ></app-button>
   </div>
 </article>

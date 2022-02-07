@@ -9,7 +9,11 @@
       {{ currentProjectView.description }}
     </p>
     <div class="portfolio-page__modal__project">
-      <app-project-modal [url]="currentProjectView.image"></app-project-modal>
+      <app-project-modal
+        [url]="currentProjectView.image"
+        [githubUrl]="currentProjectView.link_repository"
+        [blogUrl]="currentProjectView.link_blog"
+      ></app-project-modal>
     </div>
 
     <div class="portfolio-page__modal__buttons">
@@ -83,6 +87,7 @@
           job.function_3,
           job.function_4
         ]"
+        [linkedInUrl]="job.linkedIn_url"
       ></app-job-card>
     </div>
   </section>

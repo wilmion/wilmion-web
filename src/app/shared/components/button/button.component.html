@@ -3,8 +3,9 @@
   [ngStyle]="getStyle()"
   [class.w-full]="notSetPosition"
   [type]="typeButton"
+  (click)="onClick()"
 >
-  <app-icon [icon]="Icon" *ngIf="Icon"></app-icon>
+  <app-icon [icon]="Icon" class="w-5 h-5" *ngIf="Icon"></app-icon>
   <app-icon
     [insertedSvg]="insertedSvg"
     *ngIf="insertedSvg"

@@ -10,6 +10,7 @@ export class JobCardComponent implements OnInit {
   @Input() time: (Date | 'Currenty')[] | undefined;
   @Input() description: string = '';
   @Input() listsFunction: string[] = [];
+  @Input() linkedInUrl: string = '';
 
   constructor() {}
 
@@ -21,5 +22,14 @@ export class JobCardComponent implements OnInit {
     const lastDate = this.time[1] === 'Currenty' ? 'Actualidad' : this.time[1];
 
     return lastDate;
+  }
+
+  onNavigateUrl() {
+    const anchor = document.createElement('a');
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.href = this.linkedInUrl;
+
+    anchor.click();
   }
 }

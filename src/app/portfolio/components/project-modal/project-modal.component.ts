@@ -13,6 +13,8 @@ import {
 })
 export class ProjectModalComponent implements OnInit, OnChanges {
   @Input() url: string = '';
+  @Input() githubUrl: string = '';
+  @Input() blogUrl: string | null = null;
   imageUrl: string = '';
 
   constructor() {}

@@ -1,6 +1,24 @@
 <section class="project-modal" [ngStyle]="{ 'background-image': imageUrl }">
   <div class="project-modal__container">
-    <app-icon color="#171208" icon="AIOUTLINEGITHUB"></app-icon>
-    <app-icon color="#171208" icon="AIOUTLINEINFOCIRCLE"></app-icon>
+    <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">
+      <app-icon
+        color="#171208"
+        icon="AIOUTLINEGITHUB"
+        class="w-6 h-6"
+      ></app-icon>
+    </a>
+
+    <a
+      [href]="blogUrl"
+      *ngIf="blogUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <app-icon
+        color="#171208"
+        icon="AIOUTLINEINFOCIRCLE"
+        class="w-6 h-6"
+      ></app-icon>
+    </a>
   </div>
 </section>
