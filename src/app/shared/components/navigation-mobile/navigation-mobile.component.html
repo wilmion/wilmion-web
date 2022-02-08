@@ -1,0 +1,50 @@
+<nav
+  class="navigation-mobile"
+  [class.translate-x-0]="open"
+  [class.-translate-x-full]="!open"
+>
+  <div class="navigation-mobile__close">
+    <div (click)="onClose()">
+      <app-icon
+        icon="AIOUTLINECLOSE"
+        class="w-4.5 h-4.5 text-danger"
+      ></app-icon>
+    </div>
+  </div>
+  <app-logo class="w-full text-center" colorClass="text-oscure-800"></app-logo>
+  <div class="navigation-mobile__toogle-mode">
+    <app-icon icon="BSSUN" color="#171208" class="w-6 h-6"></app-icon>
+    <app-checkbox-toogle></app-checkbox-toogle>
+    <app-icon
+      icon="MDOUTLINEDARKMODE"
+      color="#171208"
+      class="w-6 h-6"
+    ></app-icon>
+  </div>
+  <ul class="navigation-mobile__list">
+    <a
+      (click)="onClose()"
+      routerLink="/about"
+      class="text-normal text-oscure-800"
+      ><li>Sobre Wilmion</li></a
+    >
+    <a
+      (click)="onClose()"
+      routerLink="/portfolio"
+      class="text-normal text-oscure-800"
+      ><li>Portafolio</li></a
+    >
+    <a
+      (click)="onClose()"
+      routerLink="/contact-me"
+      class="text-normal text-oscure-800"
+      ><li>Contáctame</li></a
+    >
+    <a
+      (click)="onClose()"
+      routerLink="/blog"
+      class="text-normal text-oscure-800"
+      ><li>Blog</li></a
+    >
+  </ul>
+</nav>

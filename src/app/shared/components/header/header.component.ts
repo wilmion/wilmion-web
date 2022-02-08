@@ -8,7 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() currentPage: string | undefined;
 
+  openMenu: boolean = false;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onClose() {
+    this.openMenu = false;
+  }
+
+  onOpenMenu() {
+    this.openMenu = true;
+  }
 }

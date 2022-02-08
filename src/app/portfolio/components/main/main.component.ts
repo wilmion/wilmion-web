@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 
 import { Store } from '@ngrx/store';
 
@@ -8,10 +9,16 @@ import { Job } from '@models/job.model';
 
 import { Observable } from 'rxjs';
 
+import {
+  VerbsButton,
+  getVerbsFromButton,
+} from '@core/utils/getVerbsFromButton.util';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
+  providers: [AsyncPipe],
 })
 export class MainComponent implements OnInit {
   //Observers
@@ -20,11 +27,12 @@ export class MainComponent implements OnInit {
   jobs$: Observable<Job[]>;
 
   currentProjectView: Project | undefined;
-  buttonsSkillOfProject: string[] = [];
+  buttonsSkillCurrentProject: VerbsButton[] = [];
 
   openModal: boolean = false;
   constructor(
-    private store: Store<{ skills: Skill[]; projects: Project[]; jobs: Job[] }>
+    private store: Store<{ skills: Skill[]; projects: Project[]; jobs: Job[] }>,
+    protected pipeAsync: AsyncPipe
   ) {
     this.skills$ = store.select('skills');
     this.projects$ = store.select('projects');
@@ -39,12 +47,18 @@ export class MainComponent implements OnInit {
 
   onViewDetails(project: Project) {
     this.currentProjectView = project;
+    this.buttonsSkillCurrentProject = [];
 
-    this.buttonsSkillOfProject = [];
+    const skills = this.pipeAsync.transform(this.skills$);
 
-    project.skills.forEach((skill) => {
-      if (skill === 'Angular' || skill === 'Nest.js')
-        this.buttonsSkillOfProject.push(skill);
+    if (!skills) return;
+
+    const skillsNames = project.skills;
+
+    skillsNames.forEach((skillName) => {
+      const verbButton = getVerbsFromButton(skillName, skills);
+
+      if (verbButton) this.buttonsSkillCurrentProject.push(verbButton);
     });
 
     this.setValueInModal(true);

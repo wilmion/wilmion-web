@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-logo',
@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent implements OnInit {
+  @Input() colorClass: string = 'text-primary';
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

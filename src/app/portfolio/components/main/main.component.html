@@ -18,14 +18,16 @@
 
     <div class="portfolio-page__modal__buttons">
       <app-button
-        *ngFor="let skill of buttonsSkillOfProject"
-        [content]="setVerbsInButtonOfModal(skill)"
-        [color]="getSkillFromName(skills$ | async, skill).backgroundColor"
-        [insertedSvg]="getSkillFromName(skills$ | async, skill).icon"
-        [colorText]="getSkillFromName(skills$ | async, skill).iconColor"
+        class="portfolio-page__modal__buttons__container"
+        *ngFor="let verbButton of buttonsSkillCurrentProject"
+        [content]="verbButton.verb"
+        [color]="verbButton.skill.backgroundColor"
+        [insertedSvg]="verbButton.skill.icon"
+        [colorText]="verbButton.skill.iconColor"
         [notSetPosition]="true"
       ></app-button>
       <app-button
+        class="portfolio-page__modal__buttons__container"
         *ngIf="currentProjectView.link_blog"
         content="¿Cómo lo hice?"
         type="button-primary"

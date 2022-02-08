@@ -17,6 +17,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { InputComponent } from './components/inputs/input/input.component';
 import { TextAreaComponent } from './components/inputs/text-area/text-area.component';
+import { NavigationMobileComponent } from './components/navigation-mobile/navigation-mobile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TextAreaComponent } from './components/inputs/text-area/text-area.compo
     ModalComponent,
     InputComponent,
     TextAreaComponent,
+    NavigationMobileComponent,
   ],
   exports: [
     CheckboxToogleComponent,

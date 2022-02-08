@@ -26,8 +26,8 @@
         class="w-6 h-6"
       ></app-icon>
     </div>
-    <div class="header-navigation-icon-menu">
-      <app-icon icon="RIMENU5LINE" color="#171208"></app-icon>
+    <div class="header-navigation-icon-menu" (click)="onOpenMenu()">
+      <app-icon icon="RIMENU5LINE" color="#171208" class="w-6 h-6"></app-icon>
     </div>
   </div>
   <div class="header-current-page" *ngIf="currentPage">
@@ -38,3 +38,7 @@
     </div>
   </div>
 </header>
+<app-navigation-mobile
+  [open]="openMenu"
+  (close)="onClose()"
+></app-navigation-mobile>

@@ -1,0 +1,30 @@
+.navigation-mobile {
+  @apply fixed;
+  @apply w-4/5;
+  @apply h-screen;
+  @apply bg-primary;
+  @apply flex;
+  @apply flex-col;
+  @apply p-6;
+  @apply space-y-5;
+  @apply transition;
+  @apply duration-1000;
+  @apply ease-out;
+  &__close {
+    @apply w-full;
+    @apply flex;
+    @apply justify-end;
+  }
+  &__toogle-mode {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-center;
+    @apply items-center;
+    @apply space-x-1;
+  }
+  &__list {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-5;
+  }
+}

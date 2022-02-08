@@ -1,6 +1,7 @@
 .header {
   @apply fixed;
   @apply w-full;
+
   @apply p-6;
   @apply bg-primary;
   &-navigation {
@@ -11,6 +12,7 @@
     @apply p-4;
     @apply bg-ligth-800;
     @apply rounded-lg;
+
     &-logo {
       width: 92px;
     }
@@ -23,6 +25,7 @@
   }
   &-current-page {
     @apply absolute;
+
     @apply flex;
     @apply left-0;
     @apply w-full;
@@ -41,6 +44,7 @@
   .header {
     @apply px-12;
     @apply py-6;
+
     &-navigation {
       @apply px-12;
       @apply py-6;

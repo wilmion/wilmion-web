@@ -61,6 +61,7 @@ module.exports = {
       },
       flex: {
         skill: "1 1 162px",
+        buttonModalSkill: "1 1 220px",
       },
     },
   },
