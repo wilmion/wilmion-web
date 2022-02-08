@@ -39,6 +39,8 @@ export class PrincipalLayoutComponent implements OnInit {
         return 'PORTAFOLIO';
       case 'contact-me':
         return 'CONTÁCTAME';
+      case 'blog':
+        return 'BLOG';
       default:
         return undefined;
     }
