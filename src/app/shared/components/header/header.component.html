@@ -3,27 +3,42 @@
     <app-logo class="header-navigation-logo"></app-logo>
     <nav>
       <ul class="header-navigation-nav-list">
-        <a routerLink="/about" class="first text-medium-normal text-oscure-800"
+        <a
+          routerLink="/about"
+          routerLinkActive="scale-125"
+          class="first text-medium-normal text-oscure-800"
           ><li>Sobre Wilmion</li></a
         >
-        <a routerLink="/portfolio" class="text-medium-normal text-oscure-800"
+        <a
+          routerLink="/portfolio"
+          routerLinkActive="scale-125"
+          class="text-medium-normal text-oscure-800"
           ><li>Portafolio</li></a
         >
-        <a routerLink="/contact-me" class="text-medium-normal text-oscure-800"
+        <a
+          routerLink="/contact-me"
+          routerLinkActive="scale-125"
+          class="text-medium-normal text-oscure-800"
           ><li>Contáctame</li></a
         >
-        <a routerLink="/blog" class="text-medium-normal text-oscure-800"
+        <a
+          routerLink="/blog"
+          routerLinkActive="scale-125"
+          class="text-medium-normal text-oscure-800"
           ><li>Blog</li></a
         >
       </ul>
     </nav>
     <div class="header-navigation-toogle-mode">
-      <app-icon icon="BSSUN" color="#171208" class="w-6 h-6"></app-icon>
-      <app-checkbox-toogle></app-checkbox-toogle>
+      <app-icon icon="BSSUN" class="w-6 h-6 text-oscure-800"></app-icon>
+      <app-checkbox-toogle
+        (changedState)="toogleDropdown()"
+        [active]="darkMode"
+      ></app-checkbox-toogle>
       <app-icon
         icon="MDOUTLINEDARKMODE"
         color="#171208"
-        class="w-6 h-6"
+        class="w-6 h-6 text-oscure-800"
       ></app-icon>
     </div>
     <div class="header-navigation-icon-menu" (click)="onOpenMenu()">

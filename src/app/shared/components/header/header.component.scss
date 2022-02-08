@@ -1,7 +1,6 @@
 .header {
   @apply fixed;
   @apply w-full;
-
   @apply p-6;
   @apply bg-primary;
   &-navigation {
@@ -11,6 +10,7 @@
     @apply items-center;
     @apply p-4;
     @apply bg-ligth-800;
+
     @apply rounded-lg;
 
     &-logo {
@@ -18,6 +18,12 @@
     }
     &-nav-list {
       @apply hidden;
+      a {
+        @apply transition;
+        @apply duration-500;
+        @apply ease-in-out;
+        @apply hover:scale-125;
+      }
     }
     &-toogle-mode {
       @apply hidden;
@@ -25,7 +31,6 @@
   }
   &-current-page {
     @apply absolute;
-
     @apply flex;
     @apply left-0;
     @apply w-full;

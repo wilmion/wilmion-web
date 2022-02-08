@@ -18,6 +18,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { InputComponent } from './components/inputs/input/input.component';
 import { TextAreaComponent } from './components/inputs/text-area/text-area.component';
 import { NavigationMobileComponent } from './components/navigation-mobile/navigation-mobile.component';
+import { ChangeScreenDirective } from './directives/change-screen/change-screen.directive';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NavigationMobileComponent } from './components/navigation-mobile/naviga
     InputComponent,
     TextAreaComponent,
     NavigationMobileComponent,
+    ChangeScreenDirective,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -52,6 +54,7 @@ import { NavigationMobileComponent } from './components/navigation-mobile/naviga
     ModalComponent,
     InputComponent,
     TextAreaComponent,
+    ChangeScreenDirective,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
 })

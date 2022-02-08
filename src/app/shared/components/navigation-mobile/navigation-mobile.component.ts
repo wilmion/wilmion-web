@@ -1,4 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { toogleDarkMode } from '@actions/darkMode.actions';
 
 @Component({
   selector: 'app-navigation-mobile',
@@ -7,12 +10,19 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavigationMobileComponent implements OnInit {
   @Output() close = new EventEmitter();
-
   @Input() open: boolean = false;
 
-  constructor() {}
+  darkMode: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(private store: Store<{ darkMode: boolean }>) {}
+
+  ngOnInit(): void {
+    this.store.select('darkMode').subscribe((value) => (this.darkMode = value));
+  }
+
+  toogleDropdown() {
+    this.store.dispatch(toogleDarkMode());
+  }
 
   onClose() {
     this.close.emit();

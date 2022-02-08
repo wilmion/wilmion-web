@@ -35,20 +35,6 @@ export class ProjectComponent implements OnInit {
   private getUrl(customLeft: string) {
     const opacity = this.hovering ? '0.4' : '0';
 
-    const heigth = this.calculateHeightOfTheBgImage();
-
-    this.url = `linear-gradient(rgba(0,0,0,${opacity}), rgba(0,0,0,${opacity})), url("${this.urlImage}") ${customLeft} 0px / 100% ${heigth} no-repeat`;
-  }
-
-  private calculateHeightOfTheBgImage() {
-    let heigth = 'auto';
-
-    const width = window.innerWidth;
-
-    if (width < 360 || (width > 765 && width < 1700)) {
-      heigth = '100%';
-    }
-
-    return heigth;
+    this.url = `linear-gradient(rgba(0,0,0,${opacity}), rgba(0,0,0,${opacity})), url("${this.urlImage}") ${customLeft} 0px / 120% auto no-repeat`;
   }
 }

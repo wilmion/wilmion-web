@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { StaticPage } from '@models/static-page.model';
+import { SocialMedia } from '@models/socialMedia.model';
 
 import { Observable } from 'rxjs';
 
@@ -14,7 +15,14 @@ export class MainComponent implements OnInit {
   staticPage$: Observable<StaticPage[]>;
   staticPage: StaticPage | undefined;
 
-  constructor(private store: Store<{ staticPages: StaticPage[] }>) {
+  socialMedia: SocialMedia[] = [];
+
+  constructor(
+    private store: Store<{
+      staticPages: StaticPage[];
+      socialMedia: SocialMedia[];
+    }>
+  ) {
     this.staticPage$ = store.select('staticPages');
   }
 
@@ -30,5 +38,16 @@ export class MainComponent implements OnInit {
 
       this.staticPage = dataFiltered;
     });
+    this.store
+      .select('socialMedia')
+      .subscribe((socialMedia) => (this.socialMedia = socialMedia));
+  }
+
+  getUrlOfSocialMedia(name: string) {
+    const socialMedia = this.socialMedia.find((s) => s.name === name);
+
+    if (!socialMedia) return;
+
+    return socialMedia.redirect_url;
   }
 }

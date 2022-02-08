@@ -14,7 +14,10 @@
   <app-logo class="w-full text-center" colorClass="text-oscure-800"></app-logo>
   <div class="navigation-mobile__toogle-mode">
     <app-icon icon="BSSUN" color="#171208" class="w-6 h-6"></app-icon>
-    <app-checkbox-toogle></app-checkbox-toogle>
+    <app-checkbox-toogle
+      (changedState)="toogleDropdown()"
+      [active]="darkMode"
+    ></app-checkbox-toogle>
     <app-icon
       icon="MDOUTLINEDARKMODE"
       color="#171208"
@@ -25,26 +28,26 @@
     <a
       (click)="onClose()"
       routerLink="/about"
-      class="text-normal text-oscure-800"
-      ><li>Sobre Wilmion</li></a
+      class="text-medium-normal text-oscure-800"
+      ><li routerLinkActive="text-regular-extra-normal">Sobre Wilmion</li></a
     >
     <a
       (click)="onClose()"
       routerLink="/portfolio"
-      class="text-normal text-oscure-800"
-      ><li>Portafolio</li></a
+      class="text-medium-normal text-oscure-800"
+      ><li routerLinkActive="text-regular-extra-normal">Portafolio</li></a
     >
     <a
       (click)="onClose()"
       routerLink="/contact-me"
-      class="text-normal text-oscure-800"
-      ><li>Contáctame</li></a
+      class="text-medium-normal text-oscure-800"
+      ><li routerLinkActive="text-regular-extra-normal">Contáctame</li></a
     >
     <a
       (click)="onClose()"
       routerLink="/blog"
-      class="text-normal text-oscure-800"
-      ><li>Blog</li></a
+      class="text-medium-normal text-oscure-800"
+      ><li routerLinkActive="text-regular-extra-normal">Blog</li></a
     >
   </ul>
 </nav>

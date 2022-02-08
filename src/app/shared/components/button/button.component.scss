@@ -7,6 +7,14 @@
   @apply px-16;
   @apply py-3;
   @apply rounded-lg;
+  @apply transition;
+  @apply duration-500;
+  @apply ease-out;
+  @apply hover:scale-110;
+  @apply opacity-100;
+  &--disable {
+    @apply opacity-50;
+  }
 }
 
 .button-primary {

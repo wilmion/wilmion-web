@@ -98,6 +98,7 @@
 
   <section class="portfolio-page__projects-container">
     <app-project
+      class="portfolio-page__projects-container__container"
       *ngFor="let project of projects$ | async"
       [urlImage]="project.image"
       [nameOfProject]="project.name"

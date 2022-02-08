@@ -9,6 +9,12 @@
     @apply flex;
     @apply flex-row;
     @apply justify-between;
+    a {
+      @apply transition;
+      @apply duration-500;
+      @apply ease-in-out;
+      @apply hover:scale-125;
+    }
   }
   &__line {
     @apply w-full;

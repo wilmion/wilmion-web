@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-form-box',
@@ -20,27 +25,38 @@ export class FormBoxComponent implements OnInit {
 
   onSubmit() {
     const link = document.createElement('a');
-    link.href = `mailto:${this.email}?subject=${this.subject}&body=${this.message}`;
+    link.href = `mailto:${this.email}?subject=${this.subject.value}&body=${this.message.value}`;
     link.click();
   }
 
   get subject() {
-    if (!this.form) return '';
+    if (!this.form) throw new Error();
 
-    return this.form.get('subject')?.value;
+    const field = this.form.get('subject');
+
+    if (!field) throw new Error();
+
+    return field;
   }
 
   get message() {
-    if (!this.form) return '';
+    if (!this.form) throw new Error();
 
-    return this.form.get('message')?.value;
+    const field = this.form.get('message');
+
+    if (!field) throw new Error();
+
+    return field;
   }
 
   private buildForm() {
     this.form = this.formBuilder.group(
       {
-        subject: new FormControl('', {}),
-        message: new FormControl('', {}),
+        subject: new FormControl('', [Validators.required]),
+        message: new FormControl('', [
+          Validators.required,
+          Validators.maxLength(400),
+        ]),
       },
       { updateOn: 'change' }
     );

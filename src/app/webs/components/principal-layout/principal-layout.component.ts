@@ -34,14 +34,22 @@ export class PrincipalLayoutComponent implements OnInit {
 
     switch (route) {
       case 'about':
+        document.title = 'Wilmion - Sobre Wilmion';
         return 'SOBRE WILMION';
       case 'portfolio':
+        document.title = 'Wilmion - Portafolio';
         return 'PORTAFOLIO';
       case 'contact-me':
+        document.title = 'Wilmion - Contacto';
         return 'CONTÁCTAME';
       case 'blog':
+        document.title = 'Wilmion - Blog';
         return 'BLOG';
+      case '':
+        document.title = 'Wilmion - Home';
+        return undefined;
       default:
+        document.title = 'Wilmion - 404 😢';
         return undefined;
     }
   }

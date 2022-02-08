@@ -24,11 +24,11 @@
     @apply outline-primary;
   }
   &__indicator {
-    @apply absolute;
+    @apply relative;
     @apply text-right;
-    transform: translate(61.2em, 218px);
-    //@apply mr-2;
-    //@apply -translate-y-6;
+    @apply h-0;
+    @apply mr-2;
+    @apply -translate-y-6;
     @apply text-regular-small;
     @apply text-secondary;
   }

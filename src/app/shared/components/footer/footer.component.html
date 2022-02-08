@@ -1,16 +1,28 @@
 <footer class="footer">
   <nav>
     <ul class="footer-nav">
-      <a routerLink="/about" class="first text-medium-normal text-oscure-800"
+      <a
+        routerLink="/about"
+        routerLinkActive="scale-125"
+        class="first text-medium-normal text-oscure-800"
         ><li>Sobre Wilmion</li></a
       >
-      <a routerLink="/portfolio" class="text-medium-normal text-oscure-800"
+      <a
+        routerLink="/portfolio"
+        routerLinkActive="scale-125"
+        class="text-medium-normal text-oscure-800"
         ><li>Portafolio</li></a
       >
-      <a routerLink="/contact-me" class="text-medium-normal text-oscure-800"
+      <a
+        routerLink="/contact-me"
+        routerLinkActive="scale-125"
+        class="text-medium-normal text-oscure-800"
         ><li>Contáctame</li></a
       >
-      <a routerLink="/blog" class="text-medium-normal text-oscure-800"
+      <a
+        routerLink="/blog"
+        routerLinkActive="scale-125"
+        class="text-medium-normal text-oscure-800"
         ><li>Blog</li></a
       >
     </ul>
@@ -22,18 +34,50 @@
   <div class="footer__footer">
     <p class="text-medium-normal text-oscure-800">@copirigth Wilmion</p>
     <div class="footer__footer__social-media">
-      <app-icon
-        icon="AIOUTLINEYOUTUBE"
-        color="#171208"
-        class="w-6 h-6"
-      ></app-icon>
-      <app-icon icon="BSINSTAGRAM" color="#171208" class="w-6 h-6"></app-icon>
-      <app-icon
-        icon="AIOUTLINELINKEDIN"
-        color="#171208"
-        class="w-6 h-6"
-      ></app-icon>
-      <app-icon icon="FITWITTER" color="#171208" class="w-6 h-6"></app-icon>
+      <a
+        [href]="getUrlOfSocialMedia('yt')"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-icon
+          icon="AIOUTLINEYOUTUBE"
+          color="#171208"
+          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+        ></app-icon>
+      </a>
+      <a
+        [href]="getUrlOfSocialMedia('ig')"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-icon
+          icon="BSINSTAGRAM"
+          color="#171208"
+          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+        ></app-icon>
+      </a>
+      <a
+        [href]="getUrlOfSocialMedia('lNk')"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-icon
+          icon="AIOUTLINELINKEDIN"
+          color="#171208"
+          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+        ></app-icon>
+      </a>
+      <a
+        [href]="getUrlOfSocialMedia('twtr')"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-icon
+          icon="FITWITTER"
+          color="#171208"
+          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+        ></app-icon>
+      </a>
     </div>
   </div>
 </footer>

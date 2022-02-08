@@ -11,6 +11,7 @@ export class ButtonComponent implements OnInit {
   @Output() clickButton = new EventEmitter();
 
   @Input() type: ButtonTypes | undefined;
+  @Input() disable: boolean = false;
   @Input() typeButton: string = 'button';
   @Input() content: string = '';
   @Input() notSetPosition: boolean = false;

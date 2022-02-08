@@ -4,7 +4,24 @@
   </p>
   <h2 class="contact__subtitle">¿Por qué trabajar conmigo?</h2>
   <p class="contact__paragraph">
-    {{ staticPage.response_question }}
+    Como
+    <a
+      href="https://es.wikipedia.org/wiki/Desarrollo_web_Front-end"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Frontend Developer</a
+    >
+    desde el primer día garantizo la calidad de código de tus proyectos, aparte,
+    complemento el diseño con la maquetación de la página web debido a que
+    también soy
+    <a
+      href="https://en.wikipedia.org/wiki/User_interface_design"
+      target="_blank"
+      rel="noopener noreferrer"
+      >UI designer</a
+    >
+    . A nivel personal soy una persona amigable en la cual seguro sacare unas
+    sonrisas a la cultura de tu empresa/compañía.
   </p>
   <h2 class="contact__subtitle--principal">CONTACTARME</h2>
   <div class="contact__content-contact">
@@ -19,18 +36,50 @@
         También puedes contactarme por mis redes sociales. 💻
       </p>
       <div class="contact__content-contact__social-media__icons">
-        <app-icon
-          icon="AIOUTLINEYOUTUBE"
-          color="#171208"
-          class="w-6 h-6"
-        ></app-icon>
-        <app-icon icon="BSINSTAGRAM" color="#171208" class="w-6 h-6"></app-icon>
-        <app-icon
-          icon="AIOUTLINELINKEDIN"
-          color="#171208"
-          class="w-6 h-6"
-        ></app-icon>
-        <app-icon icon="FITWITTER" color="#171208" class="w-6 h-6"></app-icon>
+        <a
+          [href]="getUrlOfSocialMedia('yt')"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <app-icon
+            icon="AIOUTLINEYOUTUBE"
+            color="#171208"
+            class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+          ></app-icon>
+        </a>
+        <a
+          [href]="getUrlOfSocialMedia('ig')"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <app-icon
+            icon="BSINSTAGRAM"
+            color="#171208"
+            class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+          ></app-icon>
+        </a>
+        <a
+          [href]="getUrlOfSocialMedia('lNk')"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <app-icon
+            icon="AIOUTLINELINKEDIN"
+            color="#171208"
+            class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+          ></app-icon>
+        </a>
+        <a
+          [href]="getUrlOfSocialMedia('twtr')"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <app-icon
+            icon="FITWITTER"
+            color="#171208"
+            class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
+          ></app-icon>
+        </a>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div class="text-area" [formGroup]="formGroup" *ngIf="formGroup" #container>
+<div class="text-area" [formGroup]="formGroup" *ngIf="formGroup">
   <label [for]="id" class="text-area__label">{{ label }}</label>
   <textarea
     [name]="id"
@@ -10,11 +10,7 @@
     class="text-area__input"
     (input)="onWrite($event)"
   ></textarea>
-  <p
-    class="text-area__indicator"
-    [ngStyle]="{ transform: transformOfCounter }"
-    #counter
-  >
+  <p class="text-area__indicator">
     {{ counterText }}
   </p>
 </div>

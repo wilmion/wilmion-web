@@ -1,9 +1,11 @@
 <button
   [class]="buttonClass"
+  [class.button--disable]="disable"
   [ngStyle]="getStyle()"
   [class.w-full]="notSetPosition"
   [type]="typeButton"
   (click)="onClick()"
+  [disabled]="disable"
 >
   <app-icon [icon]="Icon" class="w-5 h-5" *ngIf="Icon"></app-icon>
   <app-icon
