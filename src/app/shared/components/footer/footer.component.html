@@ -1,30 +1,38 @@
 <footer class="footer">
   <nav>
     <ul class="footer-nav">
-      <a
-        routerLink="/about"
-        routerLinkActive="scale-125"
-        class="first text-medium-normal text-oscure-800"
-        ><li>Sobre Wilmion</li></a
-      >
-      <a
-        routerLink="/portfolio"
-        routerLinkActive="scale-125"
-        class="text-medium-normal text-oscure-800"
-        ><li>Portafolio</li></a
-      >
-      <a
-        routerLink="/contact-me"
-        routerLinkActive="scale-125"
-        class="text-medium-normal text-oscure-800"
-        ><li>Contáctame</li></a
-      >
-      <a
-        routerLink="/blog"
-        routerLinkActive="scale-125"
-        class="text-medium-normal text-oscure-800"
-        ><li>Blog</li></a
-      >
+      <li class="header-navigation-nav-list__item">
+        <a
+          routerLink="/about"
+          routerLinkActive="scale-125"
+          class="first text-medium-normal text-oscure-800"
+          >Sobre Wilmion</a
+        >
+      </li>
+      <li class="header-navigation-nav-list__item">
+        <a
+          routerLink="/portfolio"
+          routerLinkActive="scale-125"
+          class="text-medium-normal text-oscure-800"
+          >Portafolio</a
+        >
+      </li>
+      <li class="header-navigation-nav-list__item">
+        <a
+          routerLink="/contact-me"
+          routerLinkActive="scale-125"
+          class="text-medium-normal text-oscure-800"
+          >Contáctame</a
+        >
+      </li>
+      <li class="header-navigation-nav-list__item">
+        <a
+          routerLink="/blog"
+          routerLinkActive="scale-125"
+          class="text-medium-normal text-oscure-800"
+          >Blog</a
+        >
+      </li>
     </ul>
   </nav>
   <p class="w-full text-center text-bold-normal">
@@ -38,6 +46,7 @@
         [href]="getUrlOfSocialMedia('yt')"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="social-media-of-youtube"
       >
         <app-icon
           icon="AIOUTLINEYOUTUBE"
@@ -46,6 +55,7 @@
         ></app-icon>
       </a>
       <a
+        aria-label="social-media-of-instagram"
         [href]="getUrlOfSocialMedia('ig')"
         target="_blank"
         rel="noopener noreferrer"
@@ -57,6 +67,7 @@
         ></app-icon>
       </a>
       <a
+        aria-label="social-media-of-linkedin"
         [href]="getUrlOfSocialMedia('lNk')"
         target="_blank"
         rel="noopener noreferrer"
@@ -68,6 +79,7 @@
         ></app-icon>
       </a>
       <a
+        aria-label="social-media-of-twitter"
         [href]="getUrlOfSocialMedia('twtr')"
         target="_blank"
         rel="noopener noreferrer"

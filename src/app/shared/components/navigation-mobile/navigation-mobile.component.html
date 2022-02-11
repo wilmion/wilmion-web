@@ -26,29 +26,32 @@
     ></app-icon>
   </div>
   <ul class="navigation-mobile__list">
-    <a
-      (click)="onClose()"
-      routerLink="/about"
-      class="text-medium-normal text-oscure-800"
-      ><li routerLinkActive="text-regular-extra-normal">Sobre Wilmion</li></a
-    >
-    <a
-      (click)="onClose()"
-      routerLink="/portfolio"
-      class="text-medium-normal text-oscure-800"
-      ><li routerLinkActive="text-regular-extra-normal">Portafolio</li></a
-    >
-    <a
-      (click)="onClose()"
-      routerLink="/contact-me"
-      class="text-medium-normal text-oscure-800"
-      ><li routerLinkActive="text-regular-extra-normal">Contáctame</li></a
-    >
-    <a
-      (click)="onClose()"
-      routerLink="/blog"
-      class="text-medium-normal text-oscure-800"
-      ><li routerLinkActive="text-regular-extra-normal">Blog</li></a
-    >
+    <li class="text-medium-normal text-oscure-800">
+      <a
+        (click)="onClose()"
+        routerLink="/about"
+        routerLinkActive="text-regular-extra-normal"
+        >Sobre Wilmion</a
+      >
+    </li>
+    <li class="text-medium-normal text-oscure-800">
+      <a (click)="onClose()" routerLink="/portfolio">Portafolio</a>
+    </li>
+    <li class="text-medium-normal text-oscure-800">
+      <a
+        (click)="onClose()"
+        routerLink="/contact-me"
+        routerLinkActive="text-regular-extra-normal"
+        >Contáctame</a
+      >
+    </li>
+    <li class="text-medium-normal text-oscure-800">
+      <a
+        (click)="onClose()"
+        routerLink="/blog"
+        routerLinkActive="text-regular-extra-normal"
+        >Blog</a
+      >
+    </li>
   </ul>
 </nav>

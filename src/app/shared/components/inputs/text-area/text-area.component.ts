@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class TextAreaComponent implements OnInit {
   @Input() label: string = 'Label of text area';
   @Input() placeholder: string = 'placeholder....';
-  @Input() id: string = '';
+  @Input() idInput: string = '';
   @Input() formGroup: FormGroup | undefined;
 
   transformOfCounter = {};

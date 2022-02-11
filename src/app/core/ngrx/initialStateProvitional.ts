@@ -163,8 +163,7 @@ export const initialState = {
   ],
   jobs: [
     {
-      imageUrl:
-        'https://lh3.googleusercontent.com/a-/AOh14GjXhT6Dc5d6eYxyIh3ckQq3zvL7lK2qxCkaoHyhUw=s40',
+      imageUrl: 'assets/images/MTD Logo.png',
       name_business: 'MTD Company',
       color: '#734CFC',
       description:

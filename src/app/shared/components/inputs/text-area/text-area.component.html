@@ -1,12 +1,12 @@
 <div class="text-area" [formGroup]="formGroup" *ngIf="formGroup">
-  <label [for]="id" class="text-area__label">{{ label }}</label>
+  <label [for]="idInput" class="text-area__label">{{ label }}</label>
   <textarea
-    [name]="id"
-    [id]="id"
+    [name]="idInput"
+    [id]="idInput"
     cols="30"
     rows="10"
     [placeholder]="placeholder"
-    [formControlName]="id"
+    [formControlName]="idInput"
     class="text-area__input"
     (input)="onWrite($event)"
   ></textarea>

@@ -12,7 +12,7 @@ export class InputComponent implements OnInit {
   @Input() label: string = 'Label text';
   @Input() placeholder: string = 'placeholder';
   @Input() type: string = '';
-  @Input() id: string = '';
+  @Input() idInput: string = '';
   @Input() formGroup: FormGroup | undefined;
   @Input() withIcon: boolean = false;
   @Input() icon: Icons | undefined;
