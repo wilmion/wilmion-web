@@ -7,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class CheckboxToogleComponent implements OnInit {
   @Output() changedState = new EventEmitter<boolean>();
+
+  @Input() enabled: boolean = true;
   @Input() active: boolean = false;
 
   constructor() {}

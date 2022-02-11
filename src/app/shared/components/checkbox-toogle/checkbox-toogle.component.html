@@ -1,6 +1,7 @@
 <div
   class="flex flex-row bg-oscure-800 w-9 p-0.5 rounded-full cursor-pointer"
+  [class.bg-opacity-80]="!enabled"
   (click)="onClick()"
 >
-  <div class="circle" [class.active]="active"></div>
+  <div class="circle" [class.active]="active && enabled"></div>
 </div>
