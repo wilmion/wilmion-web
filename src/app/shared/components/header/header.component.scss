@@ -18,7 +18,7 @@
     }
     &-nav-list {
       @apply hidden;
-      a {
+      li {
         @apply transition;
         @apply duration-500;
         @apply ease-in-out;
