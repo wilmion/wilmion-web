@@ -49,18 +49,6 @@ export class MainComponent implements OnInit {
     this.currentProjectView = project;
     this.buttonsSkillCurrentProject = [];
 
-    const skills = this.pipeAsync.transform(this.skills$);
-
-    if (!skills) return;
-
-    const skillsNames = project.skills;
-
-    skillsNames.forEach((skillName) => {
-      const verbButton = getVerbsFromButton(skillName, skills);
-
-      if (verbButton) this.buttonsSkillCurrentProject.push(verbButton);
-    });
-
     this.setValueInModal(true);
   }
 
@@ -69,16 +57,5 @@ export class MainComponent implements OnInit {
     else if (skill === 'Nest.js') return 'Ver backend';
 
     return '';
-  }
-
-  getSkillFromName(skills: Skill[] | null, name: string) {
-    if (!skills) throw new Error('Skills is null?');
-
-    const skill = skills.find((s) => s.name === name);
-
-    if (!skill)
-      throw new Error("A error ocurred, This name of skills doesn't exist");
-
-    return skill;
   }
 }

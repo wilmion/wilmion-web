@@ -10,9 +10,9 @@
     </p>
     <div class="portfolio-page__modal__project">
       <app-project-modal
-        [url]="currentProjectView.image"
-        [githubUrl]="currentProjectView.link_repository"
-        [blogUrl]="currentProjectView.link_blog"
+        [url]="currentProjectView.image.imageUrl"
+        [githubUrl]="currentProjectView.linkRepository"
+        [blogUrl]="currentProjectView.linkBlog"
       ></app-project-modal>
     </div>
 
@@ -28,7 +28,7 @@
       ></app-button>
       <app-button
         class="portfolio-page__modal__buttons__container"
-        *ngIf="currentProjectView.link_blog"
+        *ngIf="currentProjectView.linkBlog"
         content="¿Cómo lo hice?"
         type="button-primary"
         [notSetPosition]="true"
@@ -40,14 +40,7 @@
         class="portfolio-page__modal__technologies__container"
         *ngFor="let data of currentProjectView.skills"
       >
-        <app-skill
-          [icon]="getSkillFromName(skills$ | async, data).icon"
-          [colorBackground]="
-            getSkillFromName(skills$ | async, data).backgroundColor
-          "
-          [colorItems]="getSkillFromName(skills$ | async, data).iconColor"
-          [text]="getSkillFromName(skills$ | async, data).name"
-        ></app-skill>
+        <app-skill [skill]="data"></app-skill>
       </div>
     </div>
   </section>
@@ -75,21 +68,12 @@
   </div>
 
   <h3 class="portfolio-page__subtitle text-primary">EXPERIENCIA</h3>
-  <!--Some elements-->
+
   <section class="portfolio-page__jobs">
     <div class="portfolio-page__jobs__container">
       <app-job-card
         *ngFor="let job of jobs$ | async"
-        [job]="job.role"
-        [time]="[job.from, job.to]"
-        [description]="job.description"
-        [listsFunction]="[
-          job.function_1,
-          job.function_2,
-          job.function_3,
-          job.function_4
-        ]"
-        [linkedInUrl]="job.linkedIn_url"
+        [job]="job"
       ></app-job-card>
     </div>
   </section>
@@ -100,9 +84,8 @@
     <app-project
       class="portfolio-page__projects-container__container"
       *ngFor="let project of projects$ | async"
-      [urlImage]="project.image"
-      [nameOfProject]="project.name"
-      (OpenModal)="onViewDetails(project)"
+      [project]="project"
+      (OpenModal)="onViewDetails($event)"
     ></app-project>
   </section>
 
@@ -112,13 +95,7 @@
       class="portfolio-page__skill-container__container"
       *ngFor="let data of skills$ | async"
     >
-      <app-skill
-        class="w-full"
-        [icon]="data.icon"
-        [colorBackground]="data.backgroundColor"
-        [colorItems]="data.iconColor"
-        [text]="data.name"
-      ></app-skill>
+      <app-skill class="w-full" [skill]="data"></app-skill>
     </div>
   </section>
 </section>

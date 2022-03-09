@@ -5,6 +5,9 @@ import { initialState } from '@core/ngrx/initialStateProvitional';
 
 import { StaticPage } from '@models/static-page.model';
 
+// Services
+import { ApiService } from '@core/services/api/api.service';
+
 //Dispatchs
 import { setStaticPages } from '@actions/static-page.actions';
 import { setProjects } from '@actions/projects.actions';
@@ -19,47 +22,16 @@ import { setSocialMedias } from '@actions/socialMedias.actions';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private store: Store<{ staticPages: StaticPage[]; darkMode: boolean }>
+    private store: Store<{ staticPages: StaticPage[]; darkMode: boolean }>,
+    private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
-    this.setDates();
     this.store.select('darkMode').subscribe((value) => {
       localStorage['theme'] = value ? 'dark' : 'light';
       this.verifyDarkMode();
     });
-  }
-
-  private setDates() {
-    this.store.dispatch(
-      setStaticPages({
-        staticPages: initialState.staticPages,
-      })
-    );
-
-    this.store.dispatch(
-      setProjects({
-        projects: initialState.projects,
-      })
-    );
-
-    this.store.dispatch(
-      setSkills({
-        skills: initialState.skills,
-      })
-    );
-
-    this.store.dispatch(
-      setSocialMedias({
-        socialMedias: initialState.socialMedia,
-      })
-    );
-
-    this.store.dispatch(
-      setJobs({
-        jobs: initialState.jobs as any,
-      })
-    );
+    this.fetchData();
   }
 
   private verifyDarkMode() {
@@ -72,5 +44,47 @@ export class AppComponent implements OnInit {
     } else {
       document.documentElement.classList.remove('dark');
     }
+  }
+
+  private fetchData() {
+    this.apiService.getAllStaticContents().subscribe((res) => {
+      this.store.dispatch(
+        setStaticPages({
+          staticPages: res.payload,
+        })
+      );
+    });
+
+    this.apiService.getAllJobs().subscribe((res) => {
+      this.store.dispatch(
+        setJobs({
+          jobs: res.payload as any,
+        })
+      );
+    });
+
+    this.apiService.getAllProjects().subscribe((res) => {
+      this.store.dispatch(
+        setProjects({
+          projects: res.payload,
+        })
+      );
+    });
+
+    this.apiService.getAllSkills().subscribe((res) => {
+      this.store.dispatch(
+        setSkills({
+          skills: res.payload,
+        })
+      );
+    });
+
+    this.apiService.getAllSocialMedia().subscribe((res) => {
+      this.store.dispatch(
+        setSocialMedias({
+          socialMedias: res.payload,
+        })
+      );
+    });
   }
 }

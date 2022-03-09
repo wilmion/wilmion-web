@@ -1,11 +1,15 @@
+import { Image } from './image.model';
+import { Skill } from './skill.model';
+
 export interface Project {
-  readonly image: string;
+  readonly id?: number;
+  readonly image: Image;
   readonly name: string;
   readonly description: string;
-  readonly link_frontend: string | null;
-  readonly link_backend: string | null;
-  readonly link_blog: string | null;
-  readonly link_figma: string | null;
-  readonly link_repository: string;
-  readonly skills: string[];
+  readonly linkFrontend: string;
+  readonly linkBackend: string | null;
+  readonly linkBlog: string | null;
+  readonly linkFigma: string | null;
+  readonly linkRepository: string;
+  readonly skills: Skill[];
 }

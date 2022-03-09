@@ -1,5 +1,6 @@
 export interface StaticPage {
+  readonly id?: number;
   readonly introduction: string;
-  readonly response_question: string;
-  readonly contact_email: string | undefined;
+  readonly responseQuestion: string;
+  readonly contactEmail: string | undefined;
 }

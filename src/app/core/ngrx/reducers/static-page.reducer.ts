@@ -8,14 +8,14 @@ const initialState: StaticPage[] = [
   {
     introduction:
       'En esta sección podras contarme via email o ver mi actividad en redes sociales 😎😊',
-    response_question: `Como +l+Frontend Developer+l+ desde el primer día garantizo la calidad de código de tus proyectos, aparte, complemento el diseño con la maquetación de la página web debido a que también soy +l+UI designer+l+.
+    responseQuestion: `Como +l+Frontend Developer+l+ desde el primer día garantizo la calidad de código de tus proyectos, aparte, complemento el diseño con la maquetación de la página web debido a que también soy +l+UI designer+l+.
     A nivel personal soy una persona amigable en la cual seguro sacare unas sonrisas a la cultura de tu empresa/compañía.`,
-    contact_email: 'wilmion92@gmail.com',
+    contactEmail: 'wilmion92@gmail.com',
   },
   {
     introduction: '',
-    response_question: '',
-    contact_email: undefined,
+    responseQuestion: '',
+    contactEmail: undefined,
   },
 ];
 

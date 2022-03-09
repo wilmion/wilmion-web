@@ -1,14 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { Project } from '@core/models/project.model';
+
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss'],
 })
 export class ProjectComponent implements OnInit {
-  @Input() urlImage: string = '';
-  @Input() nameOfProject: string = '';
-  @Output() OpenModal = new EventEmitter();
+  @Input() project: Project | undefined;
+
+  @Output() OpenModal = new EventEmitter<Project>();
 
   url: string = '';
   hovering: boolean = false;
@@ -17,6 +19,7 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUrl('0px');
+    console.log(this.project);
   }
 
   onHover(e: Event) {
@@ -29,12 +32,18 @@ export class ProjectComponent implements OnInit {
   }
 
   onClickViewDetails() {
-    this.OpenModal.emit();
+    if (!this.project) return;
+
+    this.OpenModal.emit(this.project);
   }
 
   private getUrl(customLeft: string) {
+    if (!this.project) return;
+
     const opacity = this.hovering ? '0.4' : '0';
 
-    this.url = `linear-gradient(rgba(0,0,0,${opacity}), rgba(0,0,0,${opacity})), url("${this.urlImage}") ${customLeft} 0px / 120% auto no-repeat`;
+    const image = this.project.image;
+
+    this.url = `linear-gradient(rgba(0,0,0,${opacity}), rgba(0,0,0,${opacity})), url("${image.imageUrl}") ${customLeft} 0px / 120% auto no-repeat`;
   }
 }

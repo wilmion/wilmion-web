@@ -11,21 +11,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  socialMedia: SocialMedia[] = [];
-
-  constructor(private store: Store<{ socialMedia: SocialMedia[] }>) {}
-
-  ngOnInit(): void {
-    this.store
-      .select('socialMedia')
-      .subscribe((socialMedias) => (this.socialMedia = socialMedias));
+  socialMedia$: Observable<SocialMedia[]>;
+  constructor(private store: Store<{ socialMedia: SocialMedia[] }>) {
+    this.socialMedia$ = store.select('socialMedia');
   }
 
-  getUrlOfSocialMedia(name: string) {
-    const socialMedia = this.socialMedia.find((s) => s.name === name);
-
-    if (!socialMedia) return;
-
-    return socialMedia.redirect_url;
-  }
+  ngOnInit(): void {}
 }

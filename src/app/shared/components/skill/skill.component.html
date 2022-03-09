@@ -1,21 +1,22 @@
 <div
+  *ngIf="skill"
   class="skill"
-  [ngStyle]="{ 'background-color': colorBackground }"
+  [ngStyle]="{ 'background-color': skill.backgroundColor }"
   (mouseenter)="onHover()"
   (mouseleave)="onHover()"
 >
   <app-icon
-    [color]="colorItems"
-    [insertedSvg]="icon"
+    [color]="skill.iconColor"
+    [insertedSvg]="skill.icon"
     width="48px"
     height="48px"
   ></app-icon>
   <p
     class="skill__text"
-    [ngStyle]="{ color: colorItems }"
+    [ngStyle]="{ color: skill.iconColor }"
     [class.block]="hovering"
     [class.hidden]="!hovering"
   >
-    {{ text }}
+    {{ skill.name }}
   </p>
 </div>

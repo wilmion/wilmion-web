@@ -13,9 +13,9 @@ import { Observable } from 'rxjs';
 })
 export class MainComponent implements OnInit {
   staticPage$: Observable<StaticPage[]>;
-  staticPage: StaticPage | undefined;
+  socialMedia$: Observable<SocialMedia[]>;
 
-  socialMedia: SocialMedia[] = [];
+  staticPage: StaticPage | undefined;
 
   constructor(
     private store: Store<{
@@ -24,6 +24,7 @@ export class MainComponent implements OnInit {
     }>
   ) {
     this.staticPage$ = store.select('staticPages');
+    this.socialMedia$ = store.select('socialMedia');
   }
 
   ngOnInit(): void {
@@ -32,22 +33,12 @@ export class MainComponent implements OnInit {
 
   private subscribeToStore() {
     this.staticPage$.subscribe((data) => {
-      const dataFiltered = data.find((d) => d.contact_email !== undefined);
+      const dataFiltered = data.find((d) => d.contactEmail !== undefined);
 
       if (!dataFiltered) return;
 
+      console.log(dataFiltered);
       this.staticPage = dataFiltered;
     });
-    this.store
-      .select('socialMedia')
-      .subscribe((socialMedia) => (this.socialMedia = socialMedia));
-  }
-
-  getUrlOfSocialMedia(name: string) {
-    const socialMedia = this.socialMedia.find((s) => s.name === name);
-
-    if (!socialMedia) return;
-
-    return socialMedia.redirect_url;
   }
 }

@@ -171,7 +171,7 @@ export const initialState = {
       active: true,
       role: 'Frontend Developer and UI designer',
       from: new Date(2021, 6, 5),
-      to: 'Currenty',
+      to: 'Currently',
       function_1:
         'Usar las mejores tecnologías para la implementación frontend.',
       function_2:

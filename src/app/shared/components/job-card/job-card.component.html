@@ -1,13 +1,13 @@
-<article class="job-card">
+<article class="job-card" *ngIf="job && job.active">
   <div class="job-card__company-presentation">
     <app-image
-      url="https://lh3.googleusercontent.com/a-/AOh14GjXhT6Dc5d6eYxyIh3ckQq3zvL7lK2qxCkaoHyhUw=s40"
+      [url]="job.image.imageUrl"
       [width]="64"
       [height]="64"
-      alt="Image of MTD Company"
+      [alt]="'Image of ' + job.nameBusinness"
       [rounded]="true"
     ></app-image>
-    <p class="job-card__company-presentation__name">MTD Company</p>
+    <p class="job-card__company-presentation__name">{{ job.nameBusinness }}</p>
   </div>
   <section class="job-card__company-data">
     <p class="job-card__company-data__date" *ngIf="time">
@@ -19,17 +19,22 @@
       }}
     </p>
     <p class="job-card__company-data__job">
-      {{ job }}
+      {{ job.role }}
     </p>
     <p class="job-card__company-data__description">
-      {{ description }}
+      {{ job.description }}
     </p>
-    <h6 class="job-card__company-data__subtitle">Funciones:</h6>
+    <h6
+      class="job-card__company-data__subtitle"
+      *ngIf="getListFunction(listsFunction).length !== 0"
+    >
+      Funciones:
+    </h6>
     <div class="job-card__company-data__functions">
       <ul class="job-card__company-data__functions__list">
         <li
           class="job-card__company-data__functions__list__item"
-          *ngFor="let text of listsFunction"
+          *ngFor="let text of getListFunction(listsFunction)"
         >
           {{ text }}
         </li>

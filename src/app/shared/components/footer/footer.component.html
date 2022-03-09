@@ -31,49 +31,14 @@
     <p class="text-medium-normal text-oscure-800">@copirigth Wilmion</p>
     <div class="footer__footer__social-media">
       <a
-        [href]="getUrlOfSocialMedia('yt')"
+        *ngFor="let socialMedia of socialMedia$ | async"
+        [href]="socialMedia.redirectUrl"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="social-media-of-youtube"
       >
         <app-icon
           icon="AIOUTLINEYOUTUBE"
-          color="#171208"
-          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
-        ></app-icon>
-      </a>
-      <a
-        aria-label="social-media-of-instagram"
-        [href]="getUrlOfSocialMedia('ig')"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <app-icon
-          icon="BSINSTAGRAM"
-          color="#171208"
-          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
-        ></app-icon>
-      </a>
-      <a
-        aria-label="social-media-of-linkedin"
-        [href]="getUrlOfSocialMedia('lNk')"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <app-icon
-          icon="AIOUTLINELINKEDIN"
-          color="#171208"
-          class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
-        ></app-icon>
-      </a>
-      <a
-        aria-label="social-media-of-twitter"
-        [href]="getUrlOfSocialMedia('twtr')"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <app-icon
-          icon="FITWITTER"
+          [insertedSvg]="socialMedia.icon"
           color="#171208"
           class="w-6 h-6 transition duration-500 ease-in-out hover:scale-125"
         ></app-icon>

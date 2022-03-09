@@ -1,15 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Skill } from '@core/models/skill.model';
+
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
   styleUrls: ['./skill.component.scss'],
 })
 export class SkillComponent implements OnInit {
-  @Input() colorItems: string = '#FFFEFC';
-  @Input() colorBackground: string = '#1EABFA';
-  @Input() icon: string = '';
-  @Input() text: string = '';
+  @Input() skill: Skill | undefined;
 
   hovering: boolean = false;
 

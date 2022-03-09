@@ -2,6 +2,7 @@
   class="personal-project"
   (mouseenter)="onHover($event)"
   (mouseleave)="onHover($event)"
+  *ngIf="project"
   [ngStyle]="{ background: url }"
 >
   <h4
@@ -9,7 +10,7 @@
     [class.opacity-0]="!hovering"
     [class.opacity-100]="hovering"
   >
-    {{ nameOfProject }}
+    {{ project.name }}
   </h4>
   <div
     class="personal-project__button"

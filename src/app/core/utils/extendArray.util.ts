@@ -11,3 +11,13 @@ export function chunkArray<T>(myArray: Array<T>, chunk_size: number) {
 
   return tempArray;
 }
+
+export function createArrayToElement(elements: any[]) {
+  const newArray: any[] = [];
+
+  elements.forEach((e) => {
+    if (e) newArray.push(e);
+  });
+
+  return newArray;
+}
