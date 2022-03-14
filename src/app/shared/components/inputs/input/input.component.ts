@@ -17,7 +17,22 @@ export class InputComponent implements OnInit {
   @Input() withIcon: boolean = false;
   @Input() icon: Icons | undefined;
 
+  typeOfInput: string = '';
+  colorIcon: string = '#171208';
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.typeOfInput = this.type;
+  }
+
+  onIcon(option: boolean) {
+    if (this.type === 'password' && option) {
+      this.typeOfInput = 'text';
+      this.colorIcon = '#734CFC';
+    } else if (this.type === 'password') {
+      this.typeOfInput = this.type;
+      this.colorIcon = '#171208';
+    }
+  }
 }

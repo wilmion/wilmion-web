@@ -7,6 +7,7 @@ import { Job } from '@models/job.model';
 import { Project } from '@models/project.model';
 import { Skill } from '@models/skill.model';
 import { SocialMedia } from '@models/socialMedia.model';
+import { User, Login } from '@models/user.model';
 
 import { environment } from 'src/environments/environment';
 
@@ -17,6 +18,17 @@ export class ApiService {
   private API: string = environment.API_URL;
 
   constructor(private http: HttpClient) {}
+
+  // Users
+
+  login(payload: Login) {
+    const urlRequest = `${this.API}/api/users/login`;
+
+    return this.http.post<IAPI<{ user: User; token: string }>>(
+      urlRequest,
+      payload
+    );
+  }
 
   // Static-Contents
 

@@ -1,0 +1,33 @@
+@import url("../../../../core/styles/texts.scss");
+
+.checkbox {
+  @apply flex;
+  @apply flex-row;
+  @apply items-center;
+  @apply space-x-3;
+  &__circle {
+    @apply relative;
+    @apply p-0.5;
+    @apply border-black;
+    @apply border-1;
+    @apply rounded-full;
+    &__input {
+      @apply opacity-0;
+      @apply z-10;
+      @apply absolute;
+    }
+    div {
+      @apply transition;
+      @apply ease-in-out;
+      @apply duration-75;
+      @apply w-3;
+      @apply h-3;
+      @apply bg-primary;
+      @apply rounded-full;
+    }
+  }
+  &__text {
+    @apply text-regular-normal;
+    @apply text-oscure-800;
+  }
+}

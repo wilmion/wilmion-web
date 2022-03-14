@@ -12,6 +12,7 @@ import { jobReducer } from '@reducers/jobs.reducer';
 import { projectsReducer } from '@reducers/projects.reducer';
 import { socialMediasReducer } from '@reducers/socialMedias.reducers';
 import { darkModeReducer } from '@reducers/darkMode.reducer';
+import { userReducer } from '@reducers/user.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { darkModeReducer } from '@reducers/darkMode.reducer';
         projects: projectsReducer,
         socialMedia: socialMediasReducer,
         darkMode: darkModeReducer,
+        user: userReducer,
       },
       {}
     ),

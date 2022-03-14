@@ -20,6 +20,13 @@
     @apply border-oscure-800;
     @apply border-opacity-25;
     @apply border-0.5;
+    &:focus-within {
+      @apply border-primary;
+      @apply border-1;
+      @apply border-opacity-100;
+      box-shadow: 1px 1px 20px rgb(253 203 88);
+    }
+
     &__input {
       @apply outline-none;
       @apply w-full;
@@ -29,7 +36,6 @@
     &__icon {
       @apply w-4.5;
       @apply h-4.5;
-      @apply bg-primary;
     }
   }
 }

@@ -31,7 +31,8 @@
       "@models/*": ["src/app/core/models/*"],
       "@styles/*": ["src/app/core/styles/*"],
       "@reducers/*": ["src/app/core/ngrx/reducers/*"],
-      "@actions/*": ["src/app/core/ngrx/actions/*"]
+      "@actions/*": ["src/app/core/ngrx/actions/*"],
+      "@auth/*": ["src/app/auth/*"]
     }
   },
   "angularCompilerOptions": {

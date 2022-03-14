@@ -1,0 +1,33 @@
+<section class="auth-container" *ngIf="formGroup">
+  <div class="auth-container__content">
+    <app-logo></app-logo>
+    <h2 class="auth-container__content__title">Iniciar sesión</h2>
+
+    <div class="auth-container__content__content">
+      <ng-content></ng-content>
+    </div>
+
+    <div class="auth-container__content__line"></div>
+
+    <div class="auth-container__content__contain">
+      <app-checkbox
+        text="Mantener mi cuenta iniciada"
+        [id]="checkboxControlName"
+        [formGroup]="formGroup"
+      ></app-checkbox>
+      <a class="text-link text-regular-normal" href="/forgot-password"
+        >Perdiste tu contraseña?</a
+      >
+    </div>
+    <app-button
+      type="button-primary"
+      typeButton="submit"
+      [disable]="!formGroup.valid"
+      content="Iniciar sesion"
+    ></app-button>
+  </div>
+
+  <div class="auth-container__contain-of-footer">
+    <app-footer [withNavBar]="false"></app-footer>
+  </div>
+</section>

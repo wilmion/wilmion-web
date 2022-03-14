@@ -2,8 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PrincipalLayoutComponent } from './components/principal-layout/principal-layout.component';
+import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 
 const routes: Routes = [
+  {
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../auth/auth.module').then((m) => m.AuthModule),
+      },
+    ],
+  },
   {
     path: '',
     component: PrincipalLayoutComponent,

@@ -1,0 +1,33 @@
+<form class="login" *ngIf="form" (submit)="login($event)">
+  <app-container-form [formGroup]="form" checkboxControlName="keep-my-account">
+    <div class="login__container">
+      <app-input
+        class="w-full"
+        label="Email"
+        placeholder="example@example.com"
+        type="email"
+        idInput="email"
+        [formGroup]="form"
+      ></app-input>
+      <app-input
+        label="Password"
+        placeholder=""
+        type="password"
+        idInput="password"
+        [withIcon]="true"
+        icon="BSFILLEYEFILL"
+        [formGroup]="form"
+      ></app-input>
+      <p class="login__container__error" *ngIf="error">
+        Hubo un error al iniciar sesión, puede ser debido a que digitaste mal tu
+        password o email.
+      </p>
+    </div>
+  </app-container-form>
+</form>
+<div class="loader" *ngIf="loading">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>

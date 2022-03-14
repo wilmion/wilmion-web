@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { SocialMedia } from '@models/socialMedia.model';
@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
+  @Input() withNavBar: boolean = true;
+
   socialMedia$: Observable<SocialMedia[]>;
   constructor(private store: Store<{ socialMedia: SocialMedia[] }>) {
     this.socialMedia$ = store.select('socialMedia');

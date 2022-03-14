@@ -2,7 +2,7 @@
   <label [for]="idInput" class="input__label">{{ label }}</label>
   <div class="input__container">
     <input
-      [type]="type"
+      [type]="typeOfInput"
       [name]="idInput"
       [id]="idInput"
       class="input__container__input"
@@ -10,7 +10,14 @@
       [formControlName]="idInput"
     />
     <div class="input__container__icon" *ngIf="withIcon && icon">
-      <app-icon width="18px" height="18px" [icon]="icon"></app-icon>
+      <app-icon
+        width="18px"
+        height="18px"
+        [icon]="icon"
+        class="text-oscure-800"
+        (mouseup)="onIcon(false)"
+        (mousedown)="onIcon(true)"
+      ></app-icon>
     </div>
   </div>
 </div>

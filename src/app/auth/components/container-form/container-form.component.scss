@@ -1,0 +1,48 @@
+@import url("../../../core/styles/texts.scss");
+
+.auth-container {
+  width: 600px;
+  @apply h-auto;
+  @apply bg-ligth-800;
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply space-y-0;
+  &__content {
+    @apply w-full;
+    @apply h-auto;
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply p-6;
+    @apply space-y-6;
+    &__title {
+      @apply text-h2;
+      @apply text-oscure-800;
+    }
+
+    &__content {
+      @apply w-full;
+      @apply h-auto;
+    }
+
+    &__line {
+      @apply w-full;
+      @apply opacity-50;
+      @apply border-oscure-800;
+      @apply border-1;
+      @apply border-dashed;
+    }
+
+    &__contain {
+      @apply w-full;
+      @apply flex;
+      @apply justify-between;
+      @apply items-center;
+    }
+  }
+
+  &__contain-of-footer {
+    @apply w-full;
+  }
+}
