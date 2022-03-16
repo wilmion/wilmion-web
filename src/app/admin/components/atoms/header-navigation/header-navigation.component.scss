@@ -1,0 +1,15 @@
+.header-admin {
+  @apply relative;
+  @apply z-20;
+  @apply w-full;
+  @apply flex;
+  @apply flex-row;
+  @apply justify-between;
+  @apply items-center;
+  @apply bg-primary;
+  @apply p-6;
+  @apply md:w-80;
+  @apply md:h-26;
+  @apply md:bg-ligth-600;
+  @apply md:shadow-basic-shadow;
+}

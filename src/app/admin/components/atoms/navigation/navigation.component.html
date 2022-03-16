@@ -1,0 +1,53 @@
+<nav class="navigation-admin" [class.-translate-y-full]="!open">
+  <ng-container
+    *ngFor="let section of mockNavigation; let sectionIndex = index"
+  >
+    <p class="navigation-admin__section">{{ section.section }}</p>
+    <ul class="navigation-admin__list">
+      <li
+        class="navigation-admin__list__item"
+        *ngFor="let path of section.paths; let pathIndex = index"
+      >
+        <div
+          (click)="onClick(path.subSections.length === 0, path.path, path.name)"
+          class="navigation-admin__list__item__section"
+          [class.px-6]="pathActive !== path.name"
+          [class.pl-8]="pathActive === path.name"
+          [class.pr-6]="pathActive === path.name"
+        >
+          <div class="navigation-admin__list__item__section__header">
+            <app-icon
+              [icon]="path.icon"
+              class="w-6 h-6 text-oscure-800"
+            ></app-icon>
+            <p class="navigation-admin__list__item__section__header__name">
+              {{ path.name }}
+            </p>
+          </div>
+          <div
+            [class.hidden]="path.subSections.length === 0"
+            (click)="toggleMenu(pathIndex, sectionIndex)"
+            [class.-rotate-90]="path.subsectionsActive"
+          >
+            <app-icon
+              icon="IOIOSARROWDOWN"
+              class="w-4 h-6 text-oscure-800 cursor-pointer"
+            ></app-icon>
+          </div>
+        </div>
+        <div
+          class="flex navigation-admin__list__item__subItems"
+          *ngIf="path.subSections.length > 0 && path.subsectionsActive"
+        >
+          <a
+            [routerLink]="subPath.path"
+            class="text-oscure-800"
+            *ngFor="let subPath of path.subSections"
+          >
+            {{ subPath.name }}
+          </a>
+        </div>
+      </li>
+    </ul>
+  </ng-container>
+</nav>

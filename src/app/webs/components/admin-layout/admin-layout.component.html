@@ -1,0 +1,18 @@
+<div class="w-full min-h-screen bg-surface-ligth">
+  <header class="w-full flex flex-col md:flex-row">
+    <app-header-navigation
+      (toggleMenu)="onToogleMenu()"
+    ></app-header-navigation>
+    <app-header-admin class="w-full"></app-header-admin>
+  </header>
+  <div class="hidden md:block">
+    <app-navigation [open]="openNav"></app-navigation>
+  </div>
+  <main
+    class="w-full md:p-6 md:w-auto transition duration-1000 ease-in-out"
+    [class.md:translate-x-80]="openNav"
+    [class.md:translate-x-0]="!openNav"
+  >
+    <router-outlet></router-outlet>
+  </main>
+</div>

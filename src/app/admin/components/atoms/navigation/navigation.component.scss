@@ -1,0 +1,64 @@
+@import url("../../../../core/styles/texts.scss");
+
+.navigation-admin {
+  @apply fixed;
+  @apply top-0;
+  @apply z-10;
+  @apply bg-ligth-800;
+  @apply w-80;
+  @apply h-screen;
+  @apply p-6;
+  @apply pt-32;
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  @apply transition;
+  @apply ease-in-out;
+  @apply duration-500;
+  &__section {
+    @apply text-primary;
+    @apply text-medium-extra-normal;
+  }
+  &__list {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-6;
+    &__item {
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-3;
+      &__section {
+        @apply w-full;
+        @apply flex;
+        @apply flex-row;
+        @apply justify-between;
+        @apply items-center;
+
+        @apply cursor-pointer;
+        &__header {
+          @apply flex;
+          @apply flex-row;
+          @apply items-center;
+          @apply space-x-3;
+          &__name {
+            @apply text-oscure-800;
+            @apply text-medium-normal;
+            @apply uppercase;
+          }
+        }
+      }
+      &__subItems {
+        @apply px-16;
+        @apply flex-col;
+        @apply space-y-3;
+        a {
+          @apply text-regular-extra-small;
+          @apply cursor-pointer;
+          @apply transition;
+          @apply duration-500;
+          @apply hover:scale-105;
+        }
+      }
+    }
+  }
+}

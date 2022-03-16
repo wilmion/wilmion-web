@@ -20,6 +20,7 @@ import { TextAreaComponent } from './components/inputs/text-area/text-area.compo
 import { NavigationMobileComponent } from './components/navigation-mobile/navigation-mobile.component';
 import { ChangeScreenDirective } from './directives/change-screen/change-screen.directive';
 import { CheckboxComponent } from './components/inputs/checkbox/checkbox.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CheckboxComponent } from './components/inputs/checkbox/checkbox.compone
     NavigationMobileComponent,
     ChangeScreenDirective,
     CheckboxComponent,
+    LoadingComponent,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -58,6 +60,7 @@ import { CheckboxComponent } from './components/inputs/checkbox/checkbox.compone
     TextAreaComponent,
     ChangeScreenDirective,
     CheckboxComponent,
+    LoadingComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
 })

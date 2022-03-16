@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PrincipalLayoutComponent } from './components/principal-layout/principal-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
+import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,17 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('../auth/auth.module').then((m) => m.AuthModule),
+      },
+    ],
+  },
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../admin/admin.module').then((m) => m.AdminModule),
       },
     ],
   },

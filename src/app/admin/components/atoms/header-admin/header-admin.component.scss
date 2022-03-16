@@ -1,0 +1,53 @@
+@import url("../../../../core/styles/texts.scss");
+.header-admin {
+  @apply hidden;
+  @apply md:flex;
+  @apply flex-row;
+  @apply w-full;
+  @apply justify-between;
+  @apply items-center;
+  @apply p-6;
+  @apply bg-primary;
+
+  &__rute {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-2;
+    &__title {
+      @apply text-oscure-800;
+      @apply text-medium-large;
+      @apply uppercase;
+    }
+    &__mige {
+      @apply flex;
+      @apply flex-row;
+      @apply space-x-2;
+      &__section {
+        @apply text-oscure-800;
+        @apply text-regular-normal;
+        @apply uppercase;
+      }
+    }
+  }
+  &__profile {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply space-x-3;
+    &__dates {
+      @apply flex;
+      @apply flex-col;
+      @apply space-x-0;
+      &__name {
+        @apply text-oscure-800;
+        @apply text-regular-normal;
+        @apply capitalize;
+      }
+      &__job {
+        @apply text-secondary;
+        @apply capitalize;
+        @apply text-regular-extra-small;
+      }
+    }
+  }
+}

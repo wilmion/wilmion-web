@@ -25,9 +25,4 @@
     </div>
   </app-container-form>
 </form>
-<div class="loader" *ngIf="loading">
-  <div class="spinner">
-    <div class="double-bounce1"></div>
-    <div class="double-bounce2"></div>
-  </div>
-</div>
+<app-loading [loading]="loading"> </app-loading>

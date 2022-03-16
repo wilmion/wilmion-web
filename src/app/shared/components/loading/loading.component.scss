@@ -1,0 +1,58 @@
+.loader {
+  @apply absolute;
+  @apply w-full;
+  @apply h-screen;
+  @apply bg-black;
+  @apply bg-opacity-25;
+  @apply top-0;
+  @apply left-0;
+}
+
+.spinner {
+  @apply relative;
+  @apply w-24;
+  @apply h-24;
+  margin: 20% auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  @apply w-full;
+  @apply h-full;
+  @apply rounded-full;
+  @apply bg-oscure-800;
+  @apply opacity-60;
+  @apply absolute;
+  @apply top-0;
+  @apply left-0;
+
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
