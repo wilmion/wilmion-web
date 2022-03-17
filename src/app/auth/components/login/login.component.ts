@@ -86,15 +86,17 @@ export class LoginComponent implements OnInit {
 
       if (keep) {
         this.storageService.setLocalStorage(payload, key);
+        this.storageService.setLocalStorage(payload.token, 'token');
       } else {
         this.storageService.setSessionStorage(payload, key);
+        this.storageService.setLocalStorage(payload.token, 'token');
       }
 
       this.store.dispatch(setUser(payload.user));
 
       this.loading = false;
 
-      this.router.navigate(['/admin/dashboard']);
+      this.router.navigate(['/admin']);
     }
   }
 

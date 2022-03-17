@@ -1,0 +1,51 @@
+@import url("../../../../../core/styles/texts.scss");
+
+.card-social-media-admin {
+  @apply w-auto;
+  @apply flex;
+  @apply flex-col;
+  @apply p-6;
+  @apply space-y-3;
+  &__content {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+    @apply items-center;
+    &__profile {
+      @apply flex;
+      @apply flex-row;
+      @apply items-center;
+      @apply space-x-6;
+      @apply w-44;
+      &__name {
+        @apply uppercase;
+        @apply text-medium-large;
+      }
+    }
+    &__available {
+      @apply flex;
+      @apply flex-row;
+      @apply items-center;
+      @apply space-x-3;
+      @apply transition;
+      &__circle {
+        @apply w-3;
+        @apply h-3;
+        @apply rounded-full;
+      }
+      &__paragraph {
+        @apply text-medium-normal;
+      }
+    }
+    &__button {
+      @apply hidden;
+      @apply lg:block;
+    }
+  }
+  &__line {
+    @apply w-full;
+    @apply bg-oscure-100;
+    @apply h-0.5;
+    @apply opacity-20;
+  }
+}

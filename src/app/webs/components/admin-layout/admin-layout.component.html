@@ -9,9 +9,9 @@
     <app-navigation [open]="openNav"></app-navigation>
   </div>
   <main
-    class="w-full md:p-6 md:w-auto transition duration-1000 ease-in-out"
-    [class.md:translate-x-80]="openNav"
-    [class.md:translate-x-0]="!openNav"
+    class="w-full md:p-6 md:w-auto transition-all duration-1000 ease-in-out"
+    [class.md:ml-80]="openNav"
+    [class.md:ml-0]="!openNav"
   >
     <router-outlet></router-outlet>
   </main>

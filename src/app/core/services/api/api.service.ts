@@ -78,6 +78,12 @@ export class ApiService {
     return this.http.get<IAPI<SocialMedia[]>>(url);
   }
 
+  updateSocialMedia(id: string, payload: Partial<SocialMedia>) {
+    const url = `${this.API}/api/social-media/${id}`;
+
+    return this.http.patch<IAPI<any>>(url, payload);
+  }
+
   // Utils for this file
 
   private createQuery(limit?: string, offset?: string) {

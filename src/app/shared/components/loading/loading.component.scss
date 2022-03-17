@@ -1,5 +1,6 @@
 .loader {
   @apply absolute;
+  @apply z-50;
   @apply w-full;
   @apply h-screen;
   @apply bg-black;

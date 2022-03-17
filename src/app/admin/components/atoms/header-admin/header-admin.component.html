@@ -1,22 +1,24 @@
-<section class="header-admin">
+<section class="header-admin" *ngIf="user">
   <div class="header-admin__rute">
     <h3 class="header-admin__rute__title">Dashboard</h3>
     <div class="header-admin__rute__mige">
-      <p class="header-admin__rute__mige__section">Dashboard</p>
-      <p class="header-admin__rute__mige__section">/</p>
+      <ng-container *ngFor="let rute of path">
+        <p class="header-admin__rute__mige__section">{{ rute }}</p>
+        <p class="header-admin__rute__mige__section">/</p>
+      </ng-container>
     </div>
   </div>
   <div class="header-admin__profile">
     <app-image
-      url="https://pbs.twimg.com/profile_images/1454945452990861314/Gv_taNqj_400x400.jpg"
+      [url]="user.image.imageUrl"
       alt="Photo of user's profile"
       [width]="46"
       [height]="46"
       [rounded]="true"
     ></app-image>
     <div class="header-admin__profile__dates">
-      <p class="header-admin__profile__dates__name">Wilbert Navarrete</p>
-      <p class="header-admin__profile__dates__job">Frontend Developer</p>
+      <p class="header-admin__profile__dates__name">{{ user.username }}</p>
+      <p class="header-admin__profile__dates__job">{{ user.job }}</p>
     </div>
   </div>
 </section>

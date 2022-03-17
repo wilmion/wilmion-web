@@ -12,3 +12,10 @@ body {
   @apply overflow-y-scroll;
   @apply overscroll-x-none;
 }
+
+.admin-box {
+  @apply w-full;
+  @apply bg-ligth-800;
+  @apply p-6;
+  @apply rounded-md;
+}

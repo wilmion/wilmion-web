@@ -1,0 +1,16 @@
+.modal-manage-social-media {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  &__buttons {
+    @apply w-full;
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply space-y-5;
+    @apply md:space-y-0;
+    @apply md:flex-row;
+    @apply md:justify-center;
+    @apply md:space-x-6;
+  }
+}

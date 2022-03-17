@@ -1,0 +1,41 @@
+<article class="card-social-media-admin" *ngIf="socialMedia">
+  <div class="card-social-media-admin__content">
+    <div class="card-social-media-admin__content__profile">
+      <app-icon
+        class="w-12 h-12"
+        [insertedSvg]="socialMedia.icon"
+        [color]="'#' + socialMedia.color"
+      ></app-icon>
+      <h4
+        class="card-social-media-admin__content__profile__name"
+        [ngStyle]="{ color: '#' + socialMedia.color }"
+      >
+        {{ socialMedia.name }}
+      </h4>
+    </div>
+
+    <div class="card-social-media-admin__content__available">
+      <div
+        class="card-social-media-admin__content__available__circle"
+        [class.bg-success]="socialMedia.active"
+        [class.bg-danger]="!socialMedia.active"
+      ></div>
+      <p
+        class="card-social-media-admin__content__available__paragraph"
+        [class.text-success]="socialMedia.active"
+        [class.text-danger]="!socialMedia.active"
+      >
+        {{ socialMedia.active ? "Activate" : "Desactivate" }}
+      </p>
+    </div>
+    <div class="card-social-media-admin__content__button">
+      <app-button
+        type="button-outline-primary"
+        content="Editar"
+        Icon="AIFILLEDIT"
+        (clickButton)="onEdit()"
+      ></app-button>
+    </div>
+  </div>
+  <div class="card-social-media-admin__line"></div>
+</article>

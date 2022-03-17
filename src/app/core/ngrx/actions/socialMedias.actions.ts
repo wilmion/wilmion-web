@@ -7,6 +7,11 @@ export const addSocialMedia = createAction(
   props<SocialMedia>()
 );
 
+export const editSocialMedia = createAction(
+  'editSocialMedia',
+  props<{ id: string; changes: Partial<SocialMedia> }>()
+);
+
 export const setSocialMedias = createAction(
   'setSocialMedias',
   props<{ socialMedias: SocialMedia[] }>()

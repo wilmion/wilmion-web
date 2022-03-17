@@ -1,0 +1,44 @@
+<app-modal
+  *ngIf="form && currentSocialMedia"
+  [open]="modal"
+  [title]="currentSocialMedia.name"
+  (onCloseModal)="closeModal()"
+>
+  <form class="modal-manage-social-media" (submit)="onSubmit($event)">
+    <app-input
+      type="text"
+      label="Link"
+      placeholder="https://example.com"
+      idInput="link"
+      [formGroup]="form"
+    ></app-input>
+    <p class="text-danger text-center text-medium-normal" *ngIf="error">
+      Hubo un error al efectuar tu actualización
+    </p>
+    <div class="modal-manage-social-media__buttons">
+      <app-button
+        type="button-primary"
+        content="Save"
+        typeButton="submit"
+        [disable]="!form.valid"
+      ></app-button>
+      <app-button
+        color="#FC0000"
+        colorText="#FC0000"
+        [customColorOutline]="true"
+        content="Cancel"
+        (clickButton)="closeModal()"
+      ></app-button>
+    </div>
+  </form>
+</app-modal>
+
+<section class="admin-box">
+  <app-social-media
+    *ngFor="let socialMedia of $socialMedia | async"
+    [socialMedia]="socialMedia"
+    (edit)="openModal($event)"
+  ></app-social-media>
+</section>
+
+<app-loading [loading]="loading"></app-loading>
