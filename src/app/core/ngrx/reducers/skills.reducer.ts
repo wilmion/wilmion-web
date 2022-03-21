@@ -10,6 +10,7 @@ const _skillReducer = createReducer(
   initialState,
   on(SkillsActions.addSkill, addSkill),
   on(SkillsActions.setSkills, setSkills),
+  on(SkillsActions.editSkill, editSkill),
   on(SkillsActions.clearAllSkills, clearAllSkills)
 );
 
@@ -18,9 +19,27 @@ export function skillReducer(state: Skill[] | undefined, action: Action) {
 }
 
 function addSkill(state: Skill[], newSkill: Skill) {
-  state.push(newSkill);
+  const newState = [...state];
 
-  return state;
+  newState.push(newSkill);
+
+  return newState;
+}
+
+function editSkill(
+  state: Skill[],
+  changes: { id: string; payload: Partial<Skill> }
+) {
+  const newState = [...state];
+
+  const index = newState.findIndex((s) => s.id === changes.payload.id);
+
+  newState[index] = {
+    ...newState[index],
+    ...changes.payload,
+  };
+
+  return newState;
 }
 
 function setSkills(state: Skill[], { skills }: { skills: Skill[] }) {

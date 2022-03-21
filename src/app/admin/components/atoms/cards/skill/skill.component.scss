@@ -1,0 +1,8 @@
+@import url("../../../../../core/styles/texts.scss");
+
+.card-manage-skill__content {
+  &__color-code {
+    @apply text-medium-normal;
+    @apply italic;
+  }
+}

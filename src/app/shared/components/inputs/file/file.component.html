@@ -1,0 +1,33 @@
+<div class="input-file">
+  <p class="input-file__label">{{ label }}</p>
+  <div class="input-file__content">
+    <div
+      class="input-file__content__value"
+      *ngFor="let blob of blobs; let i = index"
+    >
+      <app-icon
+        class="input-file__content__value__icon bg-oscure-800 rounded-full p-1 cursor-pointer w-5 h-auto absolute ml-1 mt-1 text-ligth-800"
+        (click)="onDeleteBlob(i)"
+        icon="AIOUTLINECLOSE"
+      ></app-icon>
+      <app-image
+        [url]="blob.imageUrl"
+        class="w-36 h-24"
+        alt="select-images"
+      ></app-image>
+    </div>
+    <div
+      class="input-file__content__contain cursor-pointer"
+      (click)="selectFiles()"
+      *ngIf="blobs.length < max"
+    >
+      <app-icon
+        icon="FAFILEEXPORT"
+        class="w-6 h-6 text-oscure-800 opacity-50"
+      ></app-icon>
+      <p class="input-file__content__contain__placeholder">
+        Arrastra o suelte archivos aquí
+      </p>
+    </div>
+  </div>
+</div>

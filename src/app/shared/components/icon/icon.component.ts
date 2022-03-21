@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 import { icons, Icons } from './icons';
 
@@ -7,7 +13,7 @@ import { icons, Icons } from './icons';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
 })
-export class IconComponent implements OnInit {
+export class IconComponent implements OnInit, OnChanges {
   @Input() icon: Icons = 'AIOUTLINELINKEDIN';
   @Input() width: string | undefined;
   @Input() height: string | undefined;
@@ -15,18 +21,16 @@ export class IconComponent implements OnInit {
   @Input() insertedSvg: string | undefined;
   @Input() class: string = '';
 
-  svgCode: string = '';
-
   constructor() {}
 
-  ngOnInit(): void {
-    this.getIcon();
-  }
+  ngOnInit(): void {}
 
-  getIcon() {
-    let svgTemplate: string = icons[this.icon];
+  ngOnChanges(changes: SimpleChanges): void {}
 
-    if (this.insertedSvg) svgTemplate = this.insertedSvg;
+  get getIcon() {
+    let svgTemplate: string = this.insertedSvg
+      ? this.insertedSvg
+      : icons[this.icon];
 
     const widthAndHeight =
       this.width && this.height
@@ -40,6 +44,6 @@ export class IconComponent implements OnInit {
       `${className}  ${widthAndHeight} color="${this.color}" `
     );
 
-    this.svgCode = svg;
+    return svg;
   }
 }

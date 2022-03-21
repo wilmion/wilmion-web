@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { ManageSocialMediaComponent } from './components/pages/manage-social-media/manage-social-media.component';
@@ -9,6 +10,8 @@ import { HeaderNavigationComponent } from './components/atoms/header-navigation/
 import { SharedModule } from '@shared/shared.module';
 import { HeaderAdminComponent } from './components/atoms/header-admin/header-admin.component';
 import { SocialMediaComponent } from './components/atoms/cards/social-media/social-media.component';
+import { ManageSkillsComponent } from './components/pages/manage-skills/manage-skills.component';
+import { CardSkillComponent } from './components/atoms/cards/skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,10 @@ import { SocialMediaComponent } from './components/atoms/cards/social-media/soci
     HeaderNavigationComponent,
     HeaderAdminComponent,
     SocialMediaComponent,
+    ManageSkillsComponent,
+    CardSkillComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, SharedModule],
+  imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
   exports: [
     HeaderAdminComponent,
     NavigationComponent,

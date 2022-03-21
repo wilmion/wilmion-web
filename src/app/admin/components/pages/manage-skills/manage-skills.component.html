@@ -1,0 +1,117 @@
+<app-modal
+  [open]="openModal"
+  (onCloseModal)="openModal = false"
+  [title]="createModal ? 'Add Skill' : 'Edit skill'"
+>
+  <form
+    class="modal-card-manage-skill"
+    (submit)="createModal ? create() : edit()"
+    *ngIf="formPrincipal"
+  >
+    <div class="modal-card-manage-skill__preview">
+      <div class="modal-card-manage-skill__preview__icon">
+        <app-skill [skill]="provisionalSkill"></app-skill>
+      </div>
+      <app-icon class="w-8 h-8 text-oscure-800" icon="MDMOUSE"></app-icon>
+      <div class="modal-card-manage-skill__preview__icon">
+        <app-skill [skill]="provisionalSkill"></app-skill>
+      </div>
+    </div>
+    <h2 class="modal-card-manage-skill__section">Picture</h2>
+    <div class="modal-card-manage-skill__inputs">
+      <app-input
+        *ngIf="files.length === 0"
+        type="text"
+        placeholder="<svg props {...} > </svg>"
+        label="SVG"
+        class="w-full"
+        idInput="svg-principal-form"
+        [formGroup]="formPrincipal"
+      ></app-input>
+      <app-file
+        *ngIf="svg.value === ''"
+        [blobs]="files"
+        label="File"
+        [max]="1"
+        (onGetValues)="files = $event"
+      ></app-file>
+    </div>
+    <h2 class="modal-card-manage-skill__section">Information</h2>
+    <div class="modal-card-manage-skill__inputs">
+      <app-input
+        type="text"
+        placeholder="Skill's name"
+        label="Name"
+        class="w-full"
+        idInput="name-principal-form"
+        [formGroup]="formPrincipal"
+      ></app-input>
+      <app-input
+        type="text"
+        placeholder="FFFFFF"
+        label="Background color"
+        class="w-full"
+        idInput="bg-principal-form"
+        [formGroup]="formPrincipal"
+      ></app-input>
+      <app-input
+        type="text"
+        placeholder="FFFFFF"
+        label="Color"
+        class="w-full"
+        idInput="color-principal-form"
+        [formGroup]="formPrincipal"
+      ></app-input>
+
+      <app-input></app-input>
+    </div>
+    <p class="text-regular-normal text-center text-danger w-full" *ngIf="error">
+      Hubo un error al crear su Skill
+    </p>
+    <div class="modal-card-manage-skill__buttons">
+      <app-button
+        type="button-primary"
+        typeButton="submit"
+        [content]="createModal ? 'Create' : 'Save'"
+        [disable]="!formPrincipal.valid"
+      ></app-button>
+      <app-button
+        color="#171208"
+        colorText="#171208"
+        [customColorOutline]="true"
+        content="Cancel"
+      ></app-button>
+    </div>
+  </form>
+</app-modal>
+
+<section class="manage-skills" *ngIf="formSearch">
+  <div class="admin-box manage-skills__search">
+    <h2 class="manage-skills__search__title">Skills</h2>
+    <app-input
+      placeholder="Enter a skill"
+      [formGroup]="formSearch"
+      label=""
+      idInput="search"
+      class="w-full"
+    ></app-input>
+  </div>
+
+  <div class="admin-box manage-skills__button">
+    <app-button
+      type="button-primary"
+      content="Create a skill"
+      (clickButton)="onButtonCreate()"
+    ></app-button>
+  </div>
+
+  <div class="admin-box manage-skills__skills">
+    <app-card-skill
+      class="w-full"
+      *ngFor="let skill of $skills | async"
+      [skill]="skill"
+      (click)="onButtonEdit(skill)"
+    ></app-card-skill>
+  </div>
+</section>
+<app-loading [loading]="loading"></app-loading>

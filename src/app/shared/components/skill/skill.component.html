@@ -1,19 +1,26 @@
 <div
   *ngIf="skill"
   class="skill"
-  [ngStyle]="{ 'background-color': skill.backgroundColor }"
+  [ngStyle]="{ 'background-color': '#' + skill.backgroundColor }"
   (mouseenter)="onHover()"
   (mouseleave)="onHover()"
 >
   <app-icon
-    [color]="skill.iconColor"
+    [color]="'#' + skill.iconColor"
     [insertedSvg]="skill.icon"
-    width="48px"
-    height="48px"
+    *ngIf="skill.icon"
+    class="w-12 h-12"
   ></app-icon>
+  <app-image
+    *ngIf="skill.image"
+    [url]="skill.image.imageUrl"
+    [alt]="'Image of skill of ' + skill.name"
+    class="w-12 h-12"
+  >
+  </app-image>
   <p
     class="skill__text"
-    [ngStyle]="{ color: skill.iconColor }"
+    [ngStyle]="{ color: '#' + skill.iconColor }"
     [class.block]="hovering"
     [class.hidden]="!hovering"
   >

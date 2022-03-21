@@ -1,0 +1,47 @@
+@import url("../../../../core/styles/texts.scss");
+
+.input-file {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-2;
+  &__label {
+    @apply text-oscure-800;
+    @apply text-medium-normal;
+  }
+  &__content {
+    @apply flex;
+    @apply flex-row;
+    @apply space-x-6;
+    &__value {
+      &__icon {
+        @apply opacity-0;
+        @apply transition-all;
+        @apply duration-300;
+        @apply ease-in-out;
+      }
+      &:hover &__icon {
+        @apply opacity-100;
+      }
+    }
+    &__contain {
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-2;
+      @apply w-36;
+      @apply p-3;
+      @apply border;
+      @apply border-oscure-800;
+      @apply border-1;
+      @apply border-opacity-50;
+      @apply border-dashed;
+      @apply items-center;
+      &__placeholder {
+        @apply text-oscure-800;
+        @apply w-full;
+        @apply text-center;
+        @apply opacity-50;
+        @apply text-medium-extra-small;
+      }
+    }
+  }
+}

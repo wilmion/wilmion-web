@@ -1,0 +1,33 @@
+<section class="admin-card" *ngIf="skill">
+  <div class="admin-card__content">
+    <div class="admin-card__content__header">
+      <app-icon
+        *ngIf="skill.icon"
+        class="w-12 h-12"
+        [insertedSvg]="skill.icon"
+        [color]="'#' + skill.backgroundColor"
+      ></app-icon>
+      <app-image
+        *ngIf="skill.image"
+        [url]="skill.image.imageUrl"
+        [alt]="'Skill image of ' + skill.name"
+        class="w-12 h-12"
+      >
+      </app-image>
+      <h5 class="admin-card__content__header__name">{{ skill.name }}</h5>
+    </div>
+    <p
+      class="card-manage-skill__content__color-code"
+      [ngStyle]="{ color: '#' + skill.backgroundColor }"
+    >
+      #{{ skill.backgroundColor }}
+    </p>
+    <app-button
+      class="hidden lg:block"
+      type="button-outline-secondary"
+      content="Edit"
+      Icon="AIFILLEDIT"
+    ></app-button>
+  </div>
+  <div class="admin-card__line"></div>
+</section>

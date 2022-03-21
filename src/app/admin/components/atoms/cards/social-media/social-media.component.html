@@ -1,13 +1,13 @@
-<article class="card-social-media-admin" *ngIf="socialMedia">
-  <div class="card-social-media-admin__content">
-    <div class="card-social-media-admin__content__profile">
+<article class="admin-card" *ngIf="socialMedia">
+  <div class="admin-card__content">
+    <div class="admin-card__content__header">
       <app-icon
         class="w-12 h-12"
         [insertedSvg]="socialMedia.icon"
         [color]="'#' + socialMedia.color"
       ></app-icon>
       <h4
-        class="card-social-media-admin__content__profile__name"
+        class="admin-card__content__header__name"
         [ngStyle]="{ color: '#' + socialMedia.color }"
       >
         {{ socialMedia.name }}
@@ -37,5 +37,5 @@
       ></app-button>
     </div>
   </div>
-  <div class="card-social-media-admin__line"></div>
+  <div class="admin-card__line"></div>
 </article>

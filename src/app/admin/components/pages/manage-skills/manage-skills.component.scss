@@ -1,0 +1,70 @@
+@import url("../../../../core/styles/texts.scss");
+
+.modal-card-manage-skill {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  @apply items-center;
+  &__preview {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-center;
+    @apply items-center;
+    @apply space-x-6;
+    &__icon {
+      @apply w-20;
+      @apply h-auto;
+      @apply md:w-40;
+    }
+  }
+  &__section {
+    @apply text-left;
+    @apply w-full;
+    @apply text-oscure-800;
+    @apply text-bold-extra-normal;
+  }
+  &__inputs {
+    @apply flex;
+    @apply flex-col;
+    @apply w-full;
+    @apply space-y-6;
+  }
+  &__buttons {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-4;
+    @apply justify-center;
+    @apply items-center;
+    @apply md:flex-row;
+    @apply md:space-y-0;
+    @apply md:space-x-4;
+  }
+}
+
+.manage-skills {
+  @apply w-full;
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  &__search {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-6;
+    @apply items-center;
+    &__title {
+      @apply text-h2;
+      @apply text-oscure-800;
+    }
+  }
+  &__button {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-end;
+  }
+  &__skills {
+    @apply flex;
+    @apply flex-col;
+    @apply space-x-2;
+    @apply items-center;
+  }
+}

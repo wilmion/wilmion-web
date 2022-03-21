@@ -19,3 +19,34 @@ body {
   @apply p-6;
   @apply rounded-md;
 }
+
+.admin-card {
+  @apply w-full;
+  @apply flex;
+  @apply flex-col;
+  @apply p-6;
+  @apply space-y-3;
+  &__content {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+    @apply items-center;
+    &__header {
+      @apply flex;
+      @apply flex-row;
+      @apply items-center;
+      @apply space-x-6;
+      @apply w-44;
+      &__name {
+        @apply uppercase;
+        @apply text-medium-large;
+      }
+    }
+  }
+  &__line {
+    @apply w-full;
+    @apply bg-oscure-100;
+    @apply h-0.5;
+    @apply opacity-20;
+  }
+}

@@ -49,6 +49,9 @@
   @apply border-2;
   @apply border-secondary;
   @apply text-secondary;
+  &__icon {
+    @apply text-secondary;
+  }
 }
 
 .button-outline-terciary {

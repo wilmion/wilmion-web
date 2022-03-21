@@ -21,6 +21,7 @@ import { NavigationMobileComponent } from './components/navigation-mobile/naviga
 import { ChangeScreenDirective } from './directives/change-screen/change-screen.directive';
 import { CheckboxComponent } from './components/inputs/checkbox/checkbox.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { FileComponent } from './components/inputs/file/file.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     ChangeScreenDirective,
     CheckboxComponent,
     LoadingComponent,
+    FileComponent,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -61,6 +63,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     ChangeScreenDirective,
     CheckboxComponent,
     LoadingComponent,
+    FileComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
 })

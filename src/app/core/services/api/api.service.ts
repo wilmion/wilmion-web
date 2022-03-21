@@ -8,6 +8,7 @@ import { Project } from '@models/project.model';
 import { Skill } from '@models/skill.model';
 import { SocialMedia } from '@models/socialMedia.model';
 import { User, Login } from '@models/user.model';
+import { Image } from '@models/image.model';
 
 import { environment } from 'src/environments/environment';
 
@@ -18,6 +19,19 @@ export class ApiService {
   private API: string = environment.API_URL;
 
   constructor(private http: HttpClient) {}
+
+  // Images
+  createImage(files: File[], size: string) {
+    const file = files[0];
+    const urlRequest = `${this.API}/api/images`;
+
+    const fd = new FormData();
+
+    fd.append('image', file);
+    fd.append('size', size);
+
+    return this.http.post<IAPI<Image>>(urlRequest, fd);
+  }
 
   // Users
 
@@ -66,6 +80,18 @@ export class ApiService {
     const url = `${this.API}/api/skills${query}`;
 
     return this.http.get<IAPI<Skill[]>>(url);
+  }
+
+  createSkill(payload: Skill) {
+    const url = `${this.API}/api/skills`;
+
+    return this.http.post<IAPI<Skill>>(url, payload);
+  }
+
+  editSkill(id: string, payload: Partial<Skill>) {
+    const url = `${this.API}/api/skills/${id}`;
+
+    return this.http.patch<IAPI<Skill>>(url, payload);
   }
 
   // Social-media

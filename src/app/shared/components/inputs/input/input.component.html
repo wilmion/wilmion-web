@@ -1,5 +1,11 @@
 <div class="input" [formGroup]="formGroup" *ngIf="formGroup">
-  <label [for]="idInput" class="input__label">{{ label }}</label>
+  <label
+    [class.absolute]="label === ''"
+    [class.invisible]="label === ''"
+    [for]="idInput"
+    class="input__label"
+    >{{ label }}</label
+  >
   <div class="input__container">
     <input
       [type]="typeOfInput"

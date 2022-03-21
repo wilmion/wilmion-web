@@ -9,6 +9,7 @@ export class ImageComponent implements OnInit {
   @Input() url: string = '';
   @Input() alt: string = '';
   @Input() rounded: boolean = false;
+  @Input() class: string = '';
   @Input() width: number = 0;
   @Input() height: number = 0;
 
