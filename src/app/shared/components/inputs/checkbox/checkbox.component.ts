@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
@@ -11,13 +11,15 @@ export class CheckboxComponent implements OnInit {
   @Input() text: string = '';
   @Input() id: string = '';
 
-  active: boolean = false;
-
   constructor() {}
 
   ngOnInit(): void {}
 
-  toogleActive() {
-    this.active = !this.active;
+  get active() {
+    if (!this.formGroup) throw new Error('No form group');
+
+    const active = this.formGroup.get(this.id) as AbstractControl;
+
+    return active.value;
   }
 }

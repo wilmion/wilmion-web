@@ -1,0 +1,43 @@
+<section class="admin-card projects-manage-card" *ngIf="project">
+  <div class="admin-card__content">
+    <div class="admin-card__content__header cursor-pointer" (click)="onClick()">
+      <app-image
+        [url]="project.image.imageUrl"
+        [alt]="'Project image of ' + project.name"
+        class="w-12 h-12"
+        [rounded]="true"
+      >
+      </app-image>
+      <h5 class="admin-card__content__header__name">{{ project.name }}</h5>
+    </div>
+    <div class="indicator cursor-pointer" (click)="onClickIcon()">
+      <div
+        class="indicator__circle"
+        [class.bg-success]="project.active"
+        [class.bg-danger]="!project.active"
+      ></div>
+      <p
+        class="indicator__paragraph"
+        [class.text-success]="project.active"
+        [class.text-danger]="!project.active"
+      >
+        {{ project.active ? "Activate" : "Desactivate" }}
+      </p>
+    </div>
+    <div class="projects-manage-card__icons">
+      <app-icon
+        *ngIf="project.linkBlog"
+        icon="GRDOCUMENTTEST"
+        class="w-6 h-6 text-oscure-800"
+      ></app-icon>
+      <app-icon
+        *ngIf="project.linkFigma"
+        icon="SIFIGMA"
+        class="w-6 h-6 text-oscure-800"
+      ></app-icon>
+      <app-icon class="w-6 h-6 text-oscure-800"></app-icon>
+      <app-icon class="w-6 h-6 text-oscure-800"></app-icon>
+    </div>
+  </div>
+  <div class="admin-card__line"></div>
+</section>

@@ -72,6 +72,24 @@ export class ApiService {
     return this.http.get<IAPI<Project[]>>(url);
   }
 
+  editProject(id: string, payload: Partial<Project>) {
+    const url = `${this.API}/api/projects/${id}`;
+
+    return this.http.patch<IAPI<Project>>(url, payload);
+  }
+
+  activateProject(id: string) {
+    const url = `${this.API}/api/projects/activate/${id}`;
+
+    return this.http.post<IAPI<Project>>(url, {});
+  }
+
+  deactivateProject(id: string) {
+    const url = `${this.API}/api/projects/${id}`;
+
+    return this.http.delete<IAPI<Project>>(url);
+  }
+
   // Skills
 
   getAllSkills(limit?: string, offset?: string) {

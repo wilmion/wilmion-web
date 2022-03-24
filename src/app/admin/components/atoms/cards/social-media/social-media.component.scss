@@ -1,21 +1,6 @@
 @import url("../../../../../core/styles/texts.scss");
 
 .card-social-media-admin__content {
-  &__available {
-    @apply flex;
-    @apply flex-row;
-    @apply items-center;
-    @apply space-x-3;
-    @apply transition;
-    &__circle {
-      @apply w-3;
-      @apply h-3;
-      @apply rounded-full;
-    }
-    &__paragraph {
-      @apply text-medium-normal;
-    }
-  }
   &__button {
     @apply hidden;
     @apply lg:block;

@@ -1,12 +1,11 @@
 <div class="checkbox" *ngIf="formGroup" [formGroup]="formGroup">
-  <div class="checkbox__circle">
+  <div class="checkbox__circle cursor-pointer">
     <input
       type="checkbox"
       class="checkbox__circle__input"
       [name]="id"
       [id]="id"
       [formControlName]="id"
-      (click)="toogleActive()"
     />
     <div [class.opacity-100]="active" [class.opacity-0]="!active"></div>
   </div>

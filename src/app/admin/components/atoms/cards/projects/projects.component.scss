@@ -1,0 +1,8 @@
+.projects-manage-card {
+  &__icons {
+    @apply hidden;
+    @apply md:flex;
+    @apply flex-row;
+    @apply space-x-3;
+  }
+}

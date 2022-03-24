@@ -12,6 +12,7 @@ import { IAPI } from '@models/api.model';
 import { addSkill, editSkill } from '@core/ngrx/actions/skills.actions';
 
 import { getFileFromUrl } from '@core/utils/image.util';
+import { petition } from '@core/utils/api.utils';
 
 import { Observable, map, switchMap, catchError } from 'rxjs';
 
@@ -224,29 +225,11 @@ export class ManageSkillsComponent implements OnInit {
   }
 
   private petition(switchMap: any, create: boolean) {
-    return this.apiService
-      .createImage(
-        this.files.map((f) => f.blob),
-        this.files[0].size
-      )
-      .pipe(
-        map((data) => data.payload.imageUrl),
-        catchError((err) => {
-          const payload = err.error.message as string;
-
-          const id = payload.replace(
-            'This image already exist, the ID is ',
-            ''
-          );
-          return id;
-        }),
-        switchMap
-      )
-      .subscribe({
-        next: (data: any) =>
-          create ? this.onCreateSkill(data) : this.onEditSkill(data),
-        error: () => this.onError(),
-      });
+    return petition(this.apiService, this.files, switchMap).subscribe({
+      next: (data: any) =>
+        create ? this.onCreateSkill(data) : this.onEditSkill(data),
+      error: () => this.onError(),
+    });
   }
 
   private onCreateSkill(data: IAPI<Skill>) {

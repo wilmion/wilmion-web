@@ -1,0 +1,185 @@
+<app-loading [loading]="loading"></app-loading>
+
+<app-modal
+  [open]="modal"
+  (onCloseModal)="closeModal()"
+  *ngIf="currentProject"
+  [title]="
+    typeModal === 'default' ? 'Edit project' : 'ADD SKILL IN YOUR PROJECT'
+  "
+>
+  <form
+    class="modal-manage-projects"
+    *ngIf="typeModal === 'default'"
+    (submit)="update($event)"
+  >
+    <app-image
+      [url]="
+        files.length > 0
+          ? files[0].imageUrl
+          : 'https://www.stockvault.net/data/2019/03/01/261631/preview16.jpg'
+      "
+      [alt]="'Image of project ' + currentProject.name"
+      [width]="400"
+    ></app-image>
+    <div class="modal-manage-projects__inputs">
+      <app-file
+        label="Image"
+        [max]="1"
+        [blobs]="files"
+        (onGetValues)="files = $event"
+      ></app-file>
+      <app-input
+        type="text"
+        placeholder="Name of your project"
+        [formGroup]="form"
+        label="Name"
+        idInput="name"
+      ></app-input>
+      <app-text-area
+        [formGroup]="form"
+        label="Description"
+        placeholder="Write some things of your project"
+        idInput="description"
+      ></app-text-area>
+      <h4 class="modal-manage-projects__inputs__subtitle">Links</h4>
+      <app-input
+        type="text"
+        placeholder="https://example.com"
+        [formGroup]="form"
+        label="Link of Front-End"
+        idInput="link-frontend"
+      ></app-input>
+      <app-input
+        type="text"
+        placeholder="https://example.com"
+        [formGroup]="form"
+        label="Link of Repository"
+        idInput="link-repository"
+      ></app-input>
+      <div class="modal-manage-projects__inputs__group">
+        <app-input
+          type="text"
+          placeholder="https://example.com"
+          [formGroup]="form"
+          label="Link of Back-End"
+          idInput="link-backend"
+          class="w-full"
+          *ngIf="!noBackend.value"
+        ></app-input>
+        <app-checkbox
+          [formGroup]="form"
+          text="This app has no backend service"
+          id="no-backend"
+        ></app-checkbox>
+      </div>
+      <div class="modal-manage-projects__inputs__group">
+        <app-input
+          type="text"
+          placeholder="https://example.com"
+          [formGroup]="form"
+          label="Link of Figma"
+          class="w-full"
+          idInput="link-figma"
+          *ngIf="!noFigma.value"
+        ></app-input>
+        <app-checkbox
+          [formGroup]="form"
+          text="This app has no figma file"
+          id="no-figma"
+        ></app-checkbox>
+      </div>
+      <div class="modal-manage-projects__inputs__group">
+        <app-input
+          type="text"
+          placeholder="https://example.com"
+          [formGroup]="form"
+          label="Link of Blog"
+          idInput="link-blog"
+          class="w-full"
+          *ngIf="!noBlog.value"
+        ></app-input>
+        <app-checkbox
+          [formGroup]="form"
+          text="This app has no blog"
+          id="no-blog"
+        ></app-checkbox>
+      </div>
+      <h4 class="modal-manage-projects__inputs__subtitle">Technologies</h4>
+      <div class="modal-manage-projects__inputs__card-technologies">
+        <div *ngFor="let skill of currentProject.skills">
+          <app-skill [skill]="skill"></app-skill>
+        </div>
+
+        <div
+          class="modal-manage-projects__inputs__card-technologies__add"
+          (click)="typeModal = 'skills'"
+        >
+          <app-icon
+            icon="GRADDCIRCLE"
+            class="w-12 h-12 text-oscure-800"
+          ></app-icon>
+          <p
+            class="modal-manage-projects__inputs__card-technologies__add__label"
+          >
+            Add Skill
+          </p>
+        </div>
+      </div>
+      <div class="modal-manage-projects__inputs__buttons">
+        <app-button
+          type="button-primary"
+          typeButton="submit"
+          content="Save"
+        ></app-button>
+        <app-button
+          color="#FC0000"
+          colorText="#FC0000"
+          [customColorOutline]="true"
+          (clickButton)="closeModal()"
+          content="Cancel"
+        ></app-button>
+      </div>
+    </div>
+  </form>
+  <div
+    class="modal-manage-projects--choose-skills"
+    *ngIf="typeModal === 'skills'"
+  >
+    <app-input
+      [formGroup]="formSearch"
+      label=""
+      class="w-full"
+      idInput="search-skills"
+      placeholder="Name of your skilll"
+    ></app-input>
+    <div class="modal-manage-projects--choose-skills__skills">
+      <div
+        *ngFor="let skill of skills$ | async"
+        class="cursor-pointer"
+        [class.hidden]="skillInProject(skill)"
+        (click)="addSkill(skill)"
+      >
+        <app-skill [skill]="skill"></app-skill>
+      </div>
+    </div>
+    <div class="modal-manage-projects--choose-skills__buttons">
+      <app-button
+        color="#171208"
+        colorText="#171208"
+        [customColorOutline]="true"
+        content="Go back"
+        (clickButton)="typeModal = 'default'"
+      ></app-button>
+    </div>
+  </div>
+</app-modal>
+
+<section class="admin-box manage-projects">
+  <app-card-manage-projects
+    *ngFor="let project of projects$ | async"
+    [project]="project"
+    (clickCard)="openModal($event)"
+    (actOrDeact)="activateOrDeactivateProject($event)"
+  ></app-card-manage-projects>
+</section>

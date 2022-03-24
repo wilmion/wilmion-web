@@ -12,6 +12,8 @@ import { HeaderAdminComponent } from './components/atoms/header-admin/header-adm
 import { SocialMediaComponent } from './components/atoms/cards/social-media/social-media.component';
 import { ManageSkillsComponent } from './components/pages/manage-skills/manage-skills.component';
 import { CardSkillComponent } from './components/atoms/cards/skill/skill.component';
+import { ManageProjectsComponent } from './components/pages/manage-projects/manage-projects.component';
+import { ProjectsCardManageComponent } from './components/atoms/cards/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CardSkillComponent } from './components/atoms/cards/skill/skill.compone
     SocialMediaComponent,
     ManageSkillsComponent,
     CardSkillComponent,
+    ManageProjectsComponent,
+    ProjectsCardManageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
   exports: [

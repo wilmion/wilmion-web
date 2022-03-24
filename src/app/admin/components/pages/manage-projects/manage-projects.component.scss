@@ -1,0 +1,87 @@
+@import url("../../../../core/styles/texts.scss");
+
+%buttons {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  @apply items-center;
+  @apply md:flex-row;
+  @apply md:space-y-0;
+  @apply md:space-x-6;
+  @apply md:justify-center;
+}
+
+.modal-manage-projects {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  @apply items-center;
+  @apply justify-center;
+  &--choose-skills {
+    @apply flex;
+    @apply w-full;
+    @apply flex-col;
+    @apply space-y-6;
+    @apply items-center;
+    &__skills {
+      @apply flex;
+      @apply bg-terciary;
+      @apply w-full;
+      @apply gap-1;
+      @apply flex-row;
+      @apply flex-wrap;
+      & > div {
+        @apply flex-skill;
+      }
+    }
+    &__buttons {
+      @extend %buttons;
+    }
+  }
+  &__inputs {
+    @apply flex;
+    @apply flex-col;
+    @apply w-full;
+    @apply space-y-5;
+    @apply md:space-y-6;
+    &__subtitle {
+      @apply text-h4;
+      @apply text-oscure-800;
+      @apply uppercase;
+    }
+    &__group {
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-3;
+      @apply items-start;
+      @apply w-full;
+    }
+    &__card-technologies {
+      @apply flex;
+      @apply w-full;
+      @apply bg-terciary;
+      @apply flex-col;
+      @apply gap-1;
+      @apply md:flex-row;
+      @apply md:flex-wrap;
+      & > div {
+        @apply md:flex-skill-modal;
+      }
+      &__add {
+        @apply flex;
+        @apply flex-col;
+        @apply space-y-4;
+        @apply items-center;
+        @apply bg-ligth-600;
+        @apply p-3;
+        &__label {
+          @apply text-regular-normal;
+          @apply text-oscure-800;
+        }
+      }
+    }
+    &__buttons {
+      @extend %buttons;
+    }
+  }
+}

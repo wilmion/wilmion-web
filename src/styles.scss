@@ -50,3 +50,19 @@ body {
     @apply opacity-20;
   }
 }
+
+.indicator {
+  @apply flex;
+  @apply flex-row;
+  @apply items-center;
+  @apply space-x-3;
+  @apply transition;
+  &__circle {
+    @apply w-3;
+    @apply h-3;
+    @apply rounded-full;
+  }
+  &__paragraph {
+    @apply text-medium-normal;
+  }
+}
