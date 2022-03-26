@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+import { getIconBackendOrFrontend } from '@core/utils/icons.util';
+
 import { Project } from '@models/project.model';
 
 @Component({
@@ -16,6 +18,14 @@ export class ProjectsCardManageComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  get backendIcon() {
+    return getIconBackendOrFrontend(this.project, true);
+  }
+
+  get frontendIcon() {
+    return getIconBackendOrFrontend(this.project, false);
+  }
 
   onClick() {
     if (!this.project) return;

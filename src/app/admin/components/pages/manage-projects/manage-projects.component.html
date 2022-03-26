@@ -3,7 +3,7 @@
 <app-modal
   [open]="modal"
   (onCloseModal)="closeModal()"
-  *ngIf="currentProject"
+  *ngIf="currentProject && form"
   [title]="
     typeModal === 'default' ? 'Edit project' : 'ADD SKILL IN YOUR PROJECT'
   "
@@ -41,6 +41,7 @@
         label="Description"
         placeholder="Write some things of your project"
         idInput="description"
+        [limitCharacters]="300"
       ></app-text-area>
       <h4 class="modal-manage-projects__inputs__subtitle">Links</h4>
       <app-input
@@ -108,6 +109,15 @@
       <h4 class="modal-manage-projects__inputs__subtitle">Technologies</h4>
       <div class="modal-manage-projects__inputs__card-technologies">
         <div *ngFor="let skill of currentProject.skills">
+          <div
+            class="modal-manage-projects__inputs__card-technologies__cross"
+            (click)="deleteSkill(skill)"
+          >
+            <app-icon
+              icon="AIOUTLINECLOSE"
+              class="w-4 h-4 text-danger"
+            ></app-icon>
+          </div>
           <app-skill [skill]="skill"></app-skill>
         </div>
 
@@ -131,6 +141,11 @@
           type="button-primary"
           typeButton="submit"
           content="Save"
+          [disable]="
+            !form.valid ||
+            files.length === 0 ||
+            currentProject.skills.length === 0
+          "
         ></app-button>
         <app-button
           color="#FC0000"

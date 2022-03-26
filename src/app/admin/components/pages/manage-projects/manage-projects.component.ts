@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { editProject } from '@core/ngrx/actions/projects.actions';
 
@@ -174,6 +174,19 @@ export class ManageProjectsComponent implements OnInit {
     this.typeModal = 'default';
   }
 
+  deleteSkill(skill: Skill) {
+    if (!this.currentProject) return;
+
+    const newSkills = this.currentProject.skills.filter(
+      (s) => s.id !== skill.id
+    );
+
+    this.currentProject = {
+      ...this.currentProject,
+      skills: newSkills,
+    };
+  }
+
   get searchSkill() {
     return getValue(this.formSearch, 'search-skills');
   }
@@ -220,16 +233,16 @@ export class ManageProjectsComponent implements OnInit {
 
   private buildForms() {
     this.form = this.formBuilder.group({
-      name: [''],
-      description: [''],
-      'link-frontend': [''],
-      'link-repository': [''],
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      'link-frontend': ['', [Validators.required]],
+      'link-repository': ['', [Validators.required]],
       'link-backend': [''],
-      'no-backend': [false],
+      'no-backend': [true],
       'link-figma': [''],
-      'no-figma': [false],
+      'no-figma': [true],
       'link-blog': [''],
-      'no-blog': [false],
+      'no-blog': [true],
     });
     this.formSearch = this.formBuilder.group({
       'search-skills': [''],
@@ -255,7 +268,4 @@ export class ManageProjectsComponent implements OnInit {
   }
 }
 
-// Remaing validators on forms
-// Button depending of the validators
-// Fix character's limit in text area
-// Fix icons about frontend or backend in cards
+// How to eliminate skills from Project

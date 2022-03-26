@@ -35,8 +35,15 @@
         icon="SIFIGMA"
         class="w-6 h-6 text-oscure-800"
       ></app-icon>
-      <app-icon class="w-6 h-6 text-oscure-800"></app-icon>
-      <app-icon class="w-6 h-6 text-oscure-800"></app-icon>
+      <app-icon
+        *ngIf="project.linkBackend"
+        [insertedSvg]="backendIcon"
+        class="w-6 h-6 text-oscure-800"
+      ></app-icon>
+      <app-icon
+        [insertedSvg]="frontendIcon"
+        class="w-6 h-6 text-oscure-800"
+      ></app-icon>
     </div>
   </div>
   <div class="admin-card__line"></div>

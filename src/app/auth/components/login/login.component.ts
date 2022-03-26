@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
 
   private successfullLogin(data: any, keep: boolean) {
     if (data.status === 200) {
-      const payload = data.payload;
+      const payload = { ...data.payload };
       const key = 'auth';
 
       if (keep) {

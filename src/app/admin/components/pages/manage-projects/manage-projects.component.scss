@@ -64,8 +64,27 @@
       @apply gap-1;
       @apply md:flex-row;
       @apply md:flex-wrap;
+
+      &__cross {
+        @apply opacity-0;
+        @apply absolute;
+        @apply mt-2;
+        @apply ml-2;
+        @apply flex;
+        @apply cursor-pointer;
+        @apply p-1.5;
+        @apply bg-ligth-800;
+        @apply rounded-full;
+        @apply transition-all;
+        @apply duration-500;
+        @apply ease-in-out;
+      }
+
       & > div {
         @apply md:flex-skill-modal;
+        &:hover > div {
+          @apply opacity-100;
+        }
       }
       &__add {
         @apply flex;

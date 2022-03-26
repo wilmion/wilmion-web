@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { initialState } from '@core/ngrx/initialStateProvitional';
-
 import { StaticPage } from '@models/static-page.model';
 
 // Services
 import { ApiService } from '@core/services/api/api.service';
+import { StorageService } from '@core/services/storage/storage.service';
+
+import { User } from '@models/user.model';
 
 //Dispatchs
 import { setStaticPages } from '@actions/static-page.actions';
@@ -14,6 +15,7 @@ import { setProjects } from '@actions/projects.actions';
 import { setJobs } from '@actions/jobs.actions';
 import { setSkills } from '@actions/skills.actions';
 import { setSocialMedias } from '@actions/socialMedias.actions';
+import { setUser } from '@actions/user.actions';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,12 @@ import { setSocialMedias } from '@actions/socialMedias.actions';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private store: Store<{ staticPages: StaticPage[]; darkMode: boolean }>,
+    private storageService: StorageService,
+    private store: Store<{
+      staticPages: StaticPage[];
+      darkMode: boolean;
+      user: User;
+    }>,
     private apiService: ApiService
   ) {}
 
@@ -32,6 +39,7 @@ export class AppComponent implements OnInit {
       this.verifyDarkMode();
     });
     this.fetchData();
+    this.getUserLogin();
   }
 
   private verifyDarkMode() {
@@ -86,5 +94,14 @@ export class AppComponent implements OnInit {
         })
       );
     });
+  }
+
+  private getUserLogin() {
+    const user = this.storageService.getLocalStorage<{
+      token: string;
+      user: User;
+    }>('auth');
+
+    this.store.dispatch(setUser(user.user));
   }
 }
