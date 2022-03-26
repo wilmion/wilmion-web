@@ -13,9 +13,7 @@
     <p class="job-card__company-data__date" *ngIf="time">
       {{ time[0] | date: "mediumDate" }} -
       {{
-        getLastDate() === "Actualidad"
-          ? getLastDate()
-          : (getLastDate() | date: "mediumDate")
+        lastDate === "Actualidad" ? lastDate : (lastDate | date: "mediumDate")
       }}
     </p>
     <p class="job-card__company-data__job">

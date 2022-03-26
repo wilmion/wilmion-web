@@ -1,4 +1,4 @@
-export const initialState = {
+export const initialState: any = {
   staticPages: [
     {
       introduction:
@@ -163,8 +163,13 @@ export const initialState = {
   ],
   jobs: [
     {
-      imageUrl: 'assets/images/MTD Logo.png',
-      name_business: 'MTD Company',
+      image: {
+        imageUrl: 'assets/images/MTD Logo.png',
+        resolution: '1.0',
+        md5: '',
+        size: '100x100',
+      },
+      nameBusinness: 'MTD Company',
       color: '#734CFC',
       description:
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, in modi, laboriosam architecto a error itaque et eius corporis alias, accusamus magni provident ipsa minima atque sint quia esse odio.',

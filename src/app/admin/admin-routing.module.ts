@@ -7,6 +7,7 @@ import { PrincipalComponent } from './components/pages/principal/principal.compo
 import { ManageSocialMediaComponent } from './components/pages/manage-social-media/manage-social-media.component';
 import { ManageSkillsComponent } from './components/pages/manage-skills/manage-skills.component';
 import { ManageProjectsComponent } from './components/pages/manage-projects/manage-projects.component';
+import { ManageJobsComponent } from './components/pages/manage-jobs/manage-jobs.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'manage/projects',
     component: ManageProjectsComponent,
+  },
+  {
+    path: 'manage/jobs',
+    component: ManageJobsComponent,
   },
 ];
 

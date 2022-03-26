@@ -14,6 +14,8 @@ import { ManageSkillsComponent } from './components/pages/manage-skills/manage-s
 import { CardSkillComponent } from './components/atoms/cards/skill/skill.component';
 import { ManageProjectsComponent } from './components/pages/manage-projects/manage-projects.component';
 import { ProjectsCardManageComponent } from './components/atoms/cards/projects/projects.component';
+import { ManageJobsComponent } from './components/pages/manage-jobs/manage-jobs.component';
+import { JobsCardManageComponent } from './components/atoms/cards/jobs/jobs.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ProjectsCardManageComponent } from './components/atoms/cards/projects/p
     CardSkillComponent,
     ManageProjectsComponent,
     ProjectsCardManageComponent,
+    ManageJobsComponent,
+    JobsCardManageComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
   exports: [

@@ -1,0 +1,99 @@
+<app-loading [loading]="loading"></app-loading>
+
+<app-modal [open]="modal" title="Edit job">
+  <form class="modal-manage-jobs">
+    <app-job-card class="hidden md:block"></app-job-card>
+    <app-input
+      label="Company Name"
+      placeholder="MTD S.A.C"
+      [formGroup]="form"
+      class="w-full"
+      idInput="nameBusinness"
+    ></app-input>
+    <div class="modal-manage-jobs__inputs">
+      <app-input
+        label="Job"
+        class="w-full"
+        placeholder="Ej. FrontEnd Developer"
+        [formGroup]="form"
+        idInput="role"
+      ></app-input>
+      <div class="modal-manage-jobs__inputs__with-checkbox">
+        <app-input
+          class="w-full"
+          label="Working period"
+          [formGroup]="form"
+          idInput="from"
+          type="date"
+        ></app-input>
+        <app-checkbox
+          text="This is my current job"
+          id="current"
+          [formGroup]="form"
+        ></app-checkbox>
+      </div>
+    </div>
+    <app-text-area
+      idInput="description"
+      label="Description"
+      placeholder="Write anything"
+      [formGroup]="form"
+      class="w-full"
+    ></app-text-area>
+
+    <div class="modal-manage-jobs__file">
+      <p class="modal-manage-jobs__file__label">File</p>
+      <app-file [blobs]="files" (onGetValues)="files = $event"></app-file>
+    </div>
+    <h3 class="modal-manage-jobs__title">Functions</h3>
+    <app-input
+      label=""
+      class="w-full"
+      placeholder="Write the point of function"
+      [formGroup]="form"
+      idInput="function1"
+    ></app-input>
+    <app-input
+      label=""
+      class="w-full"
+      placeholder="Write the point of function"
+      [formGroup]="form"
+      idInput="function2"
+    ></app-input>
+    <app-input
+      label=""
+      class="w-full"
+      placeholder="Write the point of function"
+      [formGroup]="form"
+      idInput="function3"
+    ></app-input>
+    <app-input
+      label=""
+      class="w-full"
+      placeholder="Write the point of function"
+      [formGroup]="form"
+      idInput="function4"
+    ></app-input>
+    <div class="modal-manage-jobs__buttons">
+      <app-button
+        typeButton="submit"
+        type="button-primary"
+        content="Save"
+      ></app-button>
+      <app-button
+        color="#FC0000"
+        colorText="#FC0000"
+        [customColorOutline]="true"
+        content="Cancel"
+      ></app-button>
+    </div>
+  </form>
+</app-modal>
+
+<section class="admin-box manage-jobs">
+  <app-jobs-card-manage
+    *ngFor="let job of $jobs | async"
+    [job]="job"
+    (select)="openModal($event)"
+  ></app-jobs-card-manage>
+</section>

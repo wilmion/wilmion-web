@@ -1,0 +1,41 @@
+<section class="admin-card manage-jobs-card" *ngIf="job">
+  <div class="admin-card__content">
+    <div class="manage-jobs-card__header cursor-pointer" (click)="onSelect()">
+      <app-image
+        [url]="job.image.imageUrl"
+        [alt]="'Image of ' + job.nameBusinness"
+        class="w-12 h-12"
+        [rounded]="true"
+      >
+      </app-image>
+      <div class="manage-jobs-card__header__text">
+        <h5 class="manage-jobs-card__header__text__name">
+          {{ job.nameBusinness }}
+        </h5>
+        <p class="manage-jobs-card__header__text__jobName">
+          {{ job.role }}
+        </p>
+      </div>
+    </div>
+    <div class="indicator cursor-pointer">
+      <div
+        class="indicator__circle"
+        [class.bg-success]="job.active"
+        [class.bg-danger]="!job.active"
+      ></div>
+      <p
+        class="indicator__paragraph"
+        [class.text-success]="job.active"
+        [class.text-danger]="!job.active"
+      >
+        {{ job.active ? "Activate" : "Desactivate" }}
+      </p>
+    </div>
+    <p class="manage-jobs-card__icons">
+      {{ time[0] | date: "mediumDate" }} -{{
+        lastDate === "Actualidad" ? lastDate : (lastDate | date: "mediumDate")
+      }}
+    </p>
+  </div>
+  <div class="admin-card__line"></div>
+</section>

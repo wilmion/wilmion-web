@@ -1,0 +1,33 @@
+@import url("../../../../../core/styles/texts.scss");
+
+.manage-jobs-card {
+  &__header {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply space-x-6;
+    @apply w-auto;
+    &__text {
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-1;
+      &__name {
+        @apply text-medium-extra-normal;
+        @apply text-oscure-800;
+        @apply md:text-medium-large;
+      }
+      &__jobName {
+        @apply w-auto;
+        @apply text-regular-small;
+        @apply text-secondary;
+        @apply md:text-regular-extra-normal;
+      }
+    }
+  }
+  &__icons {
+    @apply text-oscure-800;
+    @apply text-medium-normal;
+    @apply hidden;
+    @apply lg:block;
+  }
+}

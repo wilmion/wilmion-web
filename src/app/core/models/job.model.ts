@@ -9,9 +9,8 @@ export interface Job {
   readonly role: string;
   readonly from: Date;
   readonly to: 'Currently' | Date;
-  readonly function_1: string;
-  readonly function_2: string;
-  readonly function_3: string;
-  readonly function_4: string;
-  readonly linkedIn_url: string;
+  readonly function1: string;
+  readonly function2: string;
+  readonly function3: string;
+  readonly function4: string;
 }
