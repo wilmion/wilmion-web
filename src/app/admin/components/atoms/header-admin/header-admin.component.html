@@ -2,9 +2,16 @@
   <div class="header-admin__rute">
     <h3 class="header-admin__rute__title">Dashboard</h3>
     <div class="header-admin__rute__mige">
-      <ng-container *ngFor="let rute of path">
-        <p class="header-admin__rute__mige__section">{{ rute }}</p>
-        <p class="header-admin__rute__mige__section">/</p>
+      <ng-container *ngFor="let rute of path; let i = index">
+        <p class="header-admin__rute__mige__section">
+          {{ rute.replace("-", " ") }}
+        </p>
+        <p
+          class="header-admin__rute__mige__section"
+          *ngIf="i !== path.length - 1"
+        >
+          /
+        </p>
       </ng-container>
     </div>
   </div>

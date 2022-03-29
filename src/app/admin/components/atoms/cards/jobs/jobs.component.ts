@@ -12,6 +12,7 @@ export class JobsCardManageComponent implements OnInit {
   @Input() job: Job | undefined;
 
   @Output() select = new EventEmitter<Job>();
+  @Output() activators = new EventEmitter<{ id: string; activate: boolean }>();
 
   constructor() {}
 
@@ -28,6 +29,32 @@ export class JobsCardManageComponent implements OnInit {
   }
 
   onSelect() {
-    this.select.emit(this.job);
+    if (!this.job) return;
+
+    const from = this.formatYmd(new Date(this.job.from));
+
+    let to: 'Currently' | string = this.job.to;
+
+    if (to !== 'Currently') {
+      to = this.formatYmd(new Date(to));
+    }
+
+    this.select.emit({
+      ...this.job,
+      from,
+      to,
+    });
+  }
+
+  onActivators() {
+    if (!this.job) return;
+
+    const id = this.job.id as string;
+
+    this.activators.emit({ id, activate: !this.job.active });
+  }
+
+  private formatYmd(date: Date) {
+    return date.toISOString().slice(0, 10);
   }
 }

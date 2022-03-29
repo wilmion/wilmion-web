@@ -98,10 +98,9 @@ export class AppComponent implements OnInit {
 
   private getUserLogin() {
     const user = this.storageService.getLocalStorage<{
-      token: string;
-      user: User;
+      payload: { token: string; user: User };
     }>('auth');
 
-    this.store.dispatch(setUser(user.user));
+    if (user) this.store.dispatch(setUser(user.payload.user));
   }
 }

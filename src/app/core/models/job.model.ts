@@ -7,10 +7,11 @@ export interface Job {
   readonly description: string;
   readonly active: boolean;
   readonly role: string;
-  readonly from: Date;
-  readonly to: 'Currently' | Date;
+  readonly from: string;
+  readonly to: 'Currently' | string;
   readonly function1: string;
   readonly function2: string;
   readonly function3: string;
   readonly function4: string;
+  readonly imageId?: string;
 }

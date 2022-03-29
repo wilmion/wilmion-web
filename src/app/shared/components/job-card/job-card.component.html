@@ -1,4 +1,4 @@
-<article class="job-card" *ngIf="job && job.active">
+<article class="job-card" *ngIf="job && activate">
   <div class="job-card__company-presentation">
     <app-image
       [url]="job.image.imageUrl"

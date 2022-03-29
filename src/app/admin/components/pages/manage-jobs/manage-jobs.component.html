@@ -1,8 +1,17 @@
 <app-loading [loading]="loading"></app-loading>
 
-<app-modal [open]="modal" title="Edit job">
-  <form class="modal-manage-jobs">
-    <app-job-card class="hidden md:block"></app-job-card>
+<app-modal
+  [open]="modal"
+  (onCloseModal)="modal = false"
+  *ngIf="form"
+  title="Edit job"
+>
+  <form class="modal-manage-jobs" (submit)="submit($event)">
+    <app-job-card
+      [admin]="true"
+      [job]="previewJob"
+      class="hidden md:block"
+    ></app-job-card>
     <app-input
       label="Company Name"
       placeholder="MTD S.A.C"
@@ -19,13 +28,13 @@
         idInput="role"
       ></app-input>
       <div class="modal-manage-jobs__inputs__with-checkbox">
-        <app-input
-          class="w-full"
-          label="Working period"
+        <app-date
           [formGroup]="form"
-          idInput="from"
-          type="date"
-        ></app-input>
+          [ids]="['from', 'to']"
+          label="Working period"
+          class="w-full"
+          [withoutShortCuts]="true"
+        ></app-date>
         <app-checkbox
           text="This is my current job"
           id="current"
@@ -79,6 +88,7 @@
         typeButton="submit"
         type="button-primary"
         content="Save"
+        [disable]="!form.valid || this.files.length === 0"
       ></app-button>
       <app-button
         color="#FC0000"
@@ -95,5 +105,6 @@
     *ngFor="let job of $jobs | async"
     [job]="job"
     (select)="openModal($event)"
+    (activators)="toggleJob($event)"
   ></app-jobs-card-manage>
 </section>

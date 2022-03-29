@@ -10,7 +10,7 @@
   <app-icon [icon]="Icon" class="w-5 h-5" *ngIf="Icon"></app-icon>
   <app-icon
     [insertedSvg]="insertedSvg"
-    *ngIf="insertedSvg"
+    *ngIf="insertedSvg || insertedSvg === ''"
     [color]="colorText"
     class="w-5 h-5"
   ></app-icon>

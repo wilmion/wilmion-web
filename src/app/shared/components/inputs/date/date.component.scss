@@ -1,0 +1,58 @@
+@import url("../../../../core/styles/texts.scss");
+
+.input-date {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-1;
+  @apply w-full;
+  &__label {
+    @apply text-medium-normal;
+    @apply text-oscure-800;
+  }
+  &__input {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+    @apply items-center;
+    @apply py-2;
+    @apply px-3;
+    @apply rounded-md;
+    @apply border;
+    @apply border-oscure-800;
+    @apply border-opacity-25;
+    @apply border-0.5;
+    &:active {
+      @apply border-primary;
+      @apply border-1;
+      @apply border-opacity-100;
+      box-shadow: 1px 1px 20px rgb(253 203 88);
+    }
+
+    &__value {
+      @apply w-full;
+      @apply text-regular-normal;
+      @apply text-oscure-800;
+    }
+  }
+  &__select {
+    @apply z-20;
+    @apply absolute;
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-1;
+    @apply py-2;
+    @apply bg-white;
+    @apply shadow-basic-shadow;
+    @apply rounded;
+    &__option {
+      @apply text-regular-normal;
+      @apply text-oscure-800;
+      @apply py-2;
+      @apply px-3;
+      @apply w-full;
+      &--active {
+        @apply bg-primary;
+      }
+    }
+  }
+}

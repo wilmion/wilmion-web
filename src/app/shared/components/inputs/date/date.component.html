@@ -1,0 +1,52 @@
+<section class="input-date" *ngIf="formGroup">
+  <div class="input-date__label">{{ label }}</div>
+  <div class="input-date__input" #inputdecoration (click)="onClick($event)">
+    <span class="input-date__input__value"
+      >{{ from.value | date }} -
+      {{
+        current.value || to.value === "Currently"
+          ? "Present"
+          : (to.value | date)
+      }}</span
+    >
+    <app-icon
+      icon="AITWOTONECALENDAR"
+      class="w-4 h-4 text-oscure-800"
+    ></app-icon>
+  </div>
+  <div
+    class="input-date__select"
+    [ngStyle]="{ width: widthSelect, 'margin-top': marginSelect }"
+    *ngIf="openSelect"
+  >
+    <div class="input-date__select__option" *ngIf="!withoutShortCuts">All</div>
+    <div class="input-date__select__option" *ngIf="!withoutShortCuts">
+      Last 7 days
+    </div>
+    <div class="input-date__select__option" *ngIf="!withoutShortCuts">
+      Last month
+    </div>
+    <div class="input-date__select__option" *ngIf="!withoutShortCuts">
+      Last Year
+    </div>
+    <div class="input-date__select__option" *ngIf="!withoutShortCuts">
+      Other
+    </div>
+    <div class="input-date__select__option">
+      <app-input
+        type="date"
+        label="From"
+        [idInput]="ids[0]"
+        [formGroup]="formGroup"
+      ></app-input>
+    </div>
+    <div class="input-date__select__option">
+      <app-input
+        type="date"
+        label="To"
+        [idInput]="ids[1]"
+        [formGroup]="formGroup"
+      ></app-input>
+    </div>
+  </div>
+</section>

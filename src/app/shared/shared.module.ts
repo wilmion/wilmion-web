@@ -22,6 +22,7 @@ import { ChangeScreenDirective } from './directives/change-screen/change-screen.
 import { CheckboxComponent } from './components/inputs/checkbox/checkbox.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { FileComponent } from './components/inputs/file/file.component';
+import { DateComponent } from './components/inputs/date/date.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FileComponent } from './components/inputs/file/file.component';
     CheckboxComponent,
     LoadingComponent,
     FileComponent,
+    DateComponent,
   ],
   exports: [
     CheckboxToogleComponent,
@@ -64,6 +66,7 @@ import { FileComponent } from './components/inputs/file/file.component';
     CheckboxComponent,
     LoadingComponent,
     FileComponent,
+    DateComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
 })

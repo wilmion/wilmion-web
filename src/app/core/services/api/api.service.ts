@@ -64,6 +64,24 @@ export class ApiService {
     return this.http.get<IAPI<Job>>(url);
   }
 
+  updateJob(id: string, payload: Partial<Job>) {
+    const url = `${this.API}/api/jobs/${id}`;
+
+    return this.http.patch<IAPI<Job>>(url, payload);
+  }
+
+  activateJob(id: string) {
+    const url = `${this.API}/api/jobs/activate/${id}`;
+
+    return this.http.post<IAPI<Job>>(url, {});
+  }
+
+  deactivateJob(id: string) {
+    const url = `${this.API}/api/jobs/${id}`;
+
+    return this.http.delete<IAPI<Job>>(url, {});
+  }
+
   // Projects
 
   getAllProjects() {

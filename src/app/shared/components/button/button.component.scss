@@ -3,6 +3,8 @@
   @apply flex-row;
   @apply items-center;
   @apply justify-center;
+  @apply border;
+  @apply border-2;
   @apply space-x-3;
   @apply px-16;
   @apply py-3;
@@ -18,16 +20,19 @@
 }
 
 .button-primary {
+  @apply border-primary;
   @apply bg-primary;
   @apply text-oscure-800;
 }
 
 .button-secondary {
+  @apply border-secondary;
   @apply bg-secondary;
   @apply text-ligth-800;
 }
 
 .button-terciary {
+  @apply border-terciary;
   @apply bg-terciary;
   @apply text-oscure-800;
 }
@@ -38,15 +43,11 @@
 }
 
 .button-outline-primary {
-  @apply border;
-  @apply border-2;
   @apply border-primary;
   @apply text-oscure-800;
 }
 
 .button-outline-secondary {
-  @apply border;
-  @apply border-2;
   @apply border-secondary;
   @apply text-secondary;
   &__icon {
@@ -55,15 +56,11 @@
 }
 
 .button-outline-terciary {
-  @apply border;
-  @apply border-2;
   @apply border-terciary;
   @apply text-oscure-800;
 }
 
 .button-outline-gray {
-  @apply border;
-  @apply border-2;
   @apply border-oscure-800;
   @apply text-oscure-800;
 }

@@ -18,12 +18,21 @@ import { createList, getLastDate } from '@core/utils/job.util';
 })
 export class JobCardComponent implements OnInit {
   @Input() job: Job | undefined;
+  @Input() admin: boolean = false;
 
   linkedInUrl: string = 'https://www.linkedin.com/in/wilmion/';
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  get activate() {
+    if (!this.admin) {
+      return this.job?.active;
+    }
+
+    return this.admin;
+  }
 
   get listsFunction() {
     const { listsFunction: value } = createList(this.job);
