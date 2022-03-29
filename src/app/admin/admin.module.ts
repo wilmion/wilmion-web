@@ -16,6 +16,7 @@ import { ManageProjectsComponent } from './components/pages/manage-projects/mana
 import { ProjectsCardManageComponent } from './components/atoms/cards/projects/projects.component';
 import { ManageJobsComponent } from './components/pages/manage-jobs/manage-jobs.component';
 import { JobsCardManageComponent } from './components/atoms/cards/jobs/jobs.component';
+import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-found-admin.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { JobsCardManageComponent } from './components/atoms/cards/jobs/jobs.comp
     ProjectsCardManageComponent,
     ManageJobsComponent,
     JobsCardManageComponent,
+    NotFoundAdminComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
   exports: [

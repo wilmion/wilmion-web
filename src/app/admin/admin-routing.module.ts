@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PrincipalComponent } from './components/pages/principal/principal.component';
 
+import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-found-admin.component';
+
 // Manage
 import { ManageSocialMediaComponent } from './components/pages/manage-social-media/manage-social-media.component';
 import { ManageSkillsComponent } from './components/pages/manage-skills/manage-skills.component';
@@ -29,6 +31,10 @@ const routes: Routes = [
   {
     path: 'manage/jobs',
     component: ManageJobsComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundAdminComponent,
   },
 ];
 

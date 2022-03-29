@@ -1,0 +1,15 @@
+@import url("../../../../core/styles/texts.scss");
+
+.notFound-page {
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply space-y-6;
+  &__paragraph {
+    @apply text-oscure-800;
+    @apply text-center;
+  }
+  &__link {
+    @apply text-link;
+  }
+}

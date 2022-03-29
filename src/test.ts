@@ -4,11 +4,15 @@ import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
+  platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 
 declare const require: {
-  context(path: string, deep?: boolean, filter?: RegExp): {
+  context(
+    path: string,
+    deep?: boolean,
+    filter?: RegExp
+  ): {
     <T>(id: string): T;
     keys(): string[];
   };
@@ -17,10 +21,19 @@ declare const require: {
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  platformBrowserDynamicTesting()
 );
 
 // Then we find all the tests.
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
+
+// How to connect demostration states on navigation of the dashboard.
+// Adecuate the dashboard to responsive
+// Create guadians for each page
+// Create LogOut logic button
+
+// Other Commit
+
+// Create pages: Contact, Stats, Blog, Settings
