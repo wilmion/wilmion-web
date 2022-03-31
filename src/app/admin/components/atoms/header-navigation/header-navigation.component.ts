@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { getPaths } from '@core/utils/url.util';
 
 @Component({
   selector: 'app-header-navigation',
@@ -8,9 +11,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderNavigationComponent implements OnInit {
   @Output() toggleMenu = new EventEmitter();
 
-  constructor() {}
+  path: string[] = [];
 
-  ngOnInit(): void {}
+  constructor(private route: Router) {
+    const url = this.route.url;
+
+    this.path = getPaths({
+      url,
+    });
+  }
+
+  ngOnInit(): void {
+    this.route.events.subscribe((event) => {
+      this.path = getPaths(event);
+    });
+  }
 
   onClick() {
     this.toggleMenu.emit();

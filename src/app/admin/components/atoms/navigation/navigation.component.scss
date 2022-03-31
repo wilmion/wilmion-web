@@ -5,7 +5,7 @@
   @apply top-0;
   @apply z-10;
   @apply bg-ligth-800;
-  @apply w-80;
+  @apply w-72;
   @apply h-screen;
   @apply p-6;
   @apply pt-32;
@@ -15,6 +15,7 @@
   @apply transition;
   @apply ease-in-out;
   @apply duration-500;
+  @apply md:w-80;
   &__section {
     @apply text-primary;
     @apply text-medium-extra-normal;
@@ -34,12 +35,12 @@
         @apply justify-between;
         @apply items-center;
 
-        @apply cursor-pointer;
         &__header {
           @apply flex;
           @apply flex-row;
           @apply items-center;
           @apply space-x-3;
+          @apply cursor-pointer;
           &__name {
             @apply text-oscure-800;
             @apply text-medium-normal;
@@ -60,5 +61,11 @@
         }
       }
     }
+  }
+
+  &--deactive {
+    @apply -translate-x-full;
+    @apply md:translate-x-0;
+    @apply md:-translate-y-full;
   }
 }

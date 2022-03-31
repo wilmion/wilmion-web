@@ -7,7 +7,7 @@ const returned: Nav[] = [
       {
         icon: 'MDOUTLINEDASHBOARD',
         name: 'Dashboard',
-        path: '',
+        path: '/admin',
         subSections: [],
       },
       {
@@ -19,7 +19,7 @@ const returned: Nav[] = [
       {
         icon: 'MDCONTROLCAMERA',
         name: 'Manage',
-        path: 'manage',
+        path: 'func',
         subsectionsActive: false,
         subSections: [
           {
@@ -66,7 +66,7 @@ const returned: Nav[] = [
       {
         icon: 'BILOGOUT',
         name: 'Log Out',
-        path: 'Func',
+        path: 'func',
         subSections: [],
       },
     ],

@@ -8,7 +8,6 @@
   @apply items-center;
   @apply p-6;
   @apply bg-primary;
-
   &__rute {
     @apply flex;
     @apply flex-col;
@@ -17,16 +16,6 @@
       @apply text-oscure-800;
       @apply text-medium-large;
       @apply uppercase;
-    }
-    &__mige {
-      @apply flex;
-      @apply flex-row;
-      @apply space-x-2;
-      &__section {
-        @apply text-oscure-800;
-        @apply text-regular-normal;
-        @apply uppercase;
-      }
     }
   }
   &__profile {

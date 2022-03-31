@@ -26,12 +26,15 @@ export class StorageService {
     const data = JSON.parse(item);
 
     if (!this.checkValidity(data)) {
-      localStorage.removeItem(key);
-
+      this.removeToLocalStorage(key);
       return null;
     }
 
     return data;
+  }
+
+  removeToLocalStorage(key: string) {
+    return localStorage.removeItem(key);
   }
 
   // Session storage
@@ -40,12 +43,27 @@ export class StorageService {
     sessionStorage.setItem(key, JSON.stringify(payload));
   }
 
-  getSessionStorage<T>(key: string): T {
+  getSessionStorage<T>(key: string): T | null {
     const item = sessionStorage.getItem(key);
 
-    if (!item) throw new Error('Nothing in sessionStorage');
+    if (!item) return null;
 
     return JSON.parse(item);
+  }
+
+  removeToSessionStorage(key: string) {
+    return sessionStorage.removeItem(key);
+  }
+
+  findOnLocalOrSession<T>(key: string) {
+    const userLocal = this.getLocalStorage<{ payload: T }>(key);
+    const userSession = this.getSessionStorage<T>(key);
+
+    if (!userLocal) return userSession;
+
+    if (!userSession) return userLocal.payload;
+
+    return userLocal.payload;
   }
 
   private checkValidity(object: { expiration: string; [key: string]: any }) {

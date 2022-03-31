@@ -29,11 +29,4 @@ const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
 
-// How to connect demostration states on navigation of the dashboard.
-// Adecuate the dashboard to responsive
-// Create guadians for each page
-// Create LogOut logic button
-
-// Other Commit
-
 // Create pages: Contact, Stats, Blog, Settings

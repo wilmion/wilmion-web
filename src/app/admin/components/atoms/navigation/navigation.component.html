@@ -1,4 +1,4 @@
-<nav class="navigation-admin" [class.-translate-y-full]="!open">
+<nav class="navigation-admin" [class.navigation-admin--deactive]="!open">
   <ng-container
     *ngFor="let section of mockNavigation; let sectionIndex = index"
   >
@@ -9,13 +9,17 @@
         *ngFor="let path of section.paths; let pathIndex = index"
       >
         <div
-          (click)="onClick(path.subSections.length === 0, path.path, path.name)"
-          class="navigation-admin__list__item__section"
-          [class.px-6]="pathActive !== path.name"
-          [class.pl-8]="pathActive === path.name"
-          [class.pr-6]="pathActive === path.name"
+          class="navigation-admin__list__item__section px-6"
+          [class.cursor-pointer]="path.name === 'Log Out'"
+          (click)="path.name === 'Log Out' ? logOut() : null"
         >
-          <div class="navigation-admin__list__item__section__header">
+          <a
+            routerLinkActive="pl-2"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="path.path"
+            [class.pointer-events-none]="path.path === 'func'"
+            class="navigation-admin__list__item__section__header"
+          >
             <app-icon
               [icon]="path.icon"
               class="w-6 h-6 text-oscure-800"
@@ -23,7 +27,7 @@
             <p class="navigation-admin__list__item__section__header__name">
               {{ path.name }}
             </p>
-          </div>
+          </a>
           <div
             [class.hidden]="path.subSections.length === 0"
             (click)="toggleMenu(pathIndex, sectionIndex)"

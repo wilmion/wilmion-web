@@ -1,5 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
+import { StorageService } from '@core/services/storage/storage.service';
+
+import { logOut } from '@actions/user.actions';
+
+import { User } from '@models/user.model';
 
 import dataNav from './mock-navigation';
 
@@ -12,19 +19,14 @@ export class NavigationComponent implements OnInit {
   @Input() open: boolean = true;
 
   mockNavigation = dataNav;
-  pathActive = 'Dashboard';
 
-  constructor(private route: Router) {}
+  constructor(
+    private storageService: StorageService,
+    private route: Router,
+    private store: Store<{ user: User | null }>
+  ) {}
 
   ngOnInit(): void {}
-
-  onClick(active: boolean, path: string, name: string) {
-    if (!active) return;
-
-    this.pathActive = name;
-
-    this.route.navigate([`admin/${path}`]);
-  }
 
   toggleMenu(pathIndex: number, sectionIndex: number) {
     const section = this.mockNavigation[sectionIndex];
@@ -39,5 +41,16 @@ export class NavigationComponent implements OnInit {
     };
 
     this.mockNavigation[sectionIndex] = section;
+  }
+
+  logOut() {
+    this.storageService.removeToLocalStorage('auth');
+    this.storageService.removeToSessionStorage('auth');
+    this.storageService.removeToLocalStorage('token');
+    this.storageService.removeToSessionStorage('token');
+
+    this.store.dispatch(logOut());
+
+    this.route.navigate(['auth']);
   }
 }

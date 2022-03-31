@@ -66,3 +66,14 @@ body {
     @apply text-medium-normal;
   }
 }
+
+.rute-box {
+  @apply flex;
+  @apply flex-row;
+  @apply space-x-2;
+  &__section {
+    @apply text-oscure-800;
+    @apply text-regular-normal;
+    @apply uppercase;
+  }
+}

@@ -1,3 +1,5 @@
+@import url("../../../../core/styles/texts.scss");
+
 .header-admin {
   @apply relative;
   @apply z-20;
@@ -12,4 +14,23 @@
   @apply md:h-26;
   @apply md:bg-ligth-600;
   @apply md:shadow-basic-shadow;
+}
+
+.header-route {
+  @apply flex;
+  @apply flex-col;
+  @apply px-6;
+  @apply pt-6;
+  @apply space-y-3;
+  @apply w-full;
+  @apply md:hidden;
+  &__title {
+    @apply text-center;
+    @apply text-bold-extra-normal;
+    @apply text-oscure-800;
+  }
+  &__mige {
+    @apply justify-center;
+    @apply items-center;
+  }
 }

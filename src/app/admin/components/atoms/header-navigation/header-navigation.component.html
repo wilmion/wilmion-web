@@ -8,3 +8,15 @@
     (click)="onClick()"
   ></app-icon>
 </div>
+
+<div class="header-route">
+  <div class="admin-box header-route__title">MANAGE PROJECTS</div>
+  <div class="admin-box header-route__mige rute-box">
+    <ng-container *ngFor="let rute of path; let i = index">
+      <p class="rute-box__section">
+        {{ rute.replace("-", " ") }}
+      </p>
+      <p class="rute-box__section" *ngIf="i !== path.length - 1">/</p>
+    </ng-container>
+  </div>
+</div>

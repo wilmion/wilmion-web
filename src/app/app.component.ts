@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
     private store: Store<{
       staticPages: StaticPage[];
       darkMode: boolean;
-      user: User;
     }>,
     private apiService: ApiService
   ) {}
@@ -39,7 +38,6 @@ export class AppComponent implements OnInit {
       this.verifyDarkMode();
     });
     this.fetchData();
-    this.getUserLogin();
   }
 
   private verifyDarkMode() {
@@ -94,13 +92,5 @@ export class AppComponent implements OnInit {
         })
       );
     });
-  }
-
-  private getUserLogin() {
-    const user = this.storageService.getLocalStorage<{
-      payload: { token: string; user: User };
-    }>('auth');
-
-    if (user) this.store.dispatch(setUser(user.payload.user));
   }
 }

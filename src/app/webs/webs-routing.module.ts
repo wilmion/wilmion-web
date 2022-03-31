@@ -5,6 +5,9 @@ import { PrincipalLayoutComponent } from './components/principal-layout/principa
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
 
+import { AuthGuard } from '@core/guards/auth/auth.guard';
+import { AuthorizationGuard } from '@core/guards/authorization/authorization.guard';
+
 const routes: Routes = [
   {
     path: 'auth',
@@ -20,6 +23,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard, AuthorizationGuard],
     children: [
       {
         path: '',
