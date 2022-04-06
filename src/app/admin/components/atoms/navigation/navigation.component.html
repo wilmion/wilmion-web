@@ -1,4 +1,8 @@
-<nav class="navigation-admin" [class.navigation-admin--deactive]="!open">
+<nav
+  class="navigation-admin"
+  [class.navigation-admin--active]="open"
+  [class.navigation-admin--deactive]="!open"
+>
   <ng-container
     *ngFor="let section of mockNavigation; let sectionIndex = index"
   >

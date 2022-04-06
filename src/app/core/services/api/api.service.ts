@@ -44,6 +44,18 @@ export class ApiService {
     );
   }
 
+  getMyProfile() {
+    const urlRequest = `${this.API}/api/users/get-my-account`;
+
+    return this.http.get<IAPI<User>>(urlRequest);
+  }
+
+  updateUser(payload: Partial<User>) {
+    const urlRequest = `${this.API}/api/users`;
+
+    return this.http.patch<IAPI<User>>(urlRequest, payload);
+  }
+
   // Static-Contents
 
   getAllStaticContents(limit?: string, offset?: string) {

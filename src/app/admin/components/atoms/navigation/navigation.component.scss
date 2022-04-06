@@ -63,8 +63,13 @@
     }
   }
 
-  &--deactive {
+  &--active {
     @apply -translate-x-full;
+    @apply md:translate-x-0;
+    @apply md:translate-y-0;
+  }
+  &--deactive {
+    @apply translate-x-0;
     @apply md:translate-x-0;
     @apply md:-translate-y-full;
   }

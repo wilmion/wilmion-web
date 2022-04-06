@@ -12,6 +12,7 @@ import { setUser } from '@core/ngrx/actions/user.actions';
 import { User } from '@models/user.model';
 
 import { StorageService } from '@core/services/storage/storage.service';
+import { ApiService } from '@core/services/api/api.service';
 
 import { Observable } from 'rxjs';
 
@@ -21,6 +22,7 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
   constructor(
     private storageService: StorageService,
+    private apiService: ApiService,
     private route: Router,
     private store: Store<{ user: User | null }>
   ) {}
@@ -43,7 +45,10 @@ export class AuthGuard implements CanActivate {
     }>('auth');
 
     if (user) {
-      this.store.dispatch(setUser(user.user));
+      this.apiService.getMyProfile().subscribe({
+        next: (data) => this.store.dispatch(setUser(data.payload)),
+        error: () => this.store.dispatch(setUser(user.user)),
+      });
 
       return true;
     }

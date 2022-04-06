@@ -1,0 +1,73 @@
+@import url("../../../../core/styles/texts.scss");
+
+.settings {
+  @apply flex;
+  @apply flex-col;
+  @apply w-full;
+  @apply space-y-6;
+  &-col {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-6;
+    @apply md:space-y-0;
+    @apply md:flex-row;
+    @apply md:space-x-6;
+    @apply md:items-start;
+  }
+  &-box {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-5;
+    @apply items-center;
+    @apply md:space-y-6;
+    &__title {
+      @apply w-full;
+      @apply text-medium-extra-normal;
+      @apply text-oscure-800;
+      @apply text-left;
+      @apply uppercase;
+    }
+    &__row {
+      @apply flex;
+      @apply flex-row;
+      @apply justify-between;
+      @apply items-center;
+      @apply w-full;
+
+      &__title {
+        @apply text-oscure-800;
+        @apply text-medium-normal;
+      }
+      &__info {
+        @apply flex;
+        @apply flex-row;
+        @apply space-x-3;
+        @apply items-center;
+        &__value {
+          @apply text-regular-normal;
+        }
+      }
+    }
+  }
+  &__password {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-5;
+    @apply items-center;
+    @apply md:flex-row;
+    @apply md:space-y-0;
+    @apply md:justify-between;
+    &__title {
+      @apply text-oscure-800;
+      @apply text-medium-large;
+    }
+  }
+}
+
+.change-photo {
+  @apply flex;
+  @apply flex-col;
+  @apply p-6;
+  @apply space-y-6;
+  @apply items-center;
+}

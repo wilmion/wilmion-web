@@ -1,0 +1,8 @@
+.background-nav--deactive {
+  @apply block;
+  @apply md:hidden;
+}
+
+.background-nav--active {
+  @apply hidden;
+}

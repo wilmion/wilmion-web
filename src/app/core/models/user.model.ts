@@ -12,6 +12,8 @@ export interface User {
   readonly email: string;
 
   readonly image: Image;
+
+  readonly imageId?: number;
 }
 
 export interface Login {

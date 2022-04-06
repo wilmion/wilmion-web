@@ -1,0 +1,86 @@
+<app-modal
+  [open]="modal"
+  (onCloseModal)="modal = false"
+  title="CHANGE PROFILE PHOTO"
+  *ngIf="user && form"
+>
+  <section class="change-photo">
+    <app-file [blobs]="files" (onGetValues)="setImage($event)"></app-file>
+  </section>
+</app-modal>
+
+<section class="settings" *ngIf="user">
+  <div class="settings-col">
+    <div class="admin-box settings-box">
+      <h3 class="settings-box__title">PERSONAL INFORMATION</h3>
+      <div class="settings-box__row" *ngFor="let info of basicInfo">
+        <h5 class="settings-box__row__title">{{ info.titleName }}</h5>
+        <div class="settings-box__row__info">
+          <p
+            *ngIf="!info.edit"
+            class="settings-box__row__info__value"
+            [class.text-secondary]="info.id === 'job'"
+            [class.text-oscure-800]="info.id !== 'job'"
+          >
+            {{ info.prefix }}{{ getValueOfForm(info.id).value }}
+          </p>
+          <app-input
+            *ngIf="info.edit"
+            [formGroup]="form"
+            class="w-full"
+            [idInput]="info.id"
+            [placeholder]="info.id"
+            label=""
+          ></app-input>
+          <app-icon
+            (click)="info.edit = !info.edit; updateData(info.edit)"
+            [icon]="info.edit ? 'AIFILLCHECKCIRCLE' : 'AIFILLEDIT'"
+            class="w-4.5 h-4.5 text-oscure-800"
+          ></app-icon>
+        </div>
+      </div>
+      <div class="settings-box__row">
+        <h5 class="settings-box__row__title">Email</h5>
+        <div class="settings-box__row__info">
+          <a
+            href="mailto:wilmion92@gmail.com"
+            class="settings-box__row__info__value underline text-oscure-800"
+          >
+            {{ user.email }}
+          </a>
+          <app-icon
+            icon="AIFILLEDIT"
+            class="w-4.5 h-4.5 text-oscure-800"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+    <div class="admin-box settings-box">
+      <h3 class="settings-box__title">PROFILE PHOTO</h3>
+      <app-image
+        [url]="imageUrl"
+        [alt]="user.name + '`s photo'"
+        [rounded]="true"
+        class="w-40 h-40"
+      ></app-image>
+      <app-button
+        (clickButton)="openModal()"
+        content="Change"
+        type="button-primary"
+      ></app-button>
+    </div>
+  </div>
+  <div class="admin-box settings__password">
+    <h3 class="settings__password__title">
+      Do you want to change your password?
+    </h3>
+    <a routerLink="change-password">
+      <app-button
+        type="button-outline-secondary"
+        content="Change password"
+      ></app-button>
+    </a>
+  </div>
+</section>
+
+<app-loading [loading]="loading"></app-loading>

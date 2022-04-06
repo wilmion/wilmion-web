@@ -17,6 +17,12 @@ import { ProjectsCardManageComponent } from './components/atoms/cards/projects/p
 import { ManageJobsComponent } from './components/pages/manage-jobs/manage-jobs.component';
 import { JobsCardManageComponent } from './components/atoms/cards/jobs/jobs.component';
 import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-found-admin.component';
+import { SettingsComponent } from './components/pages/settings/settings.component';
+import { SettingsPasswordComponent } from './components/pages/settings-password/settings-password.component';
+import { FirstStepChangePasswordComponent } from './components/atoms/settings/password/first-step-change-password/first-step-change-password.component';
+import { VerifyStepChangePasswordComponent } from './components/atoms/settings/password/verify-step-change-password/verify-step-change-password.component';
+import { SecondStepChangePasswordComponent } from './components/atoms/settings/password/second-step-change-password/second-step-change-password.component';
+import { SuccessStepChangePasswordComponent } from './components/atoms/settings/password/success-step-change-password/success-step-change-password.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +39,12 @@ import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-f
     ManageJobsComponent,
     JobsCardManageComponent,
     NotFoundAdminComponent,
+    SettingsComponent,
+    SettingsPasswordComponent,
+    FirstStepChangePasswordComponent,
+    VerifyStepChangePasswordComponent,
+    SecondStepChangePasswordComponent,
+    SuccessStepChangePasswordComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
   exports: [

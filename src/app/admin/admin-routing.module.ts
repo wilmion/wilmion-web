@@ -5,6 +5,10 @@ import { PrincipalComponent } from './components/pages/principal/principal.compo
 
 import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-found-admin.component';
 
+// Settings
+import { SettingsComponent } from './components/pages/settings/settings.component';
+import { SettingsPasswordComponent } from './components/pages/settings-password/settings-password.component';
+
 // Manage
 import { ManageSocialMediaComponent } from './components/pages/manage-social-media/manage-social-media.component';
 import { ManageSkillsComponent } from './components/pages/manage-skills/manage-skills.component';
@@ -31,6 +35,14 @@ const routes: Routes = [
   {
     path: 'manage/jobs',
     component: ManageJobsComponent,
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+  },
+  {
+    path: 'settings/change-password',
+    component: SettingsPasswordComponent,
   },
   {
     path: '**',

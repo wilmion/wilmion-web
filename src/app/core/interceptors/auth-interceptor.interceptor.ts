@@ -9,13 +9,19 @@ import {
 
 import { Observable } from 'rxjs';
 
+import { StorageService } from '@core/services/storage/storage.service';
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  constructor(private storageService: StorageService) {}
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
+    const token = this.storageService.getLocalStorage<{ payload: string }>(
+      'token'
+    );
 
     if (!token) {
       return next.handle(req);
@@ -24,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const headers = req.clone({
       headers: req.headers.set(
         'Authorization',
-        `Bearer ${token.replace(/['"]+/g, '')}`
+        `Bearer ${token.payload.replace(/['"]+/g, '')}`
       ),
     });
 

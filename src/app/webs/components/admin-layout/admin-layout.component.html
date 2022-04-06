@@ -8,7 +8,8 @@
   <div>
     <div
       class="fixed md:hidden top-0 left-0 w-full h-screen bg-oscure-800 opacity-20"
-      [class.hidden]="!openNav"
+      [class.background-nav--deactive]="!openNav"
+      [class.background-nav--active]="openNav"
     ></div>
     <app-navigation [open]="openNav"></app-navigation>
   </div>
