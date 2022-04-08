@@ -19,7 +19,6 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUrl('0px');
-    console.log(this.project);
   }
 
   onHover(e: Event) {

@@ -56,6 +56,12 @@ export class ApiService {
     return this.http.patch<IAPI<User>>(urlRequest, payload);
   }
 
+  changePassword(payload: { oldPassword: string; newPassword: string }) {
+    const urlRequest = `${this.API}/api/users/change-password`;
+
+    return this.http.post<IAPI<any>>(urlRequest, payload);
+  }
+
   // Static-Contents
 
   getAllStaticContents(limit?: string, offset?: string) {
