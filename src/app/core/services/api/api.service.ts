@@ -74,6 +74,12 @@ export class ApiService {
     return request;
   }
 
+  updateStaticContent(id: string, payload: Partial<StaticPage>) {
+    const urlRequest = `${this.API}/api/static-contents/${id}`;
+
+    return this.http.patch<IAPI<StaticPage>>(urlRequest, payload);
+  }
+
   // Jobs
 
   getAllJobs() {

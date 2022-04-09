@@ -23,6 +23,7 @@ import { FirstStepChangePasswordComponent } from './components/atoms/settings/pa
 import { VerifyStepChangePasswordComponent } from './components/atoms/settings/password/verify-step-change-password/verify-step-change-password.component';
 import { SecondStepChangePasswordComponent } from './components/atoms/settings/password/second-step-change-password/second-step-change-password.component';
 import { SuccessStepChangePasswordComponent } from './components/atoms/settings/password/success-step-change-password/success-step-change-password.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SuccessStepChangePasswordComponent } from './components/atoms/settings/
     VerifyStepChangePasswordComponent,
     SecondStepChangePasswordComponent,
     SuccessStepChangePasswordComponent,
+    ContactComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, FormsModule],
   exports: [

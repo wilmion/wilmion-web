@@ -5,6 +5,8 @@ import { PrincipalComponent } from './components/pages/principal/principal.compo
 
 import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-found-admin.component';
 
+import { ContactComponent } from './components/pages/contact/contact.component';
+
 // Settings
 import { SettingsComponent } from './components/pages/settings/settings.component';
 import { SettingsPasswordComponent } from './components/pages/settings-password/settings-password.component';
@@ -39,6 +41,10 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: 'settings/change-password',

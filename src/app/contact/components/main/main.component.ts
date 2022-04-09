@@ -37,7 +37,6 @@ export class MainComponent implements OnInit {
 
       if (!dataFiltered) return;
 
-      console.log(dataFiltered);
       this.staticPage = dataFiltered;
     });
   }

@@ -1,0 +1,60 @@
+@import url("../../../../core/styles/texts.scss");
+
+.contact-admin {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+  @apply w-full;
+  &__header {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-5;
+    @apply lg:space-y-6;
+    &__title {
+      @apply hidden;
+      @apply text-h4;
+      @apply text-oscure-800;
+      @apply text-center;
+      @apply w-full;
+      @apply lg:block;
+    }
+    &__content {
+      @apply w-full;
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-5;
+      @apply items-center;
+      @apply lg:flex-row;
+      @apply lg:space-y-0;
+      @apply lg:justify-between;
+      &__text {
+        @apply text-medium-normal;
+        @apply text-oscure-800;
+        @apply text-center;
+        @apply w-full;
+        @apply lg:text-bold-extra-normal;
+        @apply lg:text-secondary;
+        @apply lg:text-left;
+        @apply w-auto;
+      }
+    }
+  }
+  &__form {
+    @apply w-full;
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-5;
+    @apply md:space-y-6;
+    &__buttons {
+      @apply flex;
+      @apply flex-col;
+      @apply w-full;
+      @apply items-center;
+      @apply space-y-6;
+      @apply md:flex-row;
+      @apply md:space-y-0;
+      @apply md:space-x-8;
+      @apply md:justify-center;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<section class="contact-admin">
+  <div class="admin-box contact-admin__header">
+    <h3 class="contact-admin__header__title">CONTACT PAGE SETTINGS</h3>
+    <div class="contact-admin__header__content">
+      <h5 class="contact-admin__header__content__text">
+        Do you have all the changes saved? What are you waiting for? Why won't
+        you look at the page
+      </h5>
+      <a routerLink="/contact-me">
+        <app-button
+          type="button-primary"
+          Icon="RIPAGESLINE"
+          content="View page"
+        ></app-button>
+      </a>
+    </div>
+  </div>
+
+  <form class="admin-box contact-admin__form" (submit)="submit()" *ngIf="form">
+    <app-input
+      class="w-full"
+      label="Introduction"
+      placeholder="A few words for your introduction"
+      [formGroup]="form"
+      idInput="introduction"
+    ></app-input>
+    <app-text-area
+      label="¿Por qué trabajar conmigo?"
+      class="w-full"
+      [limitCharacters]="800"
+      [formGroup]="form"
+      idInput="whyWorkWithMe"
+      placeholder="Because I..."
+    ></app-text-area>
+    <app-input
+      class="w-full"
+      label="Contact email"
+      placeholder="example@example.com"
+      [formGroup]="form"
+      idInput="email"
+    ></app-input>
+    <p
+      class="text-regular-normal text-danger w-full text-center"
+      *ngIf="this.error !== ''"
+    >
+      {{ this.error }}
+    </p>
+    <div class="contact-admin__form__buttons">
+      <app-button
+        type="button-primary"
+        content="Save"
+        typeButton="submit"
+        [disable]="!form.valid"
+      ></app-button>
+      <app-button
+        color="#FC0000"
+        colorText="#FC0000"
+        [customColorOutline]="true"
+        content="Cancel"
+      ></app-button>
+    </div>
+  </form>
+</section>
+
+<app-loading [loading]="loading"></app-loading>

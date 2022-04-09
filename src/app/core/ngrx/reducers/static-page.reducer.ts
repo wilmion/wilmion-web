@@ -22,6 +22,7 @@ const initialState: StaticPage[] = [
 const _staticPageReducer = createReducer(
   initialState,
   on(StaticPageActions.addStaticPage, onAddStaticPageActions),
+  on(StaticPageActions.editStaticPage, onEditStaticPage),
   on(StaticPageActions.setStaticPages, onSetStaticPages)
 );
 
@@ -43,4 +44,20 @@ function onAddStaticPageActions(state: StaticPage[], addedInfo: StaticPage) {
   state.push(addedInfo);
 
   return state;
+}
+
+function onEditStaticPage(
+  state: StaticPage[],
+  payload: { id: string; changes: Partial<StaticPage> }
+) {
+  const newState = [...state];
+
+  const index = newState.findIndex((s) => s.id === (payload.id as any));
+
+  newState[index] = {
+    ...newState[index],
+    ...payload.changes,
+  };
+
+  return newState;
 }
