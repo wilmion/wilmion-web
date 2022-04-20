@@ -1,0 +1,25 @@
+<article class="graphic">
+  <div class="graphic__content">
+    <div class="graphic__content__line" [id]="'line-graphic' + this.key"></div>
+    <div class="graphic__content__graphic">
+      <div
+        class="indicator cursor-pointer"
+        *ngFor="let obj of Obj; let i = index"
+        [ngStyle]="{ height: getHeigth(obj.value) }"
+      >
+        <p class="indicator__text">
+          {{ obj.value }}
+        </p>
+        <div class="indicator__draw"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="graphic__line"></div>
+
+  <div class="graphic__options">
+    <p class="graphic__options__option" *ngFor="let obj of Obj">
+      {{ obj.text }}
+    </p>
+  </div>
+</article>

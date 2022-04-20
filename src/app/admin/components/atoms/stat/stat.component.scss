@@ -1,0 +1,76 @@
+@import url("../../../../core/styles/texts.scss");
+
+.indicator {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-1;
+  @apply w-full;
+  @apply items-center;
+
+  &__draw {
+    @apply w-full;
+    @apply h-full;
+    @apply transition;
+    @apply duration-500;
+    @apply ease-in-out;
+    @apply bg-secondary;
+    @apply hover:bg-primary;
+  }
+  &__text {
+    @apply text-regular-small;
+    @apply text-center;
+    @apply w-full;
+    @apply text-oscure-800;
+    @apply transition-all;
+    @apply duration-500;
+    @apply ease-in-out;
+    @apply opacity-0;
+  }
+
+  &:hover &__text {
+    @apply opacity-100;
+  }
+}
+
+.graphic {
+  @apply w-full;
+  @apply h-96;
+  &__options {
+    @apply w-full;
+    @apply pt-2;
+    @apply pl-3;
+    @apply flex;
+    @apply flex-row;
+    @apply space-x-2;
+    &__option {
+      @apply w-full;
+      @apply text-oscure-800;
+      @apply text-regular-small;
+      @apply text-center;
+    }
+  }
+  &__line {
+    @apply w-full;
+    @apply bg-oscure-800;
+    @apply h-0.5;
+  }
+  &__content {
+    @apply h-full;
+    @apply flex;
+    @apply flex-row;
+    @apply space-x-3;
+    &__graphic {
+      @apply w-full;
+      @apply h-full;
+      @apply flex;
+      @apply flex-row;
+      @apply items-end;
+      @apply space-x-2;
+    }
+    &__line {
+      @apply h-full;
+      @apply w-0.5;
+      @apply bg-oscure-800;
+    }
+  }
+}

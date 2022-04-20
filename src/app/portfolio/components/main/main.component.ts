@@ -7,12 +7,11 @@ import { Skill } from '@models/skill.model';
 import { Project } from '@models/project.model';
 import { Job } from '@models/job.model';
 
+import { ApiService } from '@core/services/api/api.service';
+
 import { Observable } from 'rxjs';
 
-import {
-  VerbsButton,
-  getVerbsFromButton,
-} from '@core/utils/getVerbsFromButton.util';
+import { VerbsButton } from '@core/utils/getVerbsFromButton.util';
 
 @Component({
   selector: 'app-main',
@@ -31,6 +30,7 @@ export class MainComponent implements OnInit {
 
   openModal: boolean = false;
   constructor(
+    private apiService: ApiService,
     private store: Store<{ skills: Skill[]; projects: Project[]; jobs: Job[] }>,
     protected pipeAsync: AsyncPipe
   ) {
@@ -39,7 +39,9 @@ export class MainComponent implements OnInit {
     this.jobs$ = store.select('jobs');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiService.createStat({ type: 'VTTPP' }).subscribe(() => {});
+  }
 
   setValueInModal(value: boolean) {
     this.openModal = value;

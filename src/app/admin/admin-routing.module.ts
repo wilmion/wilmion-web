@@ -7,6 +7,8 @@ import { NotFoundAdminComponent } from './components/pages/not-found-admin/not-f
 
 import { ContactComponent } from './components/pages/contact/contact.component';
 
+import { StatsComponent } from './components/pages/stats/stats.component';
+
 // Settings
 import { SettingsComponent } from './components/pages/settings/settings.component';
 import { SettingsPasswordComponent } from './components/pages/settings-password/settings-password.component';
@@ -49,6 +51,10 @@ const routes: Routes = [
   {
     path: 'settings/change-password',
     component: SettingsPasswordComponent,
+  },
+  {
+    path: 'stats',
+    component: StatsComponent,
   },
   {
     path: '**',

@@ -1,0 +1,54 @@
+@import url("../../../../core/styles/texts.scss");
+
+.stats-page {
+  @apply flex;
+  @apply flex-col;
+  @apply space-y-6;
+
+  &__control {
+    @apply w-full;
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-5;
+    @apply md:space-y-6;
+
+    &__title {
+      @apply hidden;
+      @apply text-oscure-800;
+      @apply uppercase;
+      @apply w-full;
+      @apply text-center;
+      @apply text-h4;
+      @apply md:block;
+    }
+    &__actions {
+      @apply flex;
+      @apply flex-col;
+      @apply w-full;
+      @apply items-center;
+      @apply space-y-5;
+      @apply lg:flex-row;
+      @apply lg:items-end;
+      @apply lg:space-y-0;
+      @apply lg:space-x-8;
+    }
+  }
+
+  &__graphics {
+    @apply flex;
+    @apply flex-row;
+    @apply flex-wrap;
+    @apply gap-6;
+    @apply items-center;
+    &__box {
+      flex: 1 1 534px;
+      @apply flex;
+      @apply flex-col;
+      @apply space-y-6;
+      &__title {
+        @apply text-oscure-800;
+        @apply text-medium-normal;
+      }
+    }
+  }
+}

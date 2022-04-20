@@ -9,6 +9,7 @@ import { Skill } from '@models/skill.model';
 import { SocialMedia } from '@models/socialMedia.model';
 import { User, Login } from '@models/user.model';
 import { Image } from '@models/image.model';
+import { StatDto, Stat, StatQueries } from '@models/stat.model';
 
 import { environment } from 'src/environments/environment';
 
@@ -31,6 +32,35 @@ export class ApiService {
     fd.append('size', size);
 
     return this.http.post<IAPI<Image>>(urlRequest, fd);
+  }
+
+  // Stats
+
+  getAllStats(query: StatQueries) {
+    const queries = this.createQuery(query.limit, query.offset);
+
+    let urlRequest = `${this.API}/api/stats${queries}`;
+
+    if (query.type) {
+      if (queries === '') urlRequest += '?';
+      else urlRequest += '&';
+
+      urlRequest += `type=${query.type}`;
+    }
+
+    return this.http.get<IAPI<Stat[]>>(urlRequest);
+  }
+
+  getStat(id: string) {
+    const urlRequest = `${this.API}/api/stats/${id}`;
+
+    return this.http.get<IAPI<Stat>>(urlRequest);
+  }
+
+  createStat(statPayload: StatDto) {
+    const urlRequest = `${this.API}/api/stats`;
+
+    return this.http.post<IAPI<Stat>>(urlRequest, statPayload);
   }
 
   // Users

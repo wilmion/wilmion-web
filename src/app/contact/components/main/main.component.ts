@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { StaticPage } from '@models/static-page.model';
 import { SocialMedia } from '@models/socialMedia.model';
 
+import { ApiService } from '@core/services/api/api.service';
+
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,13 +23,16 @@ export class MainComponent implements OnInit {
     private store: Store<{
       staticPages: StaticPage[];
       socialMedia: SocialMedia[];
-    }>
+    }>,
+    private apiService: ApiService
   ) {
     this.staticPage$ = store.select('staticPages');
     this.socialMedia$ = store.select('socialMedia');
   }
 
   ngOnInit(): void {
+    this.apiService.createStat({ type: 'VTTCP' }).subscribe(() => {});
+
     this.subscribeToStore();
   }
 

@@ -24,7 +24,6 @@ import { setUser } from '@actions/user.actions';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private storageService: StorageService,
     private store: Store<{
       staticPages: StaticPage[];
       darkMode: boolean;
@@ -37,6 +36,9 @@ export class AppComponent implements OnInit {
       localStorage['theme'] = value ? 'dark' : 'light';
       this.verifyDarkMode();
     });
+
+    this.apiService.createStat({ type: 'NU' }).subscribe(() => {});
+
     this.fetchData();
   }
 
@@ -94,3 +96,13 @@ export class AppComponent implements OnInit {
     });
   }
 }
+
+// CORRECTIONS:
+// Guard Stategie on auths
+// Buttons style in icon
+// 'Cancel'"buttons without functionalitie.
+
+// REMAINING:
+// Stats
+// Dashboard
+// Blog
