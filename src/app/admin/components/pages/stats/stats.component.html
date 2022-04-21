@@ -2,7 +2,12 @@
   <section class="admin-box stats-page__control">
     <h2 class="stats-page__control__title">STATS</h2>
     <div class="stats-page__control__actions">
-      <app-date></app-date>
+      <app-date
+        [formGroup]="form"
+        [ids]="['from', 'to']"
+        label="Date"
+        class="w-full"
+      ></app-date>
       <app-button
         content="Filter now"
         type="button-primary"
@@ -13,7 +18,7 @@
   <section class="stats-page__graphics">
     <div
       class="admin-box stats-page__graphics__box"
-      *ngFor="let graphic of graphicStats"
+      *ngFor="let graphic of graphics"
     >
       <h3 class="stats-page__graphics__box__title">{{ graphic.title }}</h3>
       <app-stat [Obj]="graphic.raw" [title]="graphic.title"></app-stat>

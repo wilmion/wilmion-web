@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { getValue } from '@core/utils/forms.util';
+import { elegibleDate } from '@core/utils/date.util';
 
 @Component({
   selector: 'app-date',
@@ -16,11 +17,20 @@ export class DateComponent implements OnInit {
   @Input() ids: string[] = [];
   @Input() label: string = '';
 
+  options = ['Last 7 days', 'Last month', 'Last Year', 'Other'];
+  activeIndex: number = 3;
+
   openSelect: boolean = false;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.withoutShortCuts) this.options = [];
+    else {
+      this.activeIndex = 0;
+      this.alterateForm(6);
+    }
+  }
 
   get from() {
     return getValue(this.formGroup, this.ids[0]);
@@ -56,7 +66,31 @@ export class DateComponent implements OnInit {
     return `${margin}px`;
   }
 
+  onClickOption(index: number) {
+    this.activeIndex = index;
+
+    if (index === 0) this.alterateForm(6);
+    else if (index === 1) this.alterateForm(31);
+    else if (index === 2) this.alterateForm(365);
+  }
+
   onClick(e: Event) {
     this.openSelect = !this.openSelect;
+  }
+
+  private alterateForm(days: number) {
+    if (!this.formGroup) return;
+
+    const to = elegibleDate(new Date());
+
+    let from = new Date() as any;
+    from.setDate(from.getDate() - days);
+    from = elegibleDate(from);
+
+    this.formGroup.setValue({
+      from,
+      to,
+      current: false,
+    });
   }
 }

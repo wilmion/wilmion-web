@@ -3,10 +3,11 @@
   @apply hidden;
   @apply md:flex;
   @apply flex-row;
-  @apply w-full;
+  @apply w-auto;
   @apply justify-between;
   @apply items-center;
   @apply p-6;
+  @apply ml-80;
   @apply bg-primary;
   &__rute {
     @apply flex;

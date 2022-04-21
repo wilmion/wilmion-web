@@ -25,8 +25,9 @@ const month = [
   'December',
 ];
 
-function getDifferenceOfDays(from: Date, to: Date) {
-  const dates: Date[] = [to];
+function getDifferenceOfDays(from: string | Date, to: string) {
+  const dates: Date[] = [new Date(`${to}T00:00:00`)];
+  from = new Date(`${from}T00:00:00`);
   let limit: boolean = false;
 
   while (!limit) {
@@ -42,12 +43,16 @@ function getDifferenceOfDays(from: Date, to: Date) {
   return dates;
 }
 
-function agroupingByDateRange(
-  from: Date,
-  to: Date,
-  type: 'days' | 'weeks' | 'months' | 'years'
-) {
+function agroupingByDateRange(from: string, to: string) {
+  let type: 'days' | 'weeks' | 'months' | 'years' = 'days';
+
   const days = getDifferenceOfDays(from, to);
+
+  if (days.length > 365) type = 'years';
+  else if (days.length > 31) type = 'months';
+  else if (days.length > 7) type = 'weeks';
+
+  if (type === 'days') return { cycles: days, type };
 
   const cycles: Date[][] = [[]];
 
@@ -89,42 +94,16 @@ function agroupingByDateRange(
     }
   });
 
-  return cycles;
+  return { cycles, type };
 }
 
-export function separateData(
-  from: Date,
-  to: Date,
-  stats: Stat[],
-  type: 'days' | 'weeks' | 'months' | 'years'
-) {
+export function separateData(from: string, to: string, stats: Stat[]) {
   const agrupingData: { day: string; items: Stat[] }[] = [];
+  9;
+  const { cycles, type } = agroupingByDateRange(from, to);
 
-  if (type === 'days') {
-    const days = getDifferenceOfDays(from, to);
-
-    days.forEach((day) => {
-      const items = stats.filter((stat) => {
-        const createdAt = new Date(stat.createdAt);
-
-        const isDate = createdAt.getUTCDate() === day.getUTCDate();
-        const isMonth = createdAt.getUTCMonth() === day.getUTCMonth();
-        const isYear = createdAt.getUTCFullYear() === day.getUTCFullYear();
-
-        return isDate && isMonth && isYear;
-      });
-
-      const verbDay = daysVerbs[day.getDay()];
-
-      agrupingData.push({
-        day: `${verbDay} ${day.getDate()}`,
-        items,
-      });
-    });
-  } else {
-    const dateRange = agroupingByDateRange(from, to, type);
-
-    dateRange.forEach((range) => {
+  if (Array.isArray(cycles[0])) {
+    cycles.forEach((range: any) => {
       const fromRange = range[range.length - 1];
       const toRange = range[0];
 
@@ -152,7 +131,30 @@ export function separateData(
         items,
       });
     });
+  } else {
+    cycles.forEach((day: any) => {
+      const items = stats.filter((stat) => {
+        const createdAt = new Date(stat.createdAt);
+
+        const isDate = createdAt.getUTCDate() === day.getUTCDate();
+        const isMonth = createdAt.getUTCMonth() === day.getUTCMonth();
+        const isYear = createdAt.getUTCFullYear() === day.getUTCFullYear();
+
+        return isDate && isMonth && isYear;
+      });
+
+      const verbDay = daysVerbs[day.getDay()];
+
+      agrupingData.push({
+        day: `${verbDay} ${day.getDate()}`,
+        items,
+      });
+    });
   }
 
   return agrupingData;
 }
+
+export const elegibleDate = (date: Date) => {
+  return date.toISOString().slice(0, 10);
+};

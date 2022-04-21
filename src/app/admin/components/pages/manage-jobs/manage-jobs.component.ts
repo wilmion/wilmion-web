@@ -38,7 +38,6 @@ export class ManageJobsComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.$jobs = store.select('jobs');
-    4;
     this.builder();
   }
 

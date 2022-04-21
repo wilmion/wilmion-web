@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Stat } from '@models/stat.model';
 import { IStat } from '../../atoms/stat/stat.component';
 
 import { ApiService } from '@core/services/api/api.service';
-import { separateData } from '@core/utils/date.util';
+
+import { elegibleDate, separateData } from '@core/utils/date.util';
+import { getValue } from '@core/utils/forms.util';
 
 @Component({
   selector: 'app-stats',
@@ -12,21 +15,32 @@ import { separateData } from '@core/utils/date.util';
   styleUrls: ['./stats.component.scss'],
 })
 export class StatsComponent implements OnInit {
+  form: FormGroup | undefined;
+
   stats: Stat[] = [];
 
-  from: Date = new Date('April 13, 2022 00:00:00');
-  to: Date = new Date();
-  typeDate: 'months' | 'weeks' | 'days' | 'years' = 'days';
-
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private formBuilder: FormBuilder
+  ) {
+    this.formBuild();
+  }
 
   ngOnInit(): void {
-    this.apiService.getAllStats({}).subscribe((data) => {
+    this.apiService.getAllStats({ limit: '9999' }).subscribe((data) => {
       this.stats = data.payload;
     });
   }
 
-  get graphicStats() {
+  get from() {
+    return getValue(this.form, 'from').value;
+  }
+
+  get to() {
+    return getValue(this.form, 'to').value;
+  }
+
+  get graphics() {
     const typesStats = ['NU', 'VTTCP', 'VTTPP', 'VTTBP', 'NOCWSTF'];
     const data: { title: string; raw: IStat[] }[] = [];
 
@@ -47,7 +61,7 @@ export class StatsComponent implements OnInit {
   private getStat(type: string) {
     const statArr: Stat[] = this.stats.filter((stat) => stat.type === type);
 
-    const info = separateData(this.from, this.to, statArr, this.typeDate);
+    const info = separateData(this.from, this.to, statArr);
 
     const value: IStat[] = [];
 
@@ -76,5 +90,12 @@ export class StatsComponent implements OnInit {
       default:
         return 'Click on the page';
     }
+  }
+  private formBuild() {
+    this.form = this.formBuilder.group({
+      from: [''],
+      to: [''],
+      current: [false],
+    });
   }
 }
