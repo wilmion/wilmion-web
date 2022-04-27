@@ -9,11 +9,14 @@ export class StorageService {
   // Local Storage
 
   setLocalStorage(payload: any, key: string) {
+    const date = new Date();
+    date.setDate(date.getUTCDate() + 1);
+
     localStorage.setItem(
       key,
       JSON.stringify({
         payload,
-        expiration: new Date().toString(),
+        expiration: date.toISOString(),
       })
     );
   }
@@ -71,6 +74,6 @@ export class StorageService {
 
     const objectDate = new Date(object.expiration);
 
-    return objectDate.getTime() < currentDate.getTime();
+    return objectDate.getTime() >= currentDate.getTime();
   }
 }
