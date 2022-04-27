@@ -1,4 +1,5 @@
 import { Stat } from '@models/stat.model';
+import { IStat } from 'src/app/admin/components/atoms/stat/stat.component';
 
 const daysVerbs = [
   'Sunday',
@@ -158,3 +159,25 @@ export function separateData(from: string, to: string, stats: Stat[]) {
 export const elegibleDate = (date: Date) => {
   return date.toISOString().slice(0, 10);
 };
+
+export function getStats(
+  type: string,
+  stats: Stat[],
+  from: string,
+  to: string
+) {
+  const statArr: Stat[] = stats.filter((stat) => stat.type === type);
+
+  const info = separateData(from, to, statArr);
+
+  const value: IStat[] = [];
+
+  info.forEach((i) =>
+    value.push({
+      text: i.day,
+      value: i.items.length,
+    })
+  );
+
+  return value;
+}

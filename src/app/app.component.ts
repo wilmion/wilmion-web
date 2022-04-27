@@ -5,9 +5,6 @@ import { StaticPage } from '@models/static-page.model';
 
 // Services
 import { ApiService } from '@core/services/api/api.service';
-import { StorageService } from '@core/services/storage/storage.service';
-
-import { User } from '@models/user.model';
 
 //Dispatchs
 import { setStaticPages } from '@actions/static-page.actions';
@@ -15,7 +12,6 @@ import { setProjects } from '@actions/projects.actions';
 import { setJobs } from '@actions/jobs.actions';
 import { setSkills } from '@actions/skills.actions';
 import { setSocialMedias } from '@actions/socialMedias.actions';
-import { setUser } from '@actions/user.actions';
 
 @Component({
   selector: 'app-root',
@@ -99,7 +95,7 @@ export class AppComponent implements OnInit {
 
 // CORRECTIONS:
 // Guard Stategie on auths
-// 'Cancel'" buttons without functionalitie.
+// 'Cancel'" buttons without functionalities.
 
 // REMAINING:
 // Dashboard

@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { ApiService } from '@core/services/api/api.service';
+
 @Component({
   selector: 'app-form-box',
   templateUrl: './form-box.component.html',
@@ -15,7 +17,10 @@ export class FormBoxComponent implements OnInit {
   @Input() email: string = '';
   form: FormGroup | undefined;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private apiService: ApiService
+  ) {
     this.buildForm();
   }
 
@@ -24,6 +29,12 @@ export class FormBoxComponent implements OnInit {
   }
 
   onSubmit() {
+    this.apiService
+      .createStat({
+        type: 'NOCWSTF',
+      })
+      .subscribe(() => {});
+
     const link = document.createElement('a');
     link.href = `mailto:${this.email}?subject=${this.subject.value}&body=${this.message.value}`;
     link.click();

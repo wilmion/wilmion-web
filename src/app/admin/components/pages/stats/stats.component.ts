@@ -6,7 +6,7 @@ import { IStat } from '../../atoms/stat/stat.component';
 
 import { ApiService } from '@core/services/api/api.service';
 
-import { elegibleDate, separateData } from '@core/utils/date.util';
+import { getStats } from '@core/utils/date.util';
 import { getValue } from '@core/utils/forms.util';
 
 @Component({
@@ -47,7 +47,7 @@ export class StatsComponent implements OnInit {
     typesStats.forEach((type) => {
       const title = this.intercambiateVerbs(type);
 
-      const raw = this.getStat(type);
+      const raw = getStats(type, this.stats, this.from, this.to);
 
       data.push({
         title,
@@ -56,23 +56,6 @@ export class StatsComponent implements OnInit {
     });
 
     return data;
-  }
-
-  private getStat(type: string) {
-    const statArr: Stat[] = this.stats.filter((stat) => stat.type === type);
-
-    const info = separateData(this.from, this.to, statArr);
-
-    const value: IStat[] = [];
-
-    info.forEach((i) =>
-      value.push({
-        text: i.day,
-        value: i.items.length,
-      })
-    );
-
-    return value;
   }
 
   private intercambiateVerbs(verb: string) {

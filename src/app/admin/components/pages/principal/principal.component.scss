@@ -1,0 +1,54 @@
+@import url("../../../../core/styles/texts.scss");
+
+.dashboard {
+  @apply flex;
+  @apply flex-col;
+  @apply w-full;
+  @apply lg:space-y-6;
+  &__job {
+    @apply hidden;
+    @apply flex-col;
+    @apply space-y-6;
+    @apply items-start;
+    @apply w-full;
+    @apply lg:flex;
+    &__header {
+      @apply flex;
+      @apply flex-row;
+      @apply justify-between;
+      @apply items-center;
+      @apply w-full;
+      &__title {
+        @apply text-medium-large;
+        @apply text-oscure-800;
+      }
+      &__link {
+        @apply text-regular-normal;
+        @apply underline;
+        @apply text-secondary;
+      }
+    }
+  }
+  &__stats {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-6;
+    @apply w-full;
+    @apply xl:flex-row;
+    @apply xl:flex-wrap;
+    @apply xl:space-y-0;
+    @apply xl:space-x-6;
+    &__box {
+      @apply flex;
+      @apply flex-col;
+      @apply items-start;
+      @apply space-y-6;
+      @apply w-full;
+      flex: 1 1 434px;
+      &__title {
+        @apply text-medium-normal;
+        @apply text-oscure-800;
+      }
+    }
+  }
+}
