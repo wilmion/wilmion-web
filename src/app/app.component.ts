@@ -93,10 +93,5 @@ export class AppComponent implements OnInit {
   }
 }
 
-// CORRECTIONS:
-// Guard Stategie on auths
-// 'Cancel'" buttons without functionalities.
-
 // REMAINING:
-// Dashboard
 // Blog

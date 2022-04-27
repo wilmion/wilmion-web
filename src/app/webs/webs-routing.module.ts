@@ -12,6 +12,8 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthLayoutComponent,
+    canActivate: [AuthGuard],
+    data: { auth: true },
     children: [
       {
         path: '',
@@ -24,6 +26,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard, AuthorizationGuard],
+    data: { auth: false },
     children: [
       {
         path: '',

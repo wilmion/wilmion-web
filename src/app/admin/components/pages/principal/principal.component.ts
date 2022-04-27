@@ -4,12 +4,11 @@ import { Store } from '@ngrx/store';
 import { ApiService } from '@core/services/api/api.service';
 
 import { Job } from '@models/job.model';
-import { IStat } from '../../atoms/stat/stat.component';
-import { Stat } from '@models/stat.model';
+import { GraphicStat } from '@models/stat.model';
 
-import { getStats, elegibleDate } from '@core/utils/date.util';
+import { elegibleDate } from '@core/utils/date.util';
 
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-principal',
@@ -19,7 +18,7 @@ import { Observable } from 'rxjs';
 export class PrincipalComponent implements OnInit {
   $jobs: Observable<Job[]>;
 
-  stats: Stat[] = [];
+  $graphics: Observable<GraphicStat[]> | undefined;
 
   from = this.last7days();
   to = elegibleDate(new Date());
@@ -32,36 +31,20 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService
-      .getAllStats({
-        limit: '999999',
-      })
-      .subscribe((data) => {
-        this.stats = data.payload;
-      });
+    this.fetchData();
   }
 
-  get graphics() {
-    const typesStats: ('VTTBP' | 'NU')[] = ['NU', 'VTTBP'];
-    const data: { title: string; raw: IStat[] }[] = [];
-
-    typesStats.forEach((type) => {
-      const title = this.intercambiateVerbs(type);
-
-      const raw = getStats(type, this.stats, this.from, this.to);
-
-      data.push({
-        title,
-        raw,
-      });
-    });
-
-    return data;
-  }
-
-  private intercambiateVerbs(verb: 'NU' | 'VTTBP') {
+  intercambiateVerbs(verb: string) {
     if (verb === 'NU') return 'New Users [last 7 days]';
     else return 'Visits to the blog post[last 7 days]';
+  }
+
+  private fetchData() {
+    const types = ['NU', 'VTTBP'];
+
+    this.$graphics = this.apiService
+      .getAllStats({ from: this.from, to: this.to, type: types.join(',') })
+      .pipe(map((res) => res.payload));
   }
 
   private last7days() {

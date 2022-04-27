@@ -35,14 +35,15 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    const auth = route.data['auth'];
+
+    if (auth) return this.checkIsAuthenticated();
+
     return this.checkLocalStorage();
   }
 
   private checkLocalStorage() {
-    const user = this.storageService.findOnLocalOrSession<{
-      token: string;
-      user: User;
-    }>('auth');
+    const user = this.getFromLocalStorage();
 
     if (user) {
       this.apiService.getMyProfile().subscribe({
@@ -55,5 +56,23 @@ export class AuthGuard implements CanActivate {
 
     this.route.navigate(['/auth/login']);
     return false;
+  }
+
+  private checkIsAuthenticated() {
+    const user = this.getFromLocalStorage();
+
+    if (!user) return true;
+
+    this.route.navigate(['/admin']);
+    return false;
+  }
+
+  private getFromLocalStorage() {
+    const user = this.storageService.findOnLocalOrSession<{
+      token: string;
+      user: User;
+    }>('auth');
+
+    return user;
   }
 }

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { Stat } from '@models/stat.model';
-import { IStat } from '../../atoms/stat/stat.component';
+import { GraphicStat } from '@models/stat.model';
 
 import { ApiService } from '@core/services/api/api.service';
 
-import { getStats } from '@core/utils/date.util';
 import { getValue } from '@core/utils/forms.util';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-stats',
@@ -17,7 +16,9 @@ import { getValue } from '@core/utils/forms.util';
 export class StatsComponent implements OnInit {
   form: FormGroup | undefined;
 
-  stats: Stat[] = [];
+  $graphics: Observable<GraphicStat[]> | undefined;
+
+  loading: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -27,9 +28,7 @@ export class StatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getAllStats({ limit: '9999' }).subscribe((data) => {
-      this.stats = data.payload;
-    });
+    setTimeout(() => this.setGraphic(), 100);
   }
 
   get from() {
@@ -40,25 +39,11 @@ export class StatsComponent implements OnInit {
     return getValue(this.form, 'to').value;
   }
 
-  get graphics() {
-    const typesStats = ['NU', 'VTTCP', 'VTTPP', 'VTTBP', 'NOCWSTF'];
-    const data: { title: string; raw: IStat[] }[] = [];
-
-    typesStats.forEach((type) => {
-      const title = this.intercambiateVerbs(type);
-
-      const raw = getStats(type, this.stats, this.from, this.to);
-
-      data.push({
-        title,
-        raw,
-      });
-    });
-
-    return data;
+  setGraphic() {
+    this.fetchData();
   }
 
-  private intercambiateVerbs(verb: string) {
+  intercambiateVerbs(verb: string) {
     switch (verb) {
       case 'NU':
         return 'Click on the page';
@@ -74,6 +59,26 @@ export class StatsComponent implements OnInit {
         return 'Click on the page';
     }
   }
+
+  private fetchData() {
+    this.loading = true;
+
+    const types = ['NU', 'VTTCP', 'VTTPP', 'VTTBP', 'NOCWSTF'];
+
+    this.$graphics = this.apiService
+      .getAllStats({
+        from: this.from,
+        to: this.to,
+        type: types.join(','),
+      })
+      .pipe(
+        map((res) => {
+          this.loading = false;
+          return res.payload;
+        })
+      );
+  }
+
   private formBuild() {
     this.form = this.formBuilder.group({
       from: [''],

@@ -33,7 +33,15 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.loading = true;
+
     this.store.select('staticPages').subscribe((data) => {
+      this.loading = false;
+
       const dataFiltered = data.find((d) => d.contactEmail !== undefined);
 
       if (!dataFiltered) return;

@@ -80,6 +80,17 @@
         colorText="#171208"
         [customColorOutline]="true"
         content="Cancel"
+        (clickButton)="openModal = false"
+      ></app-button>
+    </div>
+
+    <div class="modal-card-manage-skill__buttons" *ngIf="!createModal">
+      <app-button
+        color="#FC0000"
+        colorText="#FFFEFC"
+        Icon="BSTRASH"
+        content="Delete"
+        (clickButton)="delete()"
       ></app-button>
     </div>
   </form>

@@ -2,7 +2,9 @@
   <div class="admin-box dashboard__job">
     <div class="dashboard__job__header">
       <h2 class="dashboard__job__header__title">Current Job</h2>
-      <a routerLink="link" class="dashboard__job__header__link">Manage jobs</a>
+      <a routerLink="manage/jobs" class="dashboard__job__header__link"
+        >Manage jobs</a
+      >
     </div>
     <ng-container *ngFor="let job of $jobs | async">
       <app-jobs-card-manage
@@ -15,9 +17,11 @@
   <div class="dashboard__stats">
     <div
       class="admin-box dashboard__stats__box"
-      *ngFor="let graphic of graphics"
+      *ngFor="let graphic of $graphics | async"
     >
-      <h3 class="dashboard__stats__box__title">{{ graphic.title }}</h3>
+      <h3 class="dashboard__stats__box__title">
+        {{ intercambiateVerbs(graphic.title) }}
+      </h3>
       <app-stat
         class="w-full"
         [Obj]="graphic.raw"

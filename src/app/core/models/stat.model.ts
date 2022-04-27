@@ -1,3 +1,5 @@
+import { IStat } from 'src/app/admin/components/atoms/stat/stat.component';
+
 export interface StatDto {
   readonly type: 'NU' | 'VTTBP' | 'VTTPP' | 'VTTCP' | 'NOCWSTF';
 }
@@ -10,7 +12,13 @@ export interface Stat extends StatDto {
   readonly post: any | null;
 }
 
-export interface StatQueries extends Partial<StatDto> {
-  readonly limit?: string;
-  readonly offset?: string;
+export interface StatQueries {
+  readonly from: string;
+  readonly to: string;
+  readonly type: string;
+}
+
+export interface GraphicStat {
+  title: string;
+  raw: IStat[];
 }

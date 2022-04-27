@@ -9,7 +9,11 @@ import { ApiService } from '@core/services/api/api.service';
 import { Skill } from '@models/skill.model';
 import { IAPI } from '@models/api.model';
 
-import { addSkill, editSkill } from '@core/ngrx/actions/skills.actions';
+import {
+  addSkill,
+  deleteSkill,
+  editSkill,
+} from '@core/ngrx/actions/skills.actions';
 
 import { getFileFromUrl } from '@core/utils/image.util';
 import { petition } from '@core/utils/api.utils';
@@ -132,6 +136,18 @@ export class ManageSkillsComponent implements OnInit {
     }
   }
 
+  delete() {
+    this.loading = true;
+    this.openModal = false;
+
+    const id = this.idCurrentSkill;
+
+    this.apiService.deleteSkill(id).subscribe({
+      next: () => this.onDeleteSkill(id as any),
+      error: () => this.onError(),
+    });
+  }
+
   get svg() {
     if (!this.formPrincipal) throw new Error('No form encountered');
 
@@ -230,6 +246,13 @@ export class ManageSkillsComponent implements OnInit {
         create ? this.onCreateSkill(data) : this.onEditSkill(data),
       error: () => this.onError(),
     });
+  }
+
+  private onDeleteSkill(id: number) {
+    this.store.dispatch(deleteSkill({ id }));
+
+    this.loading = false;
+    this.error = false;
   }
 
   private onCreateSkill(data: IAPI<Skill>) {

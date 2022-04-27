@@ -7,7 +7,12 @@
   (click)="onClick()"
   [disabled]="disable"
 >
-  <app-icon [icon]="Icon" [class]="textOfOutline" *ngIf="Icon"></app-icon>
+  <app-icon
+    [icon]="Icon"
+    [color]="colorText"
+    [class]="textOfOutline"
+    *ngIf="Icon"
+  ></app-icon>
   <app-icon
     [insertedSvg]="insertedSvg"
     *ngIf="insertedSvg || insertedSvg === ''"

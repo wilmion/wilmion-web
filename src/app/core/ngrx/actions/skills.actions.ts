@@ -4,6 +4,8 @@ import { Skill } from '@models/skill.model';
 
 export const addSkill = createAction('addSkill', props<Skill>());
 
+export const deleteSkill = createAction('deleteSkill', props<{ id: number }>());
+
 export const editSkill = createAction(
   'editSkill',
   props<{ id: string; payload: Partial<Skill> }>()

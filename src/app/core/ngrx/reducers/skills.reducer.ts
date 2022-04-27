@@ -9,6 +9,7 @@ const initialState: Skill[] = [];
 const _skillReducer = createReducer(
   initialState,
   on(SkillsActions.addSkill, addSkill),
+  on(SkillsActions.deleteSkill, deleteSkill),
   on(SkillsActions.setSkills, setSkills),
   on(SkillsActions.editSkill, editSkill),
   on(SkillsActions.clearAllSkills, clearAllSkills)
@@ -48,4 +49,10 @@ function setSkills(state: Skill[], { skills }: { skills: Skill[] }) {
 
 function clearAllSkills(state: Skill[]) {
   return [];
+}
+
+function deleteSkill(state: Skill[], { id }: { id: number }) {
+  const newState = [...state];
+
+  return newState.filter((s) => s.id !== id);
 }

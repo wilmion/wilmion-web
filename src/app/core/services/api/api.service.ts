@@ -9,7 +9,7 @@ import { Skill } from '@models/skill.model';
 import { SocialMedia } from '@models/socialMedia.model';
 import { User, Login } from '@models/user.model';
 import { Image } from '@models/image.model';
-import { StatDto, Stat, StatQueries } from '@models/stat.model';
+import { StatDto, Stat, StatQueries, GraphicStat } from '@models/stat.model';
 
 import { environment } from 'src/environments/environment';
 
@@ -36,19 +36,10 @@ export class ApiService {
 
   // Stats
 
-  getAllStats(query: StatQueries) {
-    const queries = this.createQuery(query.limit, query.offset);
+  getAllStats({ from, to, type }: StatQueries) {
+    let urlRequest = `${this.API}/api/stats?from=${from}&to=${to}&type=${type}`;
 
-    let urlRequest = `${this.API}/api/stats${queries}`;
-
-    if (query.type) {
-      if (queries === '') urlRequest += '?';
-      else urlRequest += '&';
-
-      urlRequest += `type=${query.type}`;
-    }
-
-    return this.http.get<IAPI<Stat[]>>(urlRequest);
+    return this.http.get<IAPI<GraphicStat[]>>(urlRequest);
   }
 
   getStat(id: string) {
@@ -182,6 +173,12 @@ export class ApiService {
     const url = `${this.API}/api/skills/${id}`;
 
     return this.http.patch<IAPI<Skill>>(url, payload);
+  }
+
+  deleteSkill(id: string) {
+    const url = `${this.API}/api/skills/${id}`;
+
+    return this.http.delete<IAPI<{}>>(url);
   }
 
   // Social-media
