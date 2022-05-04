@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'http://wilmionapi.com',
+  API_URL: 'https://wilmionapi.com',
 };
