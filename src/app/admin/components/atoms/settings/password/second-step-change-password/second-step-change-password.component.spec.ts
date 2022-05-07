@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { SecondStepChangePasswordComponent } from './second-step-change-password.component';
 
@@ -8,9 +9,9 @@ describe('SecondStepChangePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecondStepChangePasswordComponent ]
-    })
-    .compileComponents();
+      declarations: [SecondStepChangePasswordComponent],
+      providers: [FormBuilder],
+    }).compileComponents();
   });
 
   beforeEach(() => {

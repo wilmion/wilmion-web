@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageComponent } from './manage.component';
+import { ManageSocialMediaComponent } from './manage-social-media.component';
 
 describe('ManageComponent', () => {
-  let component: ManageComponent;
-  let fixture: ComponentFixture<ManageComponent>;
+  let component: ManageSocialMediaComponent;
+  let fixture: ComponentFixture<ManageSocialMediaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManageComponent ]
-    })
-    .compileComponents();
+      declarations: [ManageSocialMediaComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageComponent);
+    fixture = TestBed.createComponent(ManageSocialMediaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

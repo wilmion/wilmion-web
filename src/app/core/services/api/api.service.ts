@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  private API: string = environment.API_URL;
+  public API: string = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 
@@ -106,7 +106,7 @@ export class ApiService {
   getAllJobs() {
     const url = `${this.API}/api/jobs`;
 
-    return this.http.get<IAPI<Job>>(url);
+    return this.http.get<IAPI<Job[]>>(url);
   }
 
   updateJob(id: string, payload: Partial<Job>) {
@@ -199,7 +199,7 @@ export class ApiService {
 
   // Utils for this file
 
-  private createQuery(limit?: string, offset?: string) {
+  public createQuery(limit?: string, offset?: string) {
     let query = '';
 
     if (limit) {
