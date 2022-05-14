@@ -13,7 +13,7 @@ import { icons, Icons } from './icons';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
 })
-export class IconComponent implements OnInit, OnChanges {
+export class IconComponent implements OnInit {
   @Input() icon: Icons = 'AIOUTLINELINKEDIN';
   @Input() width: string | undefined;
   @Input() height: string | undefined;
@@ -25,8 +25,6 @@ export class IconComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges): void {}
-
   get getIcon() {
     let svgTemplate: string = this.insertedSvg
       ? this.insertedSvg
@@ -34,14 +32,14 @@ export class IconComponent implements OnInit, OnChanges {
 
     const widthAndHeight =
       this.width && this.height
-        ? ` width="${this.width}" height="${this.height}" `
-        : '';
+        ? `width="${this.width}" height="${this.height}" `
+        : ' ';
 
     const className = this.class ? `class="${this.class}"` : '';
 
     const svg = svgTemplate.replace(
       'props',
-      `${className}  ${widthAndHeight} color="${this.color}" `
+      `${className}${widthAndHeight}color="${this.color}"`
     );
 
     return svg;

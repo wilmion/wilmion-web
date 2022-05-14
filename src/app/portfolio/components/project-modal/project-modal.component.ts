@@ -1,35 +1,20 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-project-modal',
   templateUrl: './project-modal.component.html',
   styleUrls: ['./project-modal.component.scss'],
 })
-export class ProjectModalComponent implements OnInit, OnChanges {
+export class ProjectModalComponent implements OnInit {
   @Input() url: string = '';
   @Input() githubUrl: string = '';
   @Input() blogUrl: string | null = null;
-  imageUrl: string = '';
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.transformUrlToCssRule();
-  }
+  ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.transformUrlToCssRule();
-  }
-
-  private transformUrlToCssRule() {
-    const newUrl = `url("${this.url}")`;
-
-    this.imageUrl = newUrl;
+  get urlCssRule() {
+    return `url("${this.url}")`;
   }
 }

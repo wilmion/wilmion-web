@@ -11,7 +11,10 @@ import { ApiService } from '@core/services/api/api.service';
 
 import { Observable } from 'rxjs';
 
-import { VerbsButton } from '@core/utils/getVerbsFromButton.util';
+import {
+  VerbsButton,
+  getVerbsFromButton,
+} from '@core/utils/getVerbsFromButton.util';
 
 @Component({
   selector: 'app-main',
@@ -26,7 +29,6 @@ export class MainComponent implements OnInit {
   jobs$: Observable<Job[]>;
 
   currentProjectView: Project | undefined;
-  buttonsSkillCurrentProject: VerbsButton[] = [];
 
   openModal: boolean = false;
   constructor(
@@ -39,6 +41,22 @@ export class MainComponent implements OnInit {
     this.jobs$ = store.select('jobs');
   }
 
+  get buttons(): VerbsButton[] {
+    if (!this.currentProjectView) return [];
+
+    const skills = this.currentProjectView.skills;
+
+    const returneredSkill: VerbsButton[] = [];
+
+    skills.forEach((skill) => {
+      const verbButton = getVerbsFromButton(skill);
+
+      if (verbButton) returneredSkill.push(verbButton);
+    });
+
+    return returneredSkill;
+  }
+
   ngOnInit(): void {
     this.apiService.createStat({ type: 'VTTPP' }).subscribe(() => {});
   }
@@ -49,15 +67,22 @@ export class MainComponent implements OnInit {
 
   onViewDetails(project: Project) {
     this.currentProjectView = project;
-    this.buttonsSkillCurrentProject = [];
 
     this.setValueInModal(true);
   }
 
-  setVerbsInButtonOfModal(skill: string) {
-    if (skill === 'Angular') return 'Ver';
-    else if (skill === 'Nest.js') return 'Ver backend';
+  getLinkOfButton(text: 'Ver' | 'Ver backend' | 'Ver figma') {
+    if (!this.currentProjectView) return '';
 
-    return '';
+    switch (text) {
+      case 'Ver':
+        return this.currentProjectView.linkFrontend;
+      case 'Ver backend':
+        return this.currentProjectView.linkBackend;
+      case 'Ver figma':
+        return this.currentProjectView.linkFigma;
+      default:
+        return 'NOT EXIST';
+    }
   }
 }

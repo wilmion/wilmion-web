@@ -21,7 +21,6 @@
   >
     <div
       class="input-date__select__option"
-      ngFor=""
       *ngFor="let option of options; let i = index"
       (click)="onClickOption(i)"
       [class.bg-primary]="i === activeIndex"

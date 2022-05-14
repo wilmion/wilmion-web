@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Skill } from '@models/skill.model';
 
 import { SkillComponent } from './skill.component';
+
+const skill: Skill = {
+  name: '',
+  backgroundColor: '',
+  iconColor: '',
+};
 
 describe('SkillComponent', () => {
   let component: SkillComponent;
@@ -8,9 +15,8 @@ describe('SkillComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillComponent ]
-    })
-    .compileComponents();
+      declarations: [SkillComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +27,16 @@ describe('SkillComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Show data information', () => {
+    component.skill = skill;
+
+    fixture.detectChanges();
+
+    let element: HTMLElement | null = fixture.nativeElement as HTMLElement;
+    element = element.querySelector('.skill');
+
+    expect(element).toBeTruthy();
   });
 });

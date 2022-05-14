@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { CheckboxComponent } from './checkbox.component';
 
@@ -8,9 +9,8 @@ describe('CheckboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CheckboxComponent ]
-    })
-    .compileComponents();
+      declarations: [CheckboxComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,17 @@ describe('CheckboxComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Get state of checkbox', () => {
+    const form = new FormBuilder().group({
+      checkbox: [false],
+    });
+
+    component.formGroup = form;
+    component.id = 'checkbox';
+    component.text = 'TEXT OF LABEL';
+
+    expect(component.active).toBe(false);
   });
 });

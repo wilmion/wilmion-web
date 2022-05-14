@@ -23,12 +23,6 @@ export class PrincipalLayoutComponent implements OnInit {
       });
   }
 
-  private getActualRute() {
-    const routeOnlyInText = this.actualRoute.replace('/', '');
-
-    return routeOnlyInText;
-  }
-
   getTitleOfRute() {
     const route = this.getActualRute();
 
@@ -52,5 +46,11 @@ export class PrincipalLayoutComponent implements OnInit {
         document.title = 'Wilmion - 404 😢';
         return undefined;
     }
+  }
+
+  getActualRute() {
+    const routeOnlyInText = this.actualRoute.replace('/', '');
+
+    return routeOnlyInText;
   }
 }

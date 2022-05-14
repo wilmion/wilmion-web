@@ -8,9 +8,8 @@ describe('LoadingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadingComponent ]
-    })
-    .compileComponents();
+      declarations: [LoadingComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,27 @@ describe('LoadingComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Loding in true state', () => {
+    component.loading = true;
+
+    fixture.detectChanges();
+
+    let element = fixture.nativeElement as HTMLElement;
+    element = element.querySelector('.loader') as HTMLElement;
+
+    expect(element).toBeTruthy();
+  });
+
+  it('Loding in false state', () => {
+    component.loading = false;
+
+    fixture.detectChanges();
+
+    let element = fixture.nativeElement as HTMLElement;
+    element = element.querySelector('.loader') as HTMLElement;
+
+    expect(element).toBeFalsy();
   });
 });

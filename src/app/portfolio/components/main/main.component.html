@@ -17,22 +17,32 @@
     </div>
 
     <div class="portfolio-page__modal__buttons">
-      <app-button
+      <a
         class="portfolio-page__modal__buttons__container"
-        *ngFor="let verbButton of buttonsSkillCurrentProject"
-        [content]="verbButton.verb"
-        [color]="verbButton.skill.backgroundColor"
-        [insertedSvg]="verbButton.skill.icon"
-        [colorText]="verbButton.skill.iconColor"
-        [notSetPosition]="true"
-      ></app-button>
-      <app-button
+        *ngFor="let button of buttons"
+        [href]="getLinkOfButton(button.verb)"
+        target="_blank"
+      >
+        <app-button
+          [content]="button.verb"
+          [color]="'#' + button.skill.backgroundColor"
+          [insertedSvg]="button.skill.icon"
+          [colorText]="'#' + button.skill.iconColor"
+          [notSetPosition]="true"
+        ></app-button>
+      </a>
+      <a
         class="portfolio-page__modal__buttons__container"
         *ngIf="currentProjectView.linkBlog"
-        content="¿Cómo lo hice?"
-        type="button-primary"
-        [notSetPosition]="true"
-      ></app-button>
+        [href]="currentProjectView.linkBlog"
+        target="_blank"
+      >
+        <app-button
+          content="¿Cómo lo hice?"
+          type="button-primary"
+          [notSetPosition]="true"
+        ></app-button>
+      </a>
     </div>
     <h4 class="portfolio-page__modal__title">TECNOLOGÍAS UTILIZADAS</h4>
     <div class="portfolio-page__modal__technologies">

@@ -10,13 +10,7 @@ import { Skill } from '@core/models/skill.model';
 export class SkillComponent implements OnInit {
   @Input() skill: Skill | undefined;
 
-  hovering: boolean = false;
-
   constructor() {}
 
   ngOnInit(): void {}
-
-  onHover() {
-    this.hovering = !this.hovering;
-  }
 }

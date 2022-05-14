@@ -32,11 +32,6 @@ export class ModalComponent implements OnInit, OnChanges {
     this.evualationState();
   }
 
-  private evualationState() {
-    if (this.open) this.onOpenAnimation();
-    if (!this.open) this.onCloseAnimation();
-  }
-
   onCloseAnimation() {
     this.finishAnimation = false;
     this.openAnimation = false;
@@ -56,5 +51,10 @@ export class ModalComponent implements OnInit, OnChanges {
 
   onClickOnCross() {
     this.onCloseModal.emit();
+  }
+
+  private evualationState() {
+    if (this.open) this.onOpenAnimation();
+    if (!this.open) this.onCloseAnimation();
   }
 }

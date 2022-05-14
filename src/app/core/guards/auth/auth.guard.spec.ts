@@ -26,7 +26,6 @@ const user: User = {
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
-  let apiService: ApiService;
   let storageService: StorageService;
   let routeMock: any = { snapshot: {} };
   let routeStateMock: any = { snapshot: {}, url: '/cookies' };

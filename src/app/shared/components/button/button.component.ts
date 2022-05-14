@@ -32,8 +32,6 @@ export class ButtonComponent implements OnInit {
   get textOfOutline() {
     let className = 'w-5 h-5';
 
-    if (!this.type) return className;
-
     if (this.type === 'button-outline-secondary')
       return `${className} text-secondary`;
 

@@ -1,6 +1,6 @@
 import { ChangeScreenDirective } from './change-screen.directive';
 
-xdescribe('ChangeScreenDirective', () => {
+describe('ChangeScreenDirective', () => {
   it('should create an instance', () => {
     const directive = new ChangeScreenDirective();
     expect(directive).toBeTruthy();
