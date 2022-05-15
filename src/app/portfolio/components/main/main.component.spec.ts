@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Job } from '@models/job.model';
 import { Project } from '@models/project.model';
 import { Skill } from '@models/skill.model';
+import { VerbsButton } from '@core/utils/getVerbsFromButton.util';
 
 import { ApiService } from '@core/services/api/api.service';
 import { Store } from '@ngrx/store';
@@ -72,5 +73,17 @@ describe('MainComponent - Portfolio', () => {
     });
   });
 
-  // TODO: Test get buttons()
+  it('Get buttons', () => {
+    const result = component.buttons;
+
+    const expected: VerbsButton[] = [
+      {
+        verb: 'Ver',
+        skill: initialStateTest.skills[3],
+      },
+    ];
+
+    expect(result.length).toBe(1);
+    expect(result).toEqual(expected);
+  });
 });

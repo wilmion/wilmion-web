@@ -9,8 +9,14 @@
   @apply items-center;
   @apply space-x-2;
   @apply py-4;
+
   &__text {
+    @apply hidden;
     @apply text-bold-extra-normal;
     @apply md:text-bold-large;
+  }
+
+  &:hover &__text {
+    @apply block;
   }
 }

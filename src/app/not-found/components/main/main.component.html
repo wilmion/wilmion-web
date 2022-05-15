@@ -1,11 +1,12 @@
 <section class="not-found">
-  <app-icon icon="MDOUTLINESEARCHOFF" class="w-32 h-32"> </app-icon>
+  <app-icon icon="MDOUTLINESEARCHOFF" class="w-32 h-32"></app-icon>
   <h4 class="not-found__title">¡Ups!</h4>
   <p class="not-found__text">Al parecer esta página no existe 😫</p>
-  <app-button
-    type="button-primary"
-    (clickButton)="onNavigate()"
-    Icon="BIROCKET"
-    content="Volver al Home"
-  ></app-button>
+  <a routerLink="/">
+    <app-button
+      type="button-primary"
+      Icon="BIROCKET"
+      content="Volver al Home"
+    ></app-button>
+  </a>
 </section>

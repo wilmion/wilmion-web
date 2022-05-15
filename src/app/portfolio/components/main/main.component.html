@@ -103,9 +103,9 @@
   <section class="portfolio-page__skill-container">
     <div
       class="portfolio-page__skill-container__container"
-      *ngFor="let data of skills$ | async"
+      *ngFor="let skill of skills$ | async"
     >
-      <app-skill class="w-full" [skill]="data"></app-skill>
+      <app-skill class="w-full" [skill]="skill"></app-skill>
     </div>
   </section>
 </section>

@@ -1,16 +1,28 @@
+const skills = [
+  {
+    name: 'SKILL 1',
+    backgroundColor: '#FFFFFF',
+    iconColor: '#FFFFFF',
+  },
+  {
+    name: 'SKILL 2',
+    backgroundColor: '#FFFFFF',
+    iconColor: '#FFFFFF',
+  },
+  {
+    name: 'SKILL 1',
+    backgroundColor: '#FFFFFF',
+    iconColor: '#FFFFFF',
+  },
+  {
+    name: 'React.js',
+    backgroundColor: '#FFFFFF',
+    iconColor: '#FFFFFF',
+  },
+];
+
 export const initialStateTest = {
-  skills: [
-    {
-      name: 'SKILL 1',
-      backgroundColor: '#FFFFFF',
-      iconColor: '#FFFFFF',
-    },
-    {
-      name: 'SKILL 2',
-      backgroundColor: '#FFFFFF',
-      iconColor: '#FFFFFF',
-    },
-  ],
+  skills,
   jobs: [
     {
       image: {
@@ -66,7 +78,7 @@ export const initialStateTest = {
       linkBlog: null,
       linkFigma: null,
       linkRepository: 'https://example.com',
-      skills: [],
+      skills,
       active: false,
     },
     {
