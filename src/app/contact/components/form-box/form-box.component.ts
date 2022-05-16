@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 
 import { ApiService } from '@core/services/api/api.service';
+import { getValue } from '@core/utils/forms.util';
 
 @Component({
   selector: 'app-form-box',
@@ -24,9 +25,7 @@ export class FormBoxComponent implements OnInit {
     this.buildForm();
   }
 
-  ngOnInit(): void {
-    if (!this.form) return;
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this.apiService
@@ -41,23 +40,11 @@ export class FormBoxComponent implements OnInit {
   }
 
   get subject() {
-    if (!this.form) throw new Error();
-
-    const field = this.form.get('subject');
-
-    if (!field) throw new Error();
-
-    return field;
+    return getValue(this.form, 'subject');
   }
 
   get message() {
-    if (!this.form) throw new Error();
-
-    const field = this.form.get('message');
-
-    if (!field) throw new Error();
-
-    return field;
+    return getValue(this.form, 'message');
   }
 
   private buildForm() {

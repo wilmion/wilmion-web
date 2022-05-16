@@ -10,6 +10,7 @@ import { User, Login } from '@models/user.model';
 
 import { ApiService } from '@core/services/api/api.service';
 import { StorageService } from '@core/services/storage/storage.service';
+import { getValue } from '@core/utils/forms.util';
 
 @Component({
   selector: 'app-login',
@@ -56,30 +57,18 @@ export class LoginComponent implements OnInit {
   }
 
   get email() {
-    if (!this.form) return null;
-
-    const email = this.form.get('email');
-
-    return email;
+    return getValue(this.form, 'email');
   }
 
   get password() {
-    if (!this.form) return null;
-
-    const password = this.form.get('password');
-
-    return password;
+    return getValue(this.form, 'password');
   }
 
   get KeepMyAccount() {
-    if (!this.form) return null;
-
-    const value = this.form.get('keep-my-account');
-
-    return value;
+    return getValue(this.form, 'keep-my-account');
   }
 
-  private successfullLogin(data: any, keep: boolean) {
+  successfullLogin(data: any, keep: boolean) {
     if (data.status === 200) {
       const payload = { ...data.payload };
       const key = 'auth';

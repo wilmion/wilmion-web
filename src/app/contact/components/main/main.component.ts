@@ -33,16 +33,16 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.createStat({ type: 'VTTCP' }).subscribe(() => {});
 
-    this.subscribeToStore();
+    this.staticPage$.subscribe(
+      (data) => (this.staticPage = this.getContactInfo(data))
+    );
   }
 
-  private subscribeToStore() {
-    this.staticPage$.subscribe((data) => {
-      const dataFiltered = data.find((d) => d.contactEmail !== undefined);
+  getContactInfo(data: StaticPage[]) {
+    const dataFiltered = data.find((d) => d.contactEmail != undefined);
 
-      if (!dataFiltered) return;
+    if (!dataFiltered) return undefined;
 
-      this.staticPage = dataFiltered;
-    });
+    return dataFiltered;
   }
 }

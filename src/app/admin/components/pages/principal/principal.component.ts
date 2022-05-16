@@ -39,18 +39,18 @@ export class PrincipalComponent implements OnInit {
     else return 'Visits to the blog post[last 7 days]';
   }
 
+  private last7days() {
+    const date = new Date();
+    date.setDate(date.getUTCDate() - 6);
+
+    return elegibleDate(date);
+  }
+
   private fetchData() {
     const types = ['NU', 'VTTBP'];
 
     this.$graphics = this.apiService
       .getAllStats({ from: this.from, to: this.to, type: types.join(',') })
       .pipe(map((res) => res.payload));
-  }
-
-  private last7days() {
-    const date = new Date();
-    date.setDate(date.getUTCDate() - 6);
-
-    return elegibleDate(date);
   }
 }

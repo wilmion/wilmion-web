@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-biography-resume',
@@ -7,11 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./biography-resume.component.scss'],
 })
 export class BiographyResumeComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  onNavigate() {
-    this.router.navigate(['/about']);
-  }
 }

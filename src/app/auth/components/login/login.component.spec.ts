@@ -1,16 +1,52 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { User } from '@core/models/user.model';
+import { ApiService } from '@core/services/api/api.service';
+import { StorageService } from '@core/services/storage/storage.service';
+
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { LoginComponent } from './login.component';
+
+const user: User | null = {
+  username: 'wilmion',
+  name: 'Wilbert Aldair',
+  job: 'Front',
+  email: 'wilmion97@gmail.com',
+  image: {
+    resolution: '',
+    imageUrl: 'https://platzi.com',
+    size: '',
+    md5: '',
+  },
+};
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
+  let apiService: ApiService;
+  let storageService: StorageService;
+  let router: Router;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+      ],
       declarations: [LoginComponent],
-      providers: [FormBuilder],
+      providers: [
+        FormBuilder,
+        ApiService,
+        StorageService,
+        provideMockStore({ initialState: { user } }),
+      ],
     }).compileComponents();
   });
 
@@ -18,26 +54,62 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    apiService = TestBed.inject(ApiService);
+    storageService = TestBed.inject(StorageService);
+    router = TestBed.inject(Router);
   });
 
-  it('should create', () => {
+  it('Should create', () => {
+    let element = fixture.nativeElement as HTMLElement;
+    element = element.querySelector('.login') as HTMLElement;
+
     expect(component).toBeTruthy();
+    expect(element).toBeTruthy();
   });
 
-  it('Login', () => {
-    const native = fixture.nativeElement as HTMLElement;
+  describe('Events', () => {
+    it('Login', () => {
+      const method = spyOn(component, 'login');
 
-    const email = native.querySelector('#email') as HTMLInputElement;
-    const password = native.querySelector('#password') as HTMLInputElement;
+      component.form?.get('email')?.setValue('wilmion97@gmail.com');
+      component.form?.get('password')?.setValue('123546789');
 
-    email.value = 'wilmion92@gmail.com';
-    password.value = '123456879';
+      component.login(new Event('Form'));
 
-    const button = native.querySelector(
-      "button[type='submit']"
-    ) as HTMLButtonElement;
-    button.click();
+      expect(method).toHaveBeenCalledTimes(1);
+    });
 
-    expect(component.login).toHaveBeenCalledTimes(1);
+    it('When the login is successfull and keep the account', () => {
+      const data = {
+        status: 200,
+        payload: user,
+      };
+
+      const navigateSpy = spyOn(router, 'navigate');
+      const setLocalStorageSpy = spyOn(storageService, 'setLocalStorage');
+
+      component.successfullLogin(data, true);
+
+      expect(navigateSpy).toHaveBeenCalledWith(['/admin']);
+      expect(setLocalStorageSpy).toHaveBeenCalledTimes(2);
+    });
+
+    it('When the login is successfull and not keep the account', () => {
+      const data = {
+        status: 200,
+        payload: user,
+      };
+
+      const navigateSpy = spyOn(router, 'navigate');
+      const setLocalStorageSpy = spyOn(storageService, 'setLocalStorage');
+      const setSessionStorageSpy = spyOn(storageService, 'setSessionStorage');
+
+      component.successfullLogin(data, false);
+
+      expect(navigateSpy).toHaveBeenCalledWith(['/admin']);
+      expect(setLocalStorageSpy).toHaveBeenCalledTimes(1);
+      expect(setSessionStorageSpy).toHaveBeenCalledTimes(1);
+    });
   });
 });
