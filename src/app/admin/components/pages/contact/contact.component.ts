@@ -36,19 +36,12 @@ export class ContactComponent implements OnInit {
     this.fetchData();
   }
 
-  fetchData() {
-    this.loading = true;
+  get introduction() {
+    return getValue(this.form, 'introduction').value;
+  }
 
-    this.store.select('staticPages').subscribe((data) => {
-      this.loading = false;
-
-      const dataFiltered = data.find((d) => d.contactEmail !== undefined);
-
-      if (!dataFiltered) return;
-
-      this.id = dataFiltered.id as any as string;
-      this.builder(dataFiltered);
-    });
+  get email() {
+    return getValue(this.form, 'email').value;
   }
 
   submit() {
@@ -65,12 +58,19 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  get introduction() {
-    return getValue(this.form, 'introduction').value;
-  }
+  fetchData() {
+    this.loading = true;
 
-  get email() {
-    return getValue(this.form, 'email').value;
+    this.store.select('staticPages').subscribe((data) => {
+      this.loading = false;
+
+      const dataFiltered = data.find((d) => d.contactEmail !== undefined);
+
+      if (!dataFiltered) return;
+
+      this.id = dataFiltered.id as any as string;
+      this.builder(dataFiltered);
+    });
   }
 
   private builder(contact: StaticPage) {

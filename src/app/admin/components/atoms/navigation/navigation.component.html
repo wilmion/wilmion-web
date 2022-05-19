@@ -33,6 +33,7 @@
             </p>
           </a>
           <div
+            [id]="'icon-nav-menu-' + path.name"
             [class.hidden]="path.subSections.length === 0"
             (click)="toggleMenu(pathIndex, sectionIndex)"
             [class.-rotate-90]="path.subsectionsActive"

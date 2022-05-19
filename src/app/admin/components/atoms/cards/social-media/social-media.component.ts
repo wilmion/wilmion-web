@@ -9,6 +9,7 @@ import { SocialMedia } from '@models/socialMedia.model';
 })
 export class SocialMediaComponent implements OnInit {
   @Input() socialMedia: SocialMedia | undefined;
+
   @Output() edit = new EventEmitter<SocialMedia>();
 
   constructor() {}

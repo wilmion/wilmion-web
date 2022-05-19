@@ -18,7 +18,8 @@ import {
 import { getFileFromUrl } from '@core/utils/image.util';
 import { petition } from '@core/utils/api.utils';
 
-import { Observable, map, switchMap, catchError } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
+import { getValue } from '@core/utils/forms.util';
 
 @Component({
   selector: 'app-manage-skills',
@@ -149,43 +150,19 @@ export class ManageSkillsComponent implements OnInit {
   }
 
   get svg() {
-    if (!this.formPrincipal) throw new Error('No form encountered');
-
-    const control = this.formPrincipal.get('svg-principal-form');
-
-    if (!control) throw new Error('No control find');
-
-    return control;
+    return getValue(this.formPrincipal, 'svg-principal-form');
   }
 
   get name() {
-    if (!this.formPrincipal) throw new Error('No form encountered');
-
-    const control = this.formPrincipal.get('name-principal-form');
-
-    if (!control) throw new Error('No control find');
-
-    return control;
+    return getValue(this.formPrincipal, 'name-principal-form');
   }
 
   get background() {
-    if (!this.formPrincipal) throw new Error('No form encountered');
-
-    const control = this.formPrincipal.get('bg-principal-form');
-
-    if (!control) throw new Error('No control find');
-
-    return control;
+    return getValue(this.formPrincipal, 'bg-principal-form');
   }
 
   get color() {
-    if (!this.formPrincipal) throw new Error('No form encountered');
-
-    const control = this.formPrincipal.get('color-principal-form');
-
-    if (!control) throw new Error('No control find');
-
-    return control;
+    return getValue(this.formPrincipal, 'color-principal-form');
   }
 
   get provisionalSkill() {

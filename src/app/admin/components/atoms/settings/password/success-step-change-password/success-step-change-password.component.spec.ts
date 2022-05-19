@@ -8,9 +8,8 @@ describe('SuccessStepChangePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SuccessStepChangePasswordComponent ]
-    })
-    .compileComponents();
+      declarations: [SuccessStepChangePasswordComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('SuccessStepChangePasswordComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FirstStepChangePasswordComponent } from './first-step-change-password.component';
 
@@ -8,9 +9,9 @@ describe('FirstStepChangePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FirstStepChangePasswordComponent ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule],
+      declarations: [FirstStepChangePasswordComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +20,22 @@ describe('FirstStepChangePasswordComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('Events', () => {
+    it('submit: Should execute output.emit(params) function', () => {
+      component.oldPassword.setValue('123456789');
+
+      const method = spyOn(component.onSubmit, 'emit');
+
+      component.submit();
+
+      expect(method).toHaveBeenCalledOnceWith({
+        oldPassword: '123456789',
+        newPassword: '123456789',
+      });
+    });
   });
 });

@@ -15,15 +15,6 @@ export class StatComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClick(index: number) {
-    if (index === this.activeIndex) {
-      this.activeIndex = -1;
-      return;
-    }
-
-    this.activeIndex = index;
-  }
-
   getHeigth(value: number) {
     const inPixels = this.partialHeigth * value;
 

@@ -1,16 +1,28 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+
+import { ApiService } from '@core/services/api/api.service';
+
+import { provideMockStore } from '@ngrx/store/testing';
+import { initialStateTest } from '@tests/mocks/initialState';
+
 import { AppComponent } from './app.component';
 
-xdescribe('AppComponent', () => {
+describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [HttpClientModule],
       declarations: [AppComponent],
+      providers: [
+        ApiService,
+        provideMockStore({
+          initialState: { ...initialStateTest, darkMode: false },
+        }),
+      ],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('Should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 

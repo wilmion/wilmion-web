@@ -88,13 +88,7 @@ export class ManageProjectsComponent implements OnInit {
     });
   }
 
-  activateOrDeactivateProject({
-    activate,
-    id,
-  }: {
-    activate: boolean;
-    id: string;
-  }) {
+  activateOrDeactivateProject({ activate, id }: IACTIVATEPROJECT) {
     this.loading = true;
 
     if (activate) {
@@ -146,21 +140,23 @@ export class ManageProjectsComponent implements OnInit {
     this.modal = false;
   }
 
-  skillInProject(skill: Skill) {
+  skillInProject(nameSkill: string) {
     if (!this.currentProject) return false;
 
-    let contain: any = this.currentProject.skills.find(
-      (s) => s.name === skill.name
+    let containedSkill: Skill | undefined | boolean;
+
+    containedSkill = this.currentProject.skills.find(
+      (s) => s.name === nameSkill
     );
 
-    if (!contain) {
-      const name = skill.name.toLocaleLowerCase();
+    if (!containedSkill) {
+      const name = nameSkill.toLocaleLowerCase();
       const search = this.searchSkill.value.toLocaleLowerCase();
 
-      contain = !name.includes(search);
+      containedSkill = !name.includes(search);
     }
 
-    return contain;
+    return containedSkill;
   }
 
   addSkill(skill: Skill) {
@@ -268,4 +264,7 @@ export class ManageProjectsComponent implements OnInit {
   }
 }
 
-// How to eliminate skills from Project
+interface IACTIVATEPROJECT {
+  readonly activate: boolean;
+  readonly id: string;
+}

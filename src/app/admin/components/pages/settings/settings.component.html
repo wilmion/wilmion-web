@@ -3,6 +3,7 @@
   (onCloseModal)="modal = false"
   title="CHANGE PROFILE PHOTO"
   *ngIf="user && form"
+  class="modal"
 >
   <section class="change-photo">
     <app-file [blobs]="files" (onGetValues)="setImage($event)"></app-file>
@@ -33,6 +34,7 @@
             label=""
           ></app-input>
           <app-icon
+            [id]="'icon-edit__' + info.id"
             (click)="info.edit = !info.edit; updateData(info.edit)"
             [icon]="info.edit ? 'AIFILLCHECKCIRCLE' : 'AIFILLEDIT'"
             class="w-4.5 h-4.5 text-oscure-800"

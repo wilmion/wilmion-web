@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 
 import { editSocialMedia } from '@actions/socialMedias.actions';
 
+import { getValue } from '@core/utils/forms.util';
+
 @Component({
   selector: 'app-manage-social-media',
   templateUrl: './manage-social-media.component.html',
@@ -18,7 +20,9 @@ import { editSocialMedia } from '@actions/socialMedias.actions';
 })
 export class ManageSocialMediaComponent implements OnInit {
   $socialMedia: Observable<SocialMedia[]>;
+
   currentSocialMedia: SocialMedia | null = null;
+
   modal: boolean = false;
   loading: boolean = false;
   error: boolean = false;
@@ -36,11 +40,7 @@ export class ManageSocialMediaComponent implements OnInit {
   ngOnInit(): void {}
 
   get link() {
-    if (!this.form) throw new Error('Not exist');
-
-    const link = this.form.get('link');
-
-    return link;
+    return getValue(this.form, 'link');
   }
 
   onSubmit(e: Event) {
@@ -66,9 +66,12 @@ export class ManageSocialMediaComponent implements OnInit {
 
   openModal(socialMedia: SocialMedia) {
     this.currentSocialMedia = socialMedia;
+
     this.modal = true;
+
     const link = this.link;
-    link?.setValue(socialMedia.redirectUrl);
+
+    link.setValue(socialMedia.redirectUrl);
   }
 
   closeModal() {

@@ -1,5 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { Store } from '@ngrx/store';
@@ -56,5 +61,67 @@ describe('SettingsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO: Complete Tests
+  describe('Getters', () => {
+    it('imageUrl: When not have selected files', () => {
+      expect(component.imageUrl).toBe(user.image.imageUrl);
+    });
+
+    it('imageUrl: When have selected files', () => {
+      component.files = [
+        {
+          blob: '' as any,
+          imageUrl: 'https://wilmion.com/api/bob/image_example.png',
+          size: '400x400',
+        },
+      ];
+
+      expect(component.imageUrl).toBe(
+        'https://wilmion.com/api/bob/image_example.png'
+      );
+    });
+  });
+
+  it('getValueOfForm: Should returned a control', () => {
+    const result = component.getValueOfForm('username');
+
+    const form = component.form as FormGroup;
+
+    const control = form.get('username') as AbstractControl;
+
+    expect(result).toEqual(control);
+  });
+
+  it('openModal: Should open modal', () => {
+    const openModalSpy = spyOn(component, 'openModal');
+
+    component.openModal();
+
+    fixture.detectChanges();
+
+    let element = fixture.nativeElement as HTMLElement;
+    element = element.querySelector('.modal') as HTMLElement;
+
+    expect(openModalSpy).toHaveBeenCalledOnceWith();
+    expect(element).toBeTruthy();
+  });
+
+  it('setImage: Should execute the function', () => {
+    const setImageSpy = spyOn(component, 'setImage');
+
+    component.setImage([]);
+
+    expect(setImageSpy).toHaveBeenCalledOnceWith([]);
+  });
+
+  it('updateData: Should execute', () => {
+    const updateDataSpy = spyOn(component, 'updateData');
+
+    let element = fixture.nativeElement as HTMLElement;
+
+    element = element.querySelector('#icon-edit__name') as HTMLElement;
+
+    element.click();
+
+    expect(updateDataSpy).toHaveBeenCalledTimes(1);
+  });
 });

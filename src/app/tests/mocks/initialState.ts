@@ -1,23 +1,38 @@
-const skills = [
+import { Skill } from '@core/models/skill.model';
+
+const skills: Skill[] = [
   {
+    id: 1,
     name: 'SKILL 1',
     backgroundColor: '#FFFFFF',
     iconColor: '#FFFFFF',
+    icon: '<svg></svg>',
   },
   {
+    id: 2,
     name: 'SKILL 2',
     backgroundColor: '#FFFFFF',
     iconColor: '#FFFFFF',
+    icon: '<svg></svg>',
   },
   {
+    id: 3,
     name: 'SKILL 1',
     backgroundColor: '#FFFFFF',
     iconColor: '#FFFFFF',
+    icon: '<svg></svg>',
   },
   {
+    id: 4,
     name: 'React.js',
     backgroundColor: '#FFFFFF',
-    iconColor: '#FFFFFF',
+    iconColor: '#FFFFF',
+    image: {
+      imageUrl: 'https://platzi.com',
+      size: '100x100',
+      resolution: '1:1',
+      md5: 'MD5_EXAMPLE',
+    },
   },
 ];
 
@@ -25,6 +40,7 @@ export const initialStateTest = {
   skills,
   jobs: [
     {
+      id: '1',
       image: {
         imageUrl: '',
         size: '',
@@ -36,7 +52,7 @@ export const initialStateTest = {
       description: 'lorem',
       active: true,
       role: 'Front',
-      from: '12-02-2021',
+      from: '2021-12-02',
       to: 'Currently',
       function1: 'ASD',
       function2: '',
@@ -44,19 +60,20 @@ export const initialStateTest = {
       function4: '',
     },
     {
+      id: '2',
       image: {
         imageUrl: '',
         size: '',
         resolution: '',
         md5: '',
       },
-      nameBusinness: 'MTD Company',
+      nameBusinness: 'OUTRO',
       color: '#FFFFFF',
       description: 'lorem',
-      active: false,
+      active: true,
       role: 'Front',
-      from: '12-02-2021',
-      to: '15-02-2021',
+      from: '2021-12-02',
+      to: '2021-12-05',
       function1: '',
       function2: '',
       function3: '',
@@ -65,6 +82,7 @@ export const initialStateTest = {
   ],
   projects: [
     {
+      id: '1',
       image: {
         imageUrl: '',
         size: '',
@@ -82,6 +100,7 @@ export const initialStateTest = {
       active: false,
     },
     {
+      id: '2',
       image: {
         imageUrl: '',
         size: '',
@@ -97,6 +116,29 @@ export const initialStateTest = {
       linkRepository: 'https://example.com',
       skills: [],
       active: false,
+    },
+  ],
+  socialMedia: [
+    {
+      name: 'Twitter',
+      icon: '<svg></svg>',
+      color: '#FFFFFF',
+      active: true,
+      redirectUrl: 'https://wilmion.com',
+    },
+  ],
+  staticPages: [
+    {
+      id: 1,
+      introduction: 'Lorem',
+      responseQuestion: 'abc',
+      contactEmail: undefined,
+    },
+    {
+      id: 2,
+      introduction: 'Lorem',
+      responseQuestion: 'abc',
+      contactEmail: 'wilmion92@gmail.com',
     },
   ],
 };

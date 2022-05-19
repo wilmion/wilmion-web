@@ -172,7 +172,7 @@
       <div
         *ngFor="let skill of skills$ | async"
         class="cursor-pointer"
-        [class.hidden]="skillInProject(skill)"
+        [class.hidden]="skillInProject(skill.name)"
         (click)="addSkill(skill)"
       >
         <app-skill [skill]="skill"></app-skill>

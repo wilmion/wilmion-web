@@ -108,7 +108,7 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  updateImage() {
+  private updateImage() {
     this.loading = true;
 
     petition(

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { SecondStepChangePasswordComponent } from './second-step-change-password.component';
 
@@ -9,8 +9,9 @@ describe('SecondStepChangePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
       declarations: [SecondStepChangePasswordComponent],
-      providers: [FormBuilder],
+      providers: [],
     }).compileComponents();
   });
 
@@ -20,7 +21,17 @@ describe('SecondStepChangePasswordComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('Events', () => {
+    it('submit: Should call the output.emit function', () => {
+      const method = spyOn(component.onSubmit, 'emit');
+
+      component.submit();
+
+      expect(method).toHaveBeenCalledTimes(1);
+    });
   });
 });
