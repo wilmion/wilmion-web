@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { NavigationMobileComponent } from './navigation-mobile.component';
 
@@ -8,10 +10,9 @@ describe('NavigationMobileComponent', () => {
   let component: NavigationMobileComponent;
   let fixture: ComponentFixture<NavigationMobileComponent>;
 
-  let store: MockStore<{ darkMode: boolean }>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule, RouterTestingModule.withRoutes([])],
       declarations: [NavigationMobileComponent],
       providers: [provideMockStore({ initialState: { darkMode: false } })],
     }).compileComponents();
@@ -21,8 +22,6 @@ describe('NavigationMobileComponent', () => {
     fixture = TestBed.createComponent(NavigationMobileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    store = TestBed.inject<any>(Store);
   });
 
   it('should create', () => {

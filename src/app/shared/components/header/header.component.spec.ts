@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { HeaderComponent } from './header.component';
 
@@ -12,6 +14,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule, RouterTestingModule.withRoutes([])],
       declarations: [HeaderComponent],
       providers: [provideMockStore({ initialState: { darkMode: false } })],
     }).compileComponents();

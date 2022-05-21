@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { getImageFromFile } from '@core/utils/image.util';
+import { getImageFromFile } from '@core/utils';
 
 import { ApiService } from '@core/services/api/api.service';
 

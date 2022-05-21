@@ -1,35 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore } from '@ngrx/store/testing';
 import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '@shared/shared.module';
+import { PortfolioModule } from '@portfolio/portfolio.module';
 
-import { Job } from '@models/job.model';
-import { Project } from '@models/project.model';
-import { Skill } from '@models/skill.model';
-import { VerbsButton } from '@core/utils/getVerbsFromButton.util';
+import { VerbsButton } from '@core/utils';
 
 import { ApiService } from '@core/services/api/api.service';
-import { Store } from '@ngrx/store';
 
+import { provideMockStore } from '@ngrx/store/testing';
 import { initialStateTest } from '@tests/mocks/initialState';
+import { setMockApiService } from '@tests/mocks/apiServiceResponse.mock';
 
 import { MainComponent } from './main.component';
-
-interface IStore {
-  skills: Skill[];
-  projects: Project[];
-  jobs: Job[];
-}
 
 describe('MainComponent - Portfolio', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
+
   let apiService: ApiService;
-  let store: Store<IStore>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, SharedModule, PortfolioModule],
       declarations: [MainComponent],
       providers: [
         provideMockStore({ initialState: initialStateTest }),
@@ -40,13 +33,13 @@ describe('MainComponent - Portfolio', () => {
   });
 
   beforeEach(() => {
+    apiService = TestBed.inject(ApiService);
+    setMockApiService(apiService);
+
     fixture = TestBed.createComponent(MainComponent);
     component = fixture.componentInstance;
     component.currentProjectView = initialStateTest.projects[0];
     fixture.detectChanges();
-
-    apiService = TestBed.inject(ApiService);
-    store = TestBed.inject(Store);
   });
 
   it('Should create', () => {

@@ -1,5 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
+import { AdminModule } from 'src/app/admin/admin.module';
 
 import { ApiService } from '@core/services/api/api.service';
 
@@ -7,6 +9,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { initialStateTest } from '@tests/mocks/initialState';
 
 import { PrincipalComponent } from './principal.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PrincipalComponent', () => {
   let component: PrincipalComponent;
@@ -14,7 +17,12 @@ describe('PrincipalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule.withRoutes([]),
+        SharedModule,
+        AdminModule,
+      ],
       declarations: [PrincipalComponent],
       providers: [
         ApiService,

@@ -13,7 +13,7 @@ export function petition(
       image[0].size
     )
     .pipe(
-      map((data) => data.payload.imageUrl),
+      map((data) => data.payload.id as string),
       catchError((err) => {
         const payload = err.error.message as string;
 

@@ -1,5 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from '@shared/shared.module';
+
+import { provideMockStore } from '@ngrx/store/testing';
+import { initialStateTest } from '@tests/mocks/initialState';
 
 import { ContainerFormComponent } from './container-form.component';
 
@@ -9,8 +14,13 @@ describe('ContainerFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
+      imports: [
+        ReactiveFormsModule,
+        SharedModule,
+        RouterTestingModule.withRoutes([]),
+      ],
       declarations: [ContainerFormComponent],
+      providers: [provideMockStore({ initialState: initialStateTest })],
     }).compileComponents();
   });
 

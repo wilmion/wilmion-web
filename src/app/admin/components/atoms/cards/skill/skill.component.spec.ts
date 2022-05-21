@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { initialStateTest } from '@tests/mocks/initialState';
 
@@ -12,6 +13,7 @@ describe('SkillComponent - Card', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [CardSkillComponent],
     }).compileComponents();
   });

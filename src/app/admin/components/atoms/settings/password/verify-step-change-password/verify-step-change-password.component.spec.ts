@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { VerifyStepChangePasswordComponent } from './verify-step-change-password.component';
 
@@ -8,6 +9,7 @@ describe('VerifyStepChangePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [VerifyStepChangePasswordComponent],
     }).compileComponents();
   });

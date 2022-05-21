@@ -7,7 +7,8 @@ import {
 } from '@angular/forms';
 
 import { ApiService } from '@core/services/api/api.service';
-import { getValue } from '@core/utils/forms.util';
+
+import { getValue } from '@core/utils';
 
 @Component({
   selector: 'app-form-box',

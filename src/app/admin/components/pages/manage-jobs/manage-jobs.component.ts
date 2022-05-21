@@ -9,9 +9,7 @@ import { Job } from '@models/job.model';
 import { IAPI } from '@models/api.model';
 import { IInputFileData } from '@shared/components/inputs/file/file.component';
 
-import { getFileFromUrl } from '@core/utils/image.util';
-import { getValue } from '@core/utils/forms.util';
-import { petition } from '@core/utils/api.utils';
+import { petition, getFileFromUrl, getValue } from '@core/utils';
 
 import { Observable, switchMap } from 'rxjs';
 

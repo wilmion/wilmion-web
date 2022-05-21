@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SharedModule } from '@shared/shared.module';
+import { ContactModule } from '@contact/contact.module';
 
 import { ApiService } from '@core/services/api/api.service';
 
@@ -16,7 +18,7 @@ describe('MainComponent - Contact', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, SharedModule, ContactModule],
       declarations: [MainComponent],
       providers: [
         provideMockStore({ initialState: initialStateTest }),

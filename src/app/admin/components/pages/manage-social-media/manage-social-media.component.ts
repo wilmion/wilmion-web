@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 import { editSocialMedia } from '@actions/socialMedias.actions';
 
-import { getValue } from '@core/utils/forms.util';
+import { getValue } from '@core/utils';
 
 @Component({
   selector: 'app-manage-social-media',

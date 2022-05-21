@@ -1,6 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
+import { AdminModule } from 'src/app/admin/admin.module';
 
 import { IAPI } from '@core/models/api.model';
 import { Project } from '@core/models/project.model';
@@ -20,10 +22,16 @@ describe('ManageProjectsComponent', () => {
   let fixture: ComponentFixture<ManageProjectsComponent>;
 
   let apiService: ApiService;
+  let parent: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, ReactiveFormsModule],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        SharedModule,
+        AdminModule,
+      ],
       declarations: [ManageProjectsComponent],
       providers: [
         ApiService,
@@ -38,6 +46,7 @@ describe('ManageProjectsComponent', () => {
     fixture.detectChanges();
 
     apiService = TestBed.inject(ApiService);
+    parent = fixture.nativeElement;
   });
 
   it('Should create', () => {
@@ -159,6 +168,20 @@ describe('ManageProjectsComponent', () => {
       component.deleteSkill(skillDeleted);
 
       expect(component.currentProject.skills).toEqual(expected);
+    });
+  });
+
+  describe('Styles', () => {
+    it('Should be thurthy when the error is diferrent to empty string', () => {
+      component.error = 'ERROR_EXAMPLE';
+      component.openModal(initialStateTest.projects[0]);
+
+      fixture.detectChanges();
+
+      const errorHtml = parent.querySelector('#text-error') as HTMLElement;
+
+      expect(errorHtml).toBeTruthy();
+      expect(errorHtml.textContent).toBe(' ERROR_EXAMPLE ');
     });
   });
 });

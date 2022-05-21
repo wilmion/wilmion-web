@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 
 import { FirstStepChangePasswordComponent } from './first-step-change-password.component';
 
@@ -9,7 +10,7 @@ describe('FirstStepChangePasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, SharedModule],
       declarations: [FirstStepChangePasswordComponent],
     }).compileComponents();
   });

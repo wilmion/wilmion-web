@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { MainComponent } from './main.component';
 
@@ -8,6 +9,7 @@ describe('MainComponent - 404 Not found', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [MainComponent],
     }).compileComponents();
   });

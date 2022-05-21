@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { ProjectModalComponent } from './project-modal.component';
 
@@ -9,6 +10,7 @@ describe('ProjectModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [ProjectModalComponent],
     }).compileComponents();
   });

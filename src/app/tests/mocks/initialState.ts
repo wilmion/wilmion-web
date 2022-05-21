@@ -28,6 +28,7 @@ const skills: Skill[] = [
     backgroundColor: '#FFFFFF',
     iconColor: '#FFFFF',
     image: {
+      id: '10',
       imageUrl: 'https://platzi.com',
       size: '100x100',
       resolution: '1:1',

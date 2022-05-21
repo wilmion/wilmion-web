@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
+
 import { initialStateTest } from '@tests/mocks/initialState';
 
 import { JobsCardManageComponent } from './jobs.component';
@@ -11,6 +13,7 @@ describe('JobsComponent - Card', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [JobsCardManageComponent],
     }).compileComponents();
   });

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { getValue } from '@core/utils/forms.util';
+import { getValue } from '@core/utils';
 
 @Component({
   selector: 'app-first-step-change-password',

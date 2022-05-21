@@ -9,6 +9,8 @@ import { StorageService } from '@core/services/storage/storage.service';
 
 import { User } from '@models/user.model';
 
+import { setMockApiService } from '@tests/mocks/apiServiceResponse.mock';
+
 import { AuthGuard } from './auth.guard';
 
 const user: User = {
@@ -32,7 +34,8 @@ describe('AuthGuard', () => {
   let router = {
     navigate: jasmine.createSpy('navigate'),
   };
-  let store: MockStore<{ user: User | null }>;
+
+  let apiService: ApiService;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -47,9 +50,12 @@ describe('AuthGuard', () => {
   });
 
   beforeEach(() => {
-    store = TestBed.inject<any>(Store);
     guard = TestBed.inject(AuthGuard);
     storageService = TestBed.inject(StorageService);
+
+    apiService = TestBed.inject(ApiService);
+
+    setMockApiService(apiService);
   });
 
   it('should be created', () => {

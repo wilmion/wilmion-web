@@ -69,11 +69,19 @@ export class StorageService {
     return userLocal.payload;
   }
 
-  private checkValidity(object: { expiration: string; [key: string]: any }) {
+  private checkValidity(object: StorageItem) {
     const currentDate = new Date();
 
     const objectDate = new Date(object.expiration);
+    objectDate.setDate(objectDate.getUTCDate() + 1);
 
-    return objectDate.getTime() >= currentDate.getTime();
+    return currentDate.getTime() <= objectDate.getTime();
   }
+}
+
+export interface StorageItem {
+  expiration: string;
+  payload: {
+    [key: string]: any;
+  };
 }

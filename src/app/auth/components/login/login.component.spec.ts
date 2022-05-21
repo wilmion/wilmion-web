@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -29,13 +30,13 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  let apiService: ApiService;
   let storageService: StorageService;
   let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        SharedModule,
         RouterTestingModule.withRoutes([]),
         ReactiveFormsModule,
         HttpClientTestingModule,
@@ -55,7 +56,6 @@ describe('LoginComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    apiService = TestBed.inject(ApiService);
     storageService = TestBed.inject(StorageService);
     router = TestBed.inject(Router);
   });

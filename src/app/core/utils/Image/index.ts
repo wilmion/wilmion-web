@@ -28,7 +28,7 @@ export async function getFileFromUrl(url: string, name: string) {
   return blobToFile(blob, name);
 }
 
-function blobToFile(blob: Blob, name: string) {
+export function blobToFile(blob: Blob, name: string) {
   var b: any = blob;
 
   b.lastModifiedDate = new Date();

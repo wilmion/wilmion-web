@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 
 import { ApiService } from '@core/services/api/api.service';
 
@@ -12,7 +13,7 @@ describe('FormBoxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, FormsModule],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, SharedModule],
       declarations: [FormBoxComponent],
       providers: [ApiService, FormBuilder],
     }).compileComponents();

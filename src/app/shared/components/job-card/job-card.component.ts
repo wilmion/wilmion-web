@@ -8,8 +8,7 @@ import {
 
 import { Job } from '@core/models/job.model';
 
-import { createArrayToElement } from '@core/utils/extendArray.util';
-import { createList, getLastDate } from '@core/utils/job.util';
+import { createArrayToElement, createList, getLastDate } from '@core/utils';
 
 @Component({
   selector: 'app-job-card',

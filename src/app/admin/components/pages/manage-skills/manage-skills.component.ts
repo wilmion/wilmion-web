@@ -15,11 +15,9 @@ import {
   editSkill,
 } from '@core/ngrx/actions/skills.actions';
 
-import { getFileFromUrl } from '@core/utils/image.util';
-import { petition } from '@core/utils/api.utils';
+import { petition, getValue, getFileFromUrl } from '@core/utils';
 
 import { Observable, switchMap } from 'rxjs';
-import { getValue } from '@core/utils/forms.util';
 
 @Component({
   selector: 'app-manage-skills',
@@ -234,6 +232,7 @@ export class ManageSkillsComponent implements OnInit {
 
   private onCreateSkill(data: IAPI<Skill>) {
     this.loading = false;
+    this.error = false;
 
     this.openModal = false;
 
@@ -242,6 +241,7 @@ export class ManageSkillsComponent implements OnInit {
 
   private onEditSkill(data: IAPI<Skill>) {
     this.loading = false;
+    this.error = false;
 
     this.store.dispatch(
       editSkill({ id: this.idCurrentSkill, payload: data.payload })

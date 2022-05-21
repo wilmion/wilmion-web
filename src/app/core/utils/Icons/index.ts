@@ -8,7 +8,7 @@ const backend: Options[] = [
 ];
 
 const frontend: Options[] = [
-  { name: 'REACTJS', piority: 2 },
+  { name: 'REACT.JS', piority: 2 },
   { name: 'ANGULAR', piority: 2 },
   { name: 'NEXT', piority: 3 },
   { name: 'JAVASCRIPT', piority: 1 },
@@ -49,9 +49,12 @@ export function getIconBackendOrFrontend(
     (s) => s.name.toLocaleUpperCase() === major.name
   );
 
-  if (!skill) return project.skills[0].icon;
+  if (!skill)
+    return project.skills.length !== 0
+      ? project.skills[0].icon
+      : 'NOT SKILLS HAVE';
 
-  return skill.icon;
+  return skill.icon ? skill.icon : skill.image?.imageUrl;
 }
 
 interface Options {

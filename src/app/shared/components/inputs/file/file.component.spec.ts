@@ -1,5 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
+
 import { ApiService } from '@core/services/api/api.service';
 
 import { FileComponent } from './file.component';
@@ -12,7 +14,7 @@ describe('FileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, SharedModule],
       declarations: [FileComponent],
       providers: [ApiService],
     }).compileComponents();

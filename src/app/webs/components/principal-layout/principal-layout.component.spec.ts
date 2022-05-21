@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { SharedModule } from '@shared/shared.module';
+import { initialStateTest } from '@tests/mocks/initialState';
 
 import { PrincipalLayoutComponent } from './principal-layout.component';
 
@@ -11,8 +14,9 @@ describe('PrincipalLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes([])],
+      imports: [RouterTestingModule.withRoutes([]), SharedModule],
       declarations: [PrincipalLayoutComponent],
+      providers: [provideMockStore({ initialState: initialStateTest })],
     }).compileComponents();
   });
 

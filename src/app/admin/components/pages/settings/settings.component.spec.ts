@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { Store } from '@ngrx/store';
 import { ApiService } from '@core/services/api/api.service';
@@ -33,12 +34,9 @@ describe('SettingsComponent', () => {
   let component: SettingsComponent;
   let fixture: ComponentFixture<SettingsComponent>;
 
-  let store: Store<{ user: User | null }>;
-  let apiService: ApiService;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, ReactiveFormsModule],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, SharedModule],
       declarations: [SettingsComponent],
       providers: [
         provideMockStore({ initialState: { user } }),
@@ -52,9 +50,6 @@ describe('SettingsComponent', () => {
     fixture = TestBed.createComponent(SettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    apiService = TestBed.inject(ApiService);
-    store = TestBed.inject(Store);
   });
 
   it('Should create', () => {

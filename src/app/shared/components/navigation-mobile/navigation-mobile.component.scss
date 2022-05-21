@@ -1,5 +1,6 @@
 .navigation-mobile {
   @apply fixed;
+  @apply z-50;
   @apply w-4/5;
   @apply h-screen;
   @apply bg-primary;
@@ -10,6 +11,19 @@
   @apply transition;
   @apply duration-1000;
   @apply ease-out;
+
+  &--background {
+    @apply fixed;
+    @apply w-full;
+    @apply h-screen;
+    @apply bg-oscure-800;
+    @apply top-0;
+    @apply left-0;
+    @apply transition-opacity;
+    @apply duration-500;
+    @apply ease-in-out;
+  }
+
   &__close {
     @apply w-full;
     @apply flex;

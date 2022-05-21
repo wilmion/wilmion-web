@@ -10,8 +10,7 @@ import { User } from '@models/user.model';
 import { IAPI } from '@models/api.model';
 import { IInputFileData } from '@shared/components/inputs/file/file.component';
 
-import { getValue } from '@core/utils/forms.util';
-import { petition } from '@core/utils/api.utils';
+import { getValue, petition } from '@core/utils';
 
 import { switchMap } from 'rxjs';
 

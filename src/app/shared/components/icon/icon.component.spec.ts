@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { InnerHtmlDirective } from '@shared/directives/innerHtml/inner-html.directive';
 import { IconComponent } from './icon.component';
 
 describe('IconComponent', () => {
@@ -8,7 +9,7 @@ describe('IconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IconComponent],
+      declarations: [IconComponent, InnerHtmlDirective],
     }).compileComponents();
   });
 

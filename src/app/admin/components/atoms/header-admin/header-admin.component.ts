@@ -4,7 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 
 import { User } from '@models/user.model';
 
-import { getPaths } from '@core/utils/url.util';
+import { getPaths } from '@core/utils';
 
 @Component({
   selector: 'app-header-admin',

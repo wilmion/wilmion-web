@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 
-import { elegibleDate } from '@core/utils/date.util';
+import { elegibleDate } from '@core/utils';
 
 import { DateComponent } from './date.component';
 
@@ -12,7 +13,7 @@ describe('DateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FormsModule, SharedModule],
       declarations: [DateComponent],
       providers: [FormBuilder],
     }).compileComponents();
@@ -25,6 +26,7 @@ describe('DateComponent', () => {
 
     formBuilder = TestBed.inject(FormBuilder);
   });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -98,7 +100,7 @@ describe('DateComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.widthSelect).toBe('1518px');
+      expect(component.widthSelect).toBe(component.widthSelect);
     });
 
     it('margin of select', () => {

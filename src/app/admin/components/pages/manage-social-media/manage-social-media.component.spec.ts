@@ -1,6 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from 'src/app/admin/admin.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { ApiService } from '@core/services/api/api.service';
 
@@ -15,7 +17,12 @@ describe('ManageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      imports: [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        SharedModule,
+        AdminModule,
+      ],
       declarations: [ManageSocialMediaComponent],
       providers: [
         provideMockStore({ initialState: initialStateTest }),

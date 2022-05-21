@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { NotFoundAdminComponent } from './not-found-admin.component';
 
@@ -8,6 +9,7 @@ describe('NotFoundAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [NotFoundAdminComponent],
     }).compileComponents();
   });

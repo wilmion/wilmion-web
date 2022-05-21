@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Job } from '@core/models/job.model';
 
-import { createList, getLastDate } from '@core/utils/job.util';
+import { createList, getLastDate } from '@core/utils';
 
 @Component({
   selector: 'app-jobs-card-manage',

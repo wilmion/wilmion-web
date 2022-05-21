@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { ApiService } from '@core/services/api/api.service';
+import { SharedModule } from '@shared/shared.module';
 
 import { StatsComponent } from './stats.component';
 
@@ -12,7 +13,7 @@ describe('StatsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      imports: [ReactiveFormsModule, HttpClientTestingModule, SharedModule],
       declarations: [StatsComponent],
       providers: [ApiService],
     }).compileComponents();

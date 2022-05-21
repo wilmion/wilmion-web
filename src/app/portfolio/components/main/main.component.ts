@@ -11,10 +11,7 @@ import { ApiService } from '@core/services/api/api.service';
 
 import { Observable } from 'rxjs';
 
-import {
-  VerbsButton,
-  getVerbsFromButton,
-} from '@core/utils/getVerbsFromButton.util';
+import { VerbsButton, getVerbsFromButton } from '@core/utils';
 
 @Component({
   selector: 'app-main',

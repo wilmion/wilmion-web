@@ -10,9 +10,7 @@ import { Project } from '@models/project.model';
 import { Skill } from '@models/skill.model';
 import { IAPI } from '@models/api.model';
 
-import { getFileFromUrl } from '@core/utils/image.util';
-import { getValue } from '@core/utils/forms.util';
-import { petition } from '@core/utils/api.utils';
+import { petition, getValue, getFileFromUrl } from '@core/utils';
 
 import { ApiService } from '@core/services/api/api.service';
 
@@ -84,7 +82,7 @@ export class ManageProjectsComponent implements OnInit {
       })
     ).subscribe({
       next: (data: any) => this.onSuccess(data),
-      error: this.onError,
+      error: () => this.onError(),
     });
   }
 
@@ -246,6 +244,7 @@ export class ManageProjectsComponent implements OnInit {
   }
 
   private onSuccess(data: IAPI<Project>) {
+    this.error = '';
     this.store.dispatch(
       editProject({
         payload: data.payload,

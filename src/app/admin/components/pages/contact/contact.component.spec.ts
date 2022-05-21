@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { SharedModule } from '@shared/shared.module';
 
 import { IAPI } from '@models/api.model';
 import { StaticPage } from '@models/static-page.model';
@@ -24,7 +25,7 @@ describe('ContactComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      imports: [ReactiveFormsModule, HttpClientTestingModule, SharedModule],
       declarations: [ContactComponent],
       providers: [
         ApiService,

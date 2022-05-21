@@ -1,6 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
+import { AdminModule } from 'src/app/admin/admin.module';
 
 import { Image } from '@models/image.model';
 import { Skill } from '@models/skill.model';
@@ -18,7 +20,12 @@ describe('ManageSkillsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, ReactiveFormsModule],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        SharedModule,
+        AdminModule,
+      ],
       declarations: [ManageSkillsComponent],
       providers: [
         ApiService,

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { getIconBackendOrFrontend } from '@core/utils/icons.util';
+import { getIconBackendOrFrontend } from '@core/utils';
 
 import { Project } from '@models/project.model';
 

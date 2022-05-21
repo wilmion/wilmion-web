@@ -1,5 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
+import { AdminModule } from 'src/app/admin/admin.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ApiService } from '@core/services/api/api.service';
 
@@ -11,7 +14,12 @@ describe('SettingsPasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [
+        HttpClientModule,
+        SharedModule,
+        AdminModule,
+        RouterTestingModule.withRoutes([]),
+      ],
       declarations: [SettingsPasswordComponent],
       providers: [ApiService],
     }).compileComponents();

@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { getValue } from '@core/utils/forms.util';
-import { elegibleDate } from '@core/utils/date.util';
+import { getValue, elegibleDate } from '@core/utils';
 
 @Component({
   selector: 'app-date',

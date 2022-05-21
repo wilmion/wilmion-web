@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { getPaths } from '@core/utils/url.util';
+import { getPaths } from '@core/utils';
 
 @Component({
   selector: 'app-header-navigation',

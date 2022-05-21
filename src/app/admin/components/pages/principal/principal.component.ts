@@ -6,7 +6,7 @@ import { ApiService } from '@core/services/api/api.service';
 import { Job } from '@models/job.model';
 import { GraphicStat } from '@models/stat.model';
 
-import { elegibleDate } from '@core/utils/date.util';
+import { elegibleDate } from '@core/utils';
 
 import { map, Observable } from 'rxjs';
 

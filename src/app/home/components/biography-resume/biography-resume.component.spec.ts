@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { BiographyResumeComponent } from './biography-resume.component';
 
@@ -8,6 +9,7 @@ describe('BiographyResumeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [BiographyResumeComponent],
     }).compileComponents();
   });

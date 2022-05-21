@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { getValue } from '@core/utils/forms.util';
+import { getValue } from '@core/utils';
 
 @Component({
   selector: 'app-text-area',

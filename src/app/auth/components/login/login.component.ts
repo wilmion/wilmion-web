@@ -10,7 +10,8 @@ import { User, Login } from '@models/user.model';
 
 import { ApiService } from '@core/services/api/api.service';
 import { StorageService } from '@core/services/storage/storage.service';
-import { getValue } from '@core/utils/forms.util';
+
+import { getValue } from '@core/utils';
 
 @Component({
   selector: 'app-login',

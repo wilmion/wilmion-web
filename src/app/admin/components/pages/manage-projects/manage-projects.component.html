@@ -136,6 +136,13 @@
           </p>
         </div>
       </div>
+      <p
+        id="text-error"
+        class="w-full text-danger text-regular-normal text-center"
+        *ngIf="error !== ''"
+      >
+        {{ error }}
+      </p>
       <div class="modal-manage-projects__inputs__buttons">
         <app-button
           type="button-primary"

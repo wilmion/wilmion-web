@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Skill } from '@models/skill.model';
+import { SharedModule } from '@shared/shared.module';
 
 import { SkillComponent } from './skill.component';
 
@@ -15,6 +16,7 @@ describe('SkillComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [SkillComponent],
     }).compileComponents();
   });

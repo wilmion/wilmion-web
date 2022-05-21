@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
 
 import { initialStateTest } from '@tests/mocks/initialState';
 
@@ -11,6 +12,7 @@ describe('SocialMediaComponent - Card', () => {
   let parent: HTMLElement;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [SocialMediaComponent],
     }).compileComponents();
   });

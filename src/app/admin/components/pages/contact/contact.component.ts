@@ -11,7 +11,7 @@ import { StaticPage } from '@models/static-page.model';
 import { IAPI } from '@models/api.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { getValue } from '@core/utils/forms.util';
+import { getValue } from '@core/utils';
 
 @Component({
   selector: 'app-contact',

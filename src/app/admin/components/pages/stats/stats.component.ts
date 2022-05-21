@@ -5,7 +5,8 @@ import { GraphicStat } from '@models/stat.model';
 
 import { ApiService } from '@core/services/api/api.service';
 
-import { getValue } from '@core/utils/forms.util';
+import { getValue } from '@core/utils';
+
 import { map, Observable } from 'rxjs';
 
 @Component({
