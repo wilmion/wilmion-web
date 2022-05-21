@@ -36,4 +36,12 @@ export function setMockApiService(apiService: ApiService) {
       status: 201,
     })
   );
+
+  spyOn(apiService, 'getAuthorImage').and.returnValue(
+    of({
+      message: 'Image',
+      payload: 'https://wilmion.com/api/cdn/image.png',
+      status: 200,
+    })
+  );
 }

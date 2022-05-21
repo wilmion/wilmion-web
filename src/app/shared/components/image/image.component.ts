@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./image.component.scss'],
 })
 export class ImageComponent implements OnInit {
-  @Input() url: string = '';
+  @Input() url: string | null = '';
   @Input() alt: string = '';
   @Input() rounded: boolean = false;
   @Input() class: string = '';

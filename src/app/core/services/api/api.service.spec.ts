@@ -207,6 +207,17 @@ describe('ApiService', () => {
       expect(req.request.method).toEqual('GET');
       req.flush(createMock(dummyUser));
     });
+    it('Get author image', () => {
+      const response = 'http://wilmion/cdn/image.png';
+
+      service.getAuthorImage().subscribe((data) => {
+        expect(data.payload).toBe(response);
+      });
+
+      const req = httpMock.expectOne(`${service.API}/api/users/author-image`);
+      expect(req.request.method).toEqual('GET');
+      req.flush(createMock(response));
+    });
     it('Get All static Contents', () => {
       service.getAllStaticContents('10', '0').subscribe((data) => {
         expect(data.payload.length).toBe(1);

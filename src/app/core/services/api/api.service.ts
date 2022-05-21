@@ -83,6 +83,12 @@ export class ApiService {
     return this.http.post<IAPI<any>>(urlRequest, payload);
   }
 
+  getAuthorImage() {
+    const urlRequest = `${this.API}/api/users/author-image`;
+
+    return this.http.get<IAPI<string>>(urlRequest);
+  }
+
   // Static-Contents
 
   getAllStaticContents(limit?: string, offset?: string) {
