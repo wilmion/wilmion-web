@@ -11,6 +11,13 @@ import {
   getLastDate,
   getPaths,
 } from './Others';
+import {
+  decodeText,
+  addText,
+  addTextInPart,
+  editText,
+  removeText,
+} from './language_text';
 
 export {
   petition,
@@ -26,4 +33,9 @@ export {
   createList,
   getLastDate,
   getPaths,
+  decodeText,
+  addText,
+  addTextInPart,
+  editText,
+  removeText,
 };

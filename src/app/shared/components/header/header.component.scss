@@ -2,7 +2,7 @@
   @apply fixed;
   @apply w-full;
   @apply p-6;
-  @apply bg-primary;
+  @apply bg-primary dark:bg-black;
   &-navigation {
     @apply flex;
     @apply flex-row;
@@ -10,9 +10,7 @@
     @apply items-center;
     @apply p-4;
     @apply bg-ligth-800;
-
     @apply rounded-lg;
-
     &-logo {
       width: 92px;
     }

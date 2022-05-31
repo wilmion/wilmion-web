@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Store } from '@ngrx/store';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { SharedModule } from '@shared/shared.module';
 
 import { HeaderComponent } from './header.component';
@@ -10,7 +10,8 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  let store: MockStore<{ darkMode: boolean }>;
+  let store: Store<{ darkMode: boolean }>;
+  let parent: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -25,7 +26,8 @@ describe('HeaderComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    store = TestBed.inject<any>(Store);
+    store = TestBed.inject(Store);
+    parent = fixture.nativeElement;
   });
 
   it('should create', () => {
@@ -49,4 +51,18 @@ describe('HeaderComponent', () => {
 
     expect(component.openMenu).toBe(false);
   });
+
+  it("Activate dark mode", () => {
+    const method = spyOn(store, "dispatch");
+
+    let element = parent.querySelector("app-checkbox-toogle") as HTMLElement;
+    element = element.querySelector("div") as HTMLElement;
+
+    element.click();
+
+    fixture.detectChanges()
+
+    expect(method).toHaveBeenCalledTimes(1)
+
+  })
 });

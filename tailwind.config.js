@@ -1,7 +1,7 @@
 module.exports = {
   darkMode: "class",
   mode: "jit",
-  content: ["./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts,scss}"],
   theme: {
     extend: {
       colors: {
@@ -64,5 +64,4 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 };
